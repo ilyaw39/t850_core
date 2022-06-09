@@ -200,7 +200,7 @@ def get_luoxiang(impression):
         return (
             "我为什么要给你发这个？"
             + image(random.choice(os.listdir(IMAGE_PATH / "luoxiang")), "luoxiang")
-            + f"\n(快向{NICKNAME}签到提升好感度吧！)"
+            + f"\n(快向{NICKNAME}签到提升吧！)"
         )
     return None
 

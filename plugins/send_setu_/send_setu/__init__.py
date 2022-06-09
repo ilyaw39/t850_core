@@ -87,7 +87,7 @@ __plugin_configs__ = {
     },
     "INITIAL_SETU_PROBABILITY": {
         "value": 0.7,
-        "help": "初始色图概率，总概率 = 初始色图概率 + 好感度",
+        "help": "初始色图概率，总概率 = 初始色图概率 + ",
         "default_value": 0.7,
     },
     "DOWNLOAD_SETU": {

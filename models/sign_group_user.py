@@ -66,7 +66,7 @@ class SignGroupUser(db.Model):
             签到
         说明:
             :param user: 用户
-            :param impression: 增加的好感度
+            :param impression: 增加的
             :param checkin_time_last: 签到时间
         """
         await user.update(
@@ -81,7 +81,7 @@ class SignGroupUser(db.Model):
     async def get_all_impression(cls, group_id: int) -> "list, list, list":
         """
         说明：
-            获取该群所有用户 id 及对应 好感度
+            获取该群所有用户 id 及对应 
         参数：
             :param group_id: 群号
         """

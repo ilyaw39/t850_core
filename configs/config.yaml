@@ -36,7 +36,7 @@ _backup:
   # 文件备份
   # BACKUP_FLAG: 是否开启文件备份
   # BACKUP_DIR_OR_FILE: 备份的文件夹或文件
-  BACKUP_FLAG: true
+  BACKUP_FLAG: false
   BACKUP_DIR_OR_FILE:
   - data/black_word
   - data/configs
@@ -124,8 +124,8 @@ web-ui:
   # web-ui
   # USERNAME: 前端管理用户名
   # PASSWORD: 前端管理密码
-  USERNAME: web-ui
-  PASSWORD: ohth8ooZ
+  # USERNAME: web-ui
+  # PASSWORD: ohth8ooZ
 alapi:
   # alapi
   # ALAPI_TOKEN: 在 https://admin.alapi.cn/user/login 登录后获取token
@@ -167,10 +167,10 @@ genshin:
   # SALT: None
   # N: None
   # CLIENT_TYPE: None
-  MHYVERSION: 2.11.1
-  SALT: xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs
-  N: h8w582wxwgqvahcdkpvdhbh2w9casgfl
-  CLIENT_TYPE: '5'
+  # MHYVERSION: 2.11.1
+  #SALT: xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs
+  # N: h8w582wxwgqvahcdkpvdhbh2w9casgfl
+  # CLIENT_TYPE: '5'
 ban:
   # 封禁Ban用户
   # BAN_LEVEL [LEVEL]: ban/unban所需要的管理员权限等级
@@ -188,7 +188,7 @@ send_setu:
   # 色图
   # WITHDRAW_SETU_MESSAGE: 自动撤回，参1：延迟撤回色图时间(秒)，0 为关闭 | 参2：监控聊天类型，0(私聊) 1(群聊) 2(群聊+私聊)
   # ONLY_USE_LOCAL_SETU: 仅仅使用本地色图，不在线搜索
-  # INITIAL_SETU_PROBABILITY: 初始色图概率，总概率 = 初始色图概率 + 好感度
+  # INITIAL_SETU_PROBABILITY: 初始色图概率，总概率 = 初始色图概率 + 
   # DOWNLOAD_SETU: 是否存储下载的色图，使用本地色图可以加快图片发送速度
   # TIMEOUT: 色图下载超时限制(秒)
   # SHOW_INFO: 是否显示色图的基本信息，如PID等
@@ -210,10 +210,10 @@ search_buff_skin_price:
   COOKIE:
 sign_in:
   # 签到
-  # MAX_SIGN_GOLD: 签到好感度加成额外获得的最大钱数
-  # SIGN_CARD1_PROB: 签到好感度双倍加持卡Ⅰ掉落概率
-  # SIGN_CARD2_PROB: 签到好感度双倍加持卡Ⅱ掉落概率
-  # SIGN_CARD3_PROB: 签到好感度双倍加持卡Ⅲ掉落概率
+  # MAX_SIGN_GOLD: 签到加成额外获得的最大钱数
+  # SIGN_CARD1_PROB: 签到双倍加持卡Ⅰ掉落概率
+  # SIGN_CARD2_PROB: 签到双倍加持卡Ⅱ掉落概率
+  # SIGN_CARD3_PROB: 签到双倍加持卡Ⅲ掉落概率
   MAX_SIGN_GOLD: 200
   SIGN_CARD1_PROB: 0.2
   SIGN_CARD2_PROB: 0.09
@@ -254,8 +254,8 @@ resin_remind:
   # 原神树脂提醒
   # AUTO_CLOSE_QUERY_FAIL_RESIN_REMIND: 当请求连续三次失败时，关闭用户的树脂提醒
   # CUSTOM_RESIN_OVERFLOW_REMIND: 自定义树脂溢出指定数量时的提醒，空值是为关闭
-  AUTO_CLOSE_QUERY_FAIL_RESIN_REMIND: true
-  CUSTOM_RESIN_OVERFLOW_REMIND: 20
+  # AUTO_CLOSE_QUERY_FAIL_RESIN_REMIND: true
+  # CUSTOM_RESIN_OVERFLOW_REMIND: 20
 update_gocqhttp:
   # 更新gocq
   # UPDATE_GOCQ_GROUP: 需要为哪些群更新最新版gocq吗？（上传最新版gocq）示例：[434995955, 239483248]

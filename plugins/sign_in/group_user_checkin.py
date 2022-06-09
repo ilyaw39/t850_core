@@ -106,7 +106,7 @@ async def group_user_check(nickname: str, user_qq: int, group: int) -> MessageSe
 
 async def group_impression_rank(group: int, num: int) -> Optional[BuildMat]:
     user_qq_list, impression_list, _ = await SignGroupUser.get_all_impression(group)
-    return await init_rank("好感度排行榜", user_qq_list, impression_list, group, num)
+    return await init_rank("排行榜", user_qq_list, impression_list, group, num)
 
 
 async def random_gold(user_id, group_id, impression):
@@ -202,6 +202,6 @@ async def _pst(users: list, impressions: list, groups: list):
         width += 580
     W = BuildImage(1740, 3700, color="#FFE4C4", font_size=130)
     W.paste(A, (0, 260))
-    font_w, font_h = W.getsize(f"{NICKNAME}的好感度总榜")
-    W.text((int((1740 - font_w) / 2), int((260 - font_h) / 2)), f"{NICKNAME}的好感度总榜")
+    font_w, font_h = W.getsize(f"{NICKNAME}的总榜")
+    W.text((int((1740 - font_w) / 2), int((260 - font_h) / 2)), f"{NICKNAME}的总榜")
     return W.pic2bs4()

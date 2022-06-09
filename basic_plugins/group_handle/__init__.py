@@ -155,7 +155,7 @@ async def _(bot: Bot, event: GroupIncreaseNoticeEvent):
                 )
             else:
                 await group_increase_handle.send(
-                    "[[_task|group_welcome]]新人快跑啊！！本群现状↓（快使用自定义！）"
+                    "[[_task|group_welcome]][at]我乃照亮混沌网络世界的一道光, 为漂泊在电子之海的宅宅们献上笑容.\n 向大家保证世界和平! 尽管我没钱, 但请放心!\n 当代互联网小巫女, 堂堂降临！"
                     + image(random.choice(os.listdir(IMAGE_PATH / "qxz")), "qxz")
                 )
 
