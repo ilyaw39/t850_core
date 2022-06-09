@@ -1,0 +1,17 @@
+{
+    "update_file": [
+      "plugins",
+      "models",
+      "services",
+      "utils",
+      "basic_plugins",
+      "configs/path_config.py",
+      "configs/utils",
+      "poetry.lock",
+      "pyproject.toml",
+      "resources/font",
+      "bot.py"
+    ],
+    "add_file": [],
+    "delete_file": []
+}
