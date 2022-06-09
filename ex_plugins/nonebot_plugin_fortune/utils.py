@@ -124,8 +124,8 @@ def randomBasemap(theme: str, spec_path: Optional[str]) -> str:
 
 def drawing(theme: str, spec_path: Optional[str], user_id: str, group_id: str) -> Path:
     fontPath = {
-        "title": f"{FORTUNE_PATH}/font/Mamelon.otf",
-        "text": f"{FORTUNE_PATH}/font/sakura.ttf",
+        "title": f"{FORTUNE_PATH}/font/NotoSerifSC-Bold.otf",
+        "text": f"{FORTUNE_PATH}/font/NotoSerifSC-Bold.otf",
     }
     imgPath = randomBasemap(theme, spec_path)
     img = Image.open(imgPath)
