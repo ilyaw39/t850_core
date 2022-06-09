@@ -129,9 +129,9 @@ def _generate_card(
     if level == "9":
         level = "8"
         interpolation = 0
-    info_img.text((0, 0), f"· 等级：{level} [{lik2relation[level]}]")
+    info_img.text((0, 0), f"· 好感度等级：{level} [{lik2relation[level]}]")
     info_img.text((0, 20), f"· {NICKNAME}对你的态度：{level2attitude[level]}")
-    info_img.text((0, 40), f"· 距离升级还差 {interpolation:.2f} ")
+    info_img.text((0, 40), f"· 距离升级还差 {interpolation:.2f} 好感度")
 
     bar_bk = BuildImage(220, 20, background=SIGN_RESOURCE_PATH / "bar_white.png")
     bar = BuildImage(220, 20, background=SIGN_RESOURCE_PATH / "bar.png")
@@ -150,7 +150,7 @@ def _generate_card(
         True,
     )
     font_size = 30
-    if "双倍加持卡" in gift:
+    if "好感度双倍加持卡" in gift:
         font_size = 20
     gift_border = BuildImage(
         270,
@@ -208,7 +208,7 @@ def _generate_card(
     lik_text2_img = BuildImage(
         0,
         0,
-        plain_text=f"：{user.impression:.2f}",
+        plain_text=f"好感度：{user.impression:.2f}",
         color=(255, 255, 255, 0),
         font_size=30,
     )
@@ -240,7 +240,7 @@ def _generate_card(
             (0, 0),
             f"上次签到日期：{'从未' if user.checkin_time_last == datetime.min else user.checkin_time_last.date()}",
         )
-        today_data.text((0, 25), f"总钱：{gold}")
+        today_data.text((0, 25), f"总金币：{gold}")
         default_setu_prob = (
             Config.get_config("send_setu", "INITIAL_SETU_PROBABILITY") * 100
         )
@@ -256,10 +256,10 @@ def _generate_card(
             0, 0, plain_text="今日签到", color=(255, 255, 255, 0), font_size=30
         )
         if is_double:
-            today_data.text((0, 0), f" + {impression / 2:.2f} × 2")
+            today_data.text((0, 0), f"好感度 + {impression / 2:.2f} × 2")
         else:
-            today_data.text((0, 0), f" + {impression:.2f}")
-        today_data.text((0, 25), f"钱 + {gold}")
+            today_data.text((0, 0), f"好感度 + {impression:.2f}")
+        today_data.text((0, 25), f"金币 + {gold}")
         _type = "sign"
     current_date = datetime.now()
     current_datetime_str = current_date.strftime("%Y-%m-%d %a %H:%M:%S")

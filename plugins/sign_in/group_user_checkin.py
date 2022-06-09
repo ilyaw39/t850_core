@@ -76,7 +76,7 @@ async def _handle_check_in(
     gift, gift_type = random_event(user.impression)
     if gift_type == "gold":
         await BagUser.add_gold(user_qq, group, gold + gift)
-        gift = f"额外钱 + {gift}"
+        gift = f"额外金币 + {gift}"
     else:
         await BagUser.add_gold(user_qq, group, gold)
         await BagUser.add_property(user_qq, group, gift)
@@ -85,14 +85,14 @@ async def _handle_check_in(
         logger.info(
             f"(USER {user.user_qq}, GROUP {user.group_id})"
             f" CHECKED IN successfully. score: {user.impression:.2f} "
-            f"(+{impression_added * 2:.2f}).获取钱：{gold + gift if gift == 'gold' else gold}"
+            f"(+{impression_added * 2:.2f}).获取金币：{gold + gift if gift == 'gold' else gold}"
         )
         return await get_card(user, nickname, impression_added, gold, gift, True)
     else:
         logger.info(
             f"(USER {user.user_qq}, GROUP {user.group_id})"
             f" CHECKED IN successfully. score: {user.impression:.2f} "
-            f"(+{impression_added:.2f}).获取钱：{gold + gift if gift == 'gold' else gold}"
+            f"(+{impression_added:.2f}).获取金币：{gold + gift if gift == 'gold' else gold}"
         )
         return await get_card(user, nickname, impression_added, gold, gift)
 
@@ -106,7 +106,7 @@ async def group_user_check(nickname: str, user_qq: int, group: int) -> MessageSe
 
 async def group_impression_rank(group: int, num: int) -> Optional[BuildMat]:
     user_qq_list, impression_list, _ = await SignGroupUser.get_all_impression(group)
-    return await init_rank("排行榜", user_qq_list, impression_list, group, num)
+    return await init_rank("好感度排行榜", user_qq_list, impression_list, group, num)
 
 
 async def random_gold(user_id, group_id, impression):
@@ -202,6 +202,6 @@ async def _pst(users: list, impressions: list, groups: list):
         width += 580
     W = BuildImage(1740, 3700, color="#FFE4C4", font_size=130)
     W.paste(A, (0, 260))
-    font_w, font_h = W.getsize(f"{NICKNAME}的总榜")
-    W.text((int((1740 - font_w) / 2), int((260 - font_h) / 2)), f"{NICKNAME}的总榜")
+    font_w, font_h = W.getsize(f"{NICKNAME}的好感度总榜")
+    W.text((int((1740 - font_w) / 2), int((260 - font_h) / 2)), f"{NICKNAME}的好感度总榜")
     return W.pic2bs4()
