@@ -48,18 +48,18 @@ _flmt_c = FreqLimiter(Config.get_config("hook", "CHECK_NOTICE_INFO_CD"))
 async def _(matcher: Matcher, bot: Bot, event: Event, state: T_State):
     module = matcher.plugin_name
     plugins2info_dict = plugins2settings_manager.get_data()
-    # 功能的钱检测 #######################################
-    # 功能的钱检测 #######################################
-    # 功能的钱检测 #######################################
+    # 功能的金币检测 #######################################
+    # 功能的金币检测 #######################################
+    # 功能的金币检测 #######################################
     cost_gold = 0
     if isinstance(
         event, GroupMessageEvent
     ) and plugins2settings_manager.get_plugin_data(module).get("cost_gold"):
         cost_gold = plugins2settings_manager.get_plugin_data(module).get("cost_gold")
         if await BagUser.get_gold(event.user_id, event.group_id) < cost_gold:
-            await send_msg(f"钱不足..该功能需要{cost_gold}钱..", bot, event)
-            raise IgnoredException(f"{module} 钱限制...")
-        # 当插件不阻塞超级用户时，超级用户提前扣除钱
+            await send_msg(f"金币不足..该功能需要{cost_gold}金币..", bot, event)
+            raise IgnoredException(f"{module} 金币限制...")
+        # 当插件不阻塞超级用户时，超级用户提前扣除金币
         if (
             str(event.user_id) in bot.config.superusers
             and not plugins2info_dict[module]["limit_superuser"]
@@ -336,8 +336,8 @@ async def _(matcher: Matcher, bot: Bot, event: Event, state: T_State):
             raise IgnoredException(f"{module} count次数限制...")
         else:
             plugins2count_manager.increase(module, count_type_)
-    # 功能花费的钱 #######################################
-    # 功能花费的钱 #######################################
+    # 功能花费的金币 #######################################
+    # 功能花费的金币 #######################################
     if cost_gold:
         await BagUser.spend_gold(event.user_id, event.group_id, cost_gold)
 
