@@ -39,7 +39,7 @@ buy = on_command("购买", aliases={"购买道具"}, priority=5, block=True, per
 @buy.handle()
 async def _(event: GroupMessageEvent, arg: Message = CommandArg()):
     goods = None
-    if arg.extract_plain_text().strip() in ["神秘药水"]:
+    if arg.extract_plain_text().strip() in ["魔理沙的蘑菇"]:
         await buy.finish("你们看看就好啦，这是不可能卖给你们的~", at_sender=True)
     goods_list = [
         x
@@ -76,19 +76,19 @@ async def _(event: GroupMessageEvent, arg: Message = CommandArg()):
         if (
             await BagUser.get_gold(event.user_id, event.group_id)
         ) < goods.goods_price * num * goods.goods_discount:
-            await buy.finish("您的金币好像不太够哦", at_sender=True)
+            await buy.finish("您的钱好像不太够哦", at_sender=True)
         if await BagUser.buy_property(event.user_id, event.group_id, goods, num):
             await buy.send(
-                f"花费 {goods.goods_price * num * goods.goods_discount} 金币购买 {goods.goods_name} ×{num} 成功！",
+                f"花费 {goods.goods_price * num * goods.goods_discount} 钱购买 {goods.goods_name} ×{num} 成功！",
                 at_sender=True,
             )
             logger.info(
                 f"USER {event.user_id} GROUP {event.group_id} "
-                f"花费 {goods.goods_price*num} 金币购买 {goods.goods_name} ×{num} 成功！"
+                f"花费 {goods.goods_price*num} 钱购买 {goods.goods_name} ×{num} 成功！"
             )
         else:
             await buy.send(f"{goods.goods_name} 购买失败！", at_sender=True)
             logger.info(
                 f"USER {event.user_id} GROUP {event.group_id} "
-                f"花费 {goods.goods_price * num * goods.goods_discount} 金币购买 {goods.goods_name} ×{num} 失败！"
+                f"花费 {goods.goods_price * num * goods.goods_discount} 钱购买 {goods.goods_name} ×{num} 失败！"
             )

@@ -1,2 +1,0 @@
-imageio
-nonebot-plugin-imageutils

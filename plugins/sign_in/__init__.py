@@ -48,7 +48,7 @@ __plugin_settings__ = {
 }
 __plugin_cd_limit__ = {}
 __plugin_configs__ = {
-    "MAX_SIGN_GOLD": {"value": 200, "help": "签到好感度加成额外获得的最大金币数", "default_value": 200},
+    "MAX_SIGN_GOLD": {"value": 200, "help": "签到好感度加成额外获得的最大钱数", "default_value": 200},
     "SIGN_CARD1_PROB": {"value": 0.2, "help": "签到好感度双倍加持卡Ⅰ掉落概率", "default_value": 0.2},
     "SIGN_CARD2_PROB": {
         "value": 0.09,

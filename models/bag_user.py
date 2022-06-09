@@ -23,7 +23,7 @@ class BagUser(db.Model):
     async def get_user_total_gold(cls, user_qq: int, group_id: int) -> str:
         """
         说明：
-            获取金币概况
+            获取钱概况
         参数：
             :param user_qq: qq号
             :param group_id: 所在群号
@@ -36,16 +36,16 @@ class BagUser(db.Model):
                 group_id=group_id,
             )
         return (
-            f"当前金币：{user.gold}\n今日获取金币：{user.get_today_gold}\n今日花费金币：{user.spend_today_gold}"
+            f"当前钱：{user.gold}\n今日获取钱：{user.get_today_gold}\n今日花费钱：{user.spend_today_gold}"
             f"\n今日收益：{user.get_today_gold - user.spend_today_gold}"
-            f"\n总赚取金币：{user.get_total_gold}\n总花费金币：{user.spend_total_gold}"
+            f"\n总赚取钱：{user.get_total_gold}\n总花费钱：{user.spend_total_gold}"
         )
 
     @classmethod
     async def get_gold(cls, user_qq: int, group_id: int) -> int:
         """
         说明：
-            获取当前金币
+            获取当前钱
         参数：
             :param user_qq: qq号
             :param group_id: 所在群号
@@ -85,11 +85,11 @@ class BagUser(db.Model):
     async def add_gold(cls, user_qq: int, group_id: int, num: int):
         """
         说明：
-            增加金币
+            增加钱
         参数：
             :param user_qq: qq号
             :param group_id: 所在群号
-            :param num: 金币数量
+            :param num: 钱数量
         """
         query = cls.query.where((cls.user_qq == user_qq) & (cls.group_id == group_id))
         query = query.with_for_update()
@@ -113,11 +113,11 @@ class BagUser(db.Model):
     async def spend_gold(cls, user_qq: int, group_id: int, num: int):
         """
         说明：
-            花费金币
+            花费钱
         参数：
             :param user_qq: qq号
             :param group_id: 所在群号
-            :param num: 金币数量
+            :param num: 钱数量
         """
         query = cls.query.where((cls.user_qq == user_qq) & (cls.group_id == group_id))
         query = query.with_for_update()
@@ -201,7 +201,7 @@ class BagUser(db.Model):
             :param goods_num: 商品数量
         """
         try:
-            # 折扣后金币
+            # 折扣后钱
             spend_gold = goods.goods_discount * goods.goods_price * goods_num
             await BagUser.spend_gold(user_qq, group_id, spend_gold)
             for _ in range(goods_num):

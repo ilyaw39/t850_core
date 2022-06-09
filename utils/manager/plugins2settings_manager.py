@@ -45,7 +45,7 @@ class Plugins2settingsManager(StaticData):
         :param level: 功能权限等级
         :param limit_superuser: 功能状态是否限制超级用户
         :param plugin_type: 插件类型
-        :param cost_gold: 需要消费的金币
+        :param cost_gold: 需要消费的钱
         """
         level = level or 5
         cmd = cmd or []

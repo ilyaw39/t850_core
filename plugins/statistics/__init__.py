@@ -51,9 +51,9 @@ for file in [statistics_group_file, statistics_user_file]:
                     if data[x][key].get("使用道具") is not None:
                         num += data[x][key]["使用道具"]
                         del data[x][key]["使用道具"]
-                    if data[x][key].get("我的金币") is not None:
-                        num += data[x][key]["我的金币"]
-                        del data[x][key]["我的金币"]
+                    if data[x][key].get("我的钱") is not None:
+                        num += data[x][key]["我的钱"]
+                        del data[x][key]["我的钱"]
                     if data[x][key].get("购买") is not None:
                         num += data[x][key]["购买"]
                         del data[x][key]["购买"]
@@ -82,9 +82,9 @@ for file in [statistics_group_file, statistics_user_file]:
                         if data[x][key].get("使用道具") is not None:
                             num += data[x][key]["使用道具"]
                             del data[x][key]["使用道具"]
-                        if data[x][key].get("我的金币") is not None:
-                            num += data[x][key]["我的金币"]
-                            del data[x][key]["我的金币"]
+                        if data[x][key].get("我的钱") is not None:
+                            num += data[x][key]["我的钱"]
+                            del data[x][key]["我的钱"]
                         if data[x][key].get("购买") is not None:
                             num += data[x][key]["购买"]
                             del data[x][key]["购买"]
@@ -113,9 +113,9 @@ for file in [statistics_group_file, statistics_user_file]:
                             if data[x][key][day].get("使用道具") is not None:
                                 num += data[x][key][day]["使用道具"]
                                 del data[x][key][day]["使用道具"]
-                            if data[x][key][day].get("我的金币") is not None:
-                                num += data[x][key][day]["我的金币"]
-                                del data[x][key][day]["我的金币"]
+                            if data[x][key][day].get("我的钱") is not None:
+                                num += data[x][key][day]["我的钱"]
+                                del data[x][key][day]["我的钱"]
                             if data[x][key][day].get("购买") is not None:
                                 num += data[x][key][day]["购买"]
                                 del data[x][key][day]["购买"]

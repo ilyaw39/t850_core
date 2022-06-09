@@ -76,7 +76,7 @@ async def _handle_check_in(
     gift, gift_type = random_event(user.impression)
     if gift_type == "gold":
         await BagUser.add_gold(user_qq, group, gold + gift)
-        gift = f"额外金币 + {gift}"
+        gift = f"额外钱 + {gift}"
     else:
         await BagUser.add_gold(user_qq, group, gold)
         await BagUser.add_property(user_qq, group, gift)
@@ -85,14 +85,14 @@ async def _handle_check_in(
         logger.info(
             f"(USER {user.user_qq}, GROUP {user.group_id})"
             f" CHECKED IN successfully. score: {user.impression:.2f} "
-            f"(+{impression_added * 2:.2f}).获取金币：{gold + gift if gift == 'gold' else gold}"
+            f"(+{impression_added * 2:.2f}).获取钱：{gold + gift if gift == 'gold' else gold}"
         )
         return await get_card(user, nickname, impression_added, gold, gift, True)
     else:
         logger.info(
             f"(USER {user.user_qq}, GROUP {user.group_id})"
             f" CHECKED IN successfully. score: {user.impression:.2f} "
-            f"(+{impression_added:.2f}).获取金币：{gold + gift if gift == 'gold' else gold}"
+            f"(+{impression_added:.2f}).获取钱：{gold + gift if gift == 'gold' else gold}"
         )
         return await get_card(user, nickname, impression_added, gold, gift)
 

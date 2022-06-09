@@ -89,7 +89,7 @@ async def _(event: GroupMessageEvent, reg_group: Tuple[Any, ...] = RegexGroup())
             img_w + 15,
             num_img.h + 30,
             color="#f9f6f2",
-            font="CJGaoDeGuo.otf",
+            font="NotoSerifSC-Bold.otf",
             font_size=15,
         )
         await A.atext((10, 10), date_str)

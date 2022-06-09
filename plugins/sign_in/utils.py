@@ -240,7 +240,7 @@ def _generate_card(
             (0, 0),
             f"上次签到日期：{'从未' if user.checkin_time_last == datetime.min else user.checkin_time_last.date()}",
         )
-        today_data.text((0, 25), f"总金币：{gold}")
+        today_data.text((0, 25), f"总钱：{gold}")
         default_setu_prob = (
             Config.get_config("send_setu", "INITIAL_SETU_PROBABILITY") * 100
         )
@@ -259,7 +259,7 @@ def _generate_card(
             today_data.text((0, 0), f"好感度 + {impression / 2:.2f} × 2")
         else:
             today_data.text((0, 0), f"好感度 + {impression:.2f}")
-        today_data.text((0, 25), f"金币 + {gold}")
+        today_data.text((0, 25), f"钱 + {gold}")
         _type = "sign"
     current_date = datetime.now()
     current_datetime_str = current_date.strftime("%Y-%m-%d %a %H:%M:%S")

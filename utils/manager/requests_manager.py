@@ -164,11 +164,11 @@ class RequestManager(StaticData):
             )
             age_bk.text((3, 1), f"{age}", fill=(255, 255, 255))
             x = BuildImage(
-                90, 32, font_size=15, color="#EEEFF4", font="HYWenHei-85W.ttf"
+                90, 32, font_size=15, color="#EEEFF4", font="NotoSerifSC-Bold.otf"
             )
             x.text((0, 0), "同意/拒绝", center_type="center")
             x.circle_corner(10)
-            A = BuildImage(500, 100, font_size=24, font="msyh.ttf")
+            A = BuildImage(500, 100, font_size=24, font="NotoSerifSC-Bold.otf")
             A.paste(ava, (15, 0), alpha=True, center_type="by_height")
             A.text((120, 15), nickname)
             A.paste(age_bk, (120, 50), True)

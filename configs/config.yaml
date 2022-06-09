@@ -210,7 +210,7 @@ search_buff_skin_price:
   COOKIE:
 sign_in:
   # 签到
-  # MAX_SIGN_GOLD: 签到好感度加成额外获得的最大金币数
+  # MAX_SIGN_GOLD: 签到好感度加成额外获得的最大钱数
   # SIGN_CARD1_PROB: 签到好感度双倍加持卡Ⅰ掉落概率
   # SIGN_CARD2_PROB: 签到好感度双倍加持卡Ⅱ掉落概率
   # SIGN_CARD3_PROB: 签到好感度双倍加持卡Ⅲ掉落概率
