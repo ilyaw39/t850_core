@@ -78,4 +78,4 @@ async def _(bot: Bot, event: GroupMessageEvent, arg: Message = CommandArg()):
                     f"USER {event.user_id} GROUP {event.group_id} 使用道具 {name} {num} 次失败"
                 )
     else:
-        await use_props.send("您的背包里没有任何的道具噢", at_sender=True)
+        await use_props.send("你的背包里没有任何的道具噢", at_sender=True)

@@ -24,15 +24,15 @@ async def init_default_shop_goods():
     """
 
     @shop_register(
-        name=("好感度双倍加持卡Ⅰ", "好感度双倍加持卡Ⅱ", "好感度双倍加持卡Ⅲ"),
+        name=("奉納 ¥30", "奉納 ¥150", "奉納 ¥250"),
         price=(30, 150, 250),
         des=(
-            "下次签到双倍好感度概率 + 10%（谁才是真命天子？）（同类商品将覆盖）",
-            "下次签到双倍好感度概率 + 20%（平平庸庸）（同类商品将覆盖）",
-            "下次签到双倍好感度概率 + 30%（金币才是真命天子！）（同类商品将覆盖）",
+            "下次签到双倍奉納概率 + 10%",
+            "下次签到双倍奉納概率 + 20%",
+            "下次签到双倍奉納概率 + 30%",
         ),
         load_status=Config.get_config("shop", "IMPORT_DEFAULT_SHOP_GOODS"),
-        ** {"好感度双倍加持卡Ⅰ_prob": 0.1, "好感度双倍加持卡Ⅱ_prob": 0.2, "好感度双倍加持卡Ⅲ_prob": 0.3},
+        ** {"奉納 ¥30_prob": 0.1, "奉納 ¥150_prob": 0.2, "奉納 ¥250_prob": 0.3},
     )
     async def sign_card(user_id: int, group_id: int, prob: float):
         user = await SignGroupUser.ensure(user_id, group_id)
@@ -60,23 +60,23 @@ async def create_shop_help() -> str:
         if goods.goods_limit_time == 0 or time.time() < goods.goods_limit_time:
             h += len(goods.goods_description.strip().split("\n")) * font_h + 80
             _list.append(goods)
-    A = BuildImage(1000, h, color="#f9f6f2")
+    A = BuildImage(1000, h, color="#073642")
     current_h = 0
     for goods in _list:
-        bk = BuildImage(700, 80, font_size=15, color="#f9f6f2", font="NotoSerifSC-Bold.otf")
+        bk = BuildImage(700, 80, font_size=15, color="#fdf6e3", font="NotoSerifSC-Bold.otf")
         goods_image = BuildImage(
-            600, 80, font_size=20, color="#a29ad6", font="NotoSerifSC-Bold.otf"
+            600, 80, font_size=20, color="#fdf6e3", font="NotoSerifSC-Bold.otf"
         )
         name_image = BuildImage(
-            580, 40, font_size=25, color="#e67b6b", font="NotoSerifSC-Bold.otf"
+            580, 40, font_size=25, color="#fdf6e3", font="NotoSerifSC-Bold.otf"
         )
         await name_image.atext(
             (15, 0), f"{idx}.{goods.goods_name}", center_type="by_height"
         )
-        await name_image.aline((380, -5, 280, 45), "#a29ad6", 5)
+        await name_image.aline((380, -5, 280, 45), "#fdf6e3", 5)
         await name_image.atext((390, 0), "售价：", center_type="by_height")
         await name_image.atext(
-            (440, 0), str(goods.goods_price), (255, 255, 255), center_type="by_height"
+            (440, 0), str(goods.goods_price), (0, 0, 0), center_type="by_height"
         )
         await name_image.atext(
             (
@@ -84,7 +84,7 @@ async def create_shop_help() -> str:
                 + BuildImage(0, 0, plain_text=str(goods.goods_price), font_size=25).w,
                 0,
             ),
-            " 金币",
+            " 赛钱",
             center_type="by_height",
         )
         await name_image.acircle_corner(5)
@@ -111,8 +111,8 @@ async def create_shop_help() -> str:
             h_m = _h_m[0] + "时 " + _h_m[1] + "分"
             await bk.atext((605, 38), str(y_m_d))
             await bk.atext((615, 57), str(h_m))
-            await bk.aline((550, -1, 710, -1), "#a29ad6", 5)
-            await bk.aline((550, 80, 710, 80), "#a29ad6", 5)
+            await bk.aline((550, -1, 710, -1), "#fdf6e3", 5)
+            await bk.aline((550, 80, 710, 80), "#fdf6e3", 5)
         idx += 1
         await A.apaste(bk, (0, current_h), True)
         current_h += 90
@@ -120,17 +120,16 @@ async def create_shop_help() -> str:
     h = A.h + 230 + 100
     h = 1000 if h < 1000 else h
     shop_logo = BuildImage(100, 100, background=f"{IMAGE_PATH}/other/shop_text.png")
-    shop = BuildImage(w, h, font_size=20, color="#f9f6f2")
+    shop = BuildImage(w, h, font_size=20, color="#fdf6e3")
     shop.paste(A, (20, 230))
     zx_img = BuildImage(0, 0, background=f"{IMAGE_PATH}/zhenxun/toukan.png")
     zx_img.replace_color_tran(((240, 240, 240), (255, 255, 255)), (249, 246, 242))
     await shop.apaste(zx_img, (780, 100))
     await shop.apaste(shop_logo, (450, 30), True)
     shop.text(
-        (int((1000 - shop.getsize("注【通过 序号 或者 商品名称 购买】")[0]) / 2), 170),
-        "注【通过 序号 或者 商品名称 购买】",
+        (int((1000 - shop.getsize("注: 通过 序列 或者 商品 购买")[0]) / 2), 170),
+        "注: 通过 序列 或者 商品名称 购买",
     )
-    shop.text((20, h - 100), "神秘药水\t\t售价：9999999金币\n\t\t鬼知道会有什么效果~")
     return shop.pic2bs4()
 
 

@@ -71,8 +71,8 @@ async def _(event: GroupMessageEvent, reg_group: Tuple[Any, ...] = RegexGroup())
             name += f"\t{idx}.{user_name} \n\n"
             num_str += f"\t{num}\n\n"
             idx += 1
-        name_img = await text2image(name.strip(), padding=10, color="#f9f6f2")
-        num_img = await text2image(num_str.strip(), padding=10, color="#f9f6f2")
+        name_img = await text2image(name.strip(), padding=10, color="#fdf6e3")
+        num_img = await text2image(num_str.strip(), padding=10, color="#fdf6e3")
         if not date_scope:
             if date_scope := await ChatHistory.get_group_first_msg_datetime(gid):
                 date_scope = date_scope.astimezone(
@@ -88,7 +88,7 @@ async def _(event: GroupMessageEvent, reg_group: Tuple[Any, ...] = RegexGroup())
         A = BuildImage(
             img_w + 15,
             num_img.h + 30,
-            color="#f9f6f2",
+            color="#fdf6e3",
             font="NotoSerifSC-Bold.otf",
             font_size=15,
         )

@@ -24,7 +24,7 @@ async def show_black_text_image(
     :return:
     """
     data = await BlackWord.get_black_data(user, group_id, date, data_type)
-    A = BuildImage(0, 0, color="#f9f6f2", font_size=20)
+    A = BuildImage(0, 0, color="#fdf6e3", font_size=20)
     image_list = []
     friend_str = await bot.get_friend_list()
     id_str = ""
@@ -77,9 +77,9 @@ async def show_black_text_image(
         (punish_level_str, "等级"),
         (create_time_str, "记录日期"),
     ]:
-        img = await text2image(s, color="#f9f6f2", _add_height=2.1)
+        img = await text2image(s, color="#fdf6e3", _add_height=2.1)
         w = _tmp_img.getsize(type_)[0] if _tmp_img.getsize(type_)[0] > img.w else img.w
-        A = BuildImage(w + 11, img.h + 50, color="#f9f6f2", font_size=35, font="NotoSerifSC-Bold.otf")
+        A = BuildImage(w + 11, img.h + 50, color="#fdf6e3", font_size=35, font="NotoSerifSC-Bold.otf")
         await A.atext((10, 10), type_)
         await A.apaste(img, (0, 50))
         image_list.append(A)
@@ -89,7 +89,7 @@ async def show_black_text_image(
         w += img.w + 20
         h = img.h if img.h > h else h
         horizontal_line.append(img.w)
-    A = BuildImage(w, h, color="#f9f6f2")
+    A = BuildImage(w, h, color="#fdf6e3")
     current_w = 0
     for img in image_list:
         await A.apaste(img, (current_w, 0))

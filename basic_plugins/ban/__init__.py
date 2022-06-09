@@ -88,7 +88,7 @@ async def _(
                 and str(event.user_id) not in bot.config.superusers
             ):
                 await ban.finish(
-                    f"您的权限等级比对方低或相等, {NICKNAME}不能为您使用此功能!",
+                    f"你的权限等级比对方低或相等, {NICKNAME}不能为你使用此功能!",
                     at_sender=True,
                 )
             result = await a_ban(qq, time, user_name, event)
@@ -100,7 +100,7 @@ async def _(
                 and str(event.user_id) not in bot.config.superusers
             ):
                 await ban.finish(
-                    f"ban掉 {user_name} 的管理员权限比您高，无法进行unban", at_sender=True
+                    f"ban掉 {user_name} 的管理员权限比你高，无法进行unban", at_sender=True
                 )
             if await BanUser.unban(qq):
                 logger.info(

@@ -31,7 +31,7 @@ usage：
         示例：修改商品 name:1 price:900   修改序号为1的商品的价格为900
     * 修改商品只需添加需要值即可 *
 """.strip()
-__plugin_des__ = "商店系统[金币回收计划]"
+__plugin_des__ = "商店系统[钱回收计划]"
 __plugin_cmd__ = [
     "商店",
     "添加商品 name:[名称] price:[价格] des:[描述] ?discount:[折扣](小数) ?limit_time:[限时时间](小时)) [_superuser]",
@@ -83,7 +83,7 @@ async def _(event: MessageEvent, arg: Message = CommandArg()):
         if await register_goods(**data):
             await shop_add_goods.send(f"添加商品 {data['name']} 成功！\n"
                                       f"名称：{data['name']}\n"
-                                      f"价格：{data['price']}金币\n"
+                                      f"价格：{data['price']}钱\n"
                                       f"简介：{data['des']}\n"
                                       f"折扣：{data.get('discount')}\n"
                                       f"限时：{data.get('limit_time')}", at_sender=True)

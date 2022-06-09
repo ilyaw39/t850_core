@@ -3,12 +3,12 @@ from models.bag_user import BagUser
 from services.log import logger
 
 
-__zx_plugin_name__ = "每日金币重置 [Hidden]"
+__zx_plugin_name__ = "每日钱重置 [Hidden]"
 __plugin_version__ = 0.1
 __plugin_author__ = "HibiKier"
 
 
-# 重置每日金币
+# 重置每日钱
 @scheduler.scheduled_job(
     "cron",
     hour=0,
@@ -23,4 +23,4 @@ async def _():
                 spend_today_gold=0,
             ).apply()
     except Exception as e:
-        logger.error(f"重置每日金币错误 e:{e}")
+        logger.error(f"重置每日钱错误 e:{e}")

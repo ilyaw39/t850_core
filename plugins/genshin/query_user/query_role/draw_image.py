@@ -80,11 +80,11 @@ def _get_genshin_image(
     home_image = get_home_data_image(home_data_list)
     country_image = get_country_data_image(world_data_dict)
     char_image = get_char_data_image(char_data_list, char_detailed_dict)
-    top_bk = BuildImage(user_image.w, user_image.h + max([home_image.h, country_image.h]) + 100, color="#F9F6F2")
+    top_bk = BuildImage(user_image.w, user_image.h + max([home_image.h, country_image.h]) + 100, color="#fdf6e3")
     top_bk.paste(user_image, alpha=True)
     top_bk.paste(home_image, (0, user_image.h + 50), alpha=True)
     top_bk.paste(country_image, (home_image.w + 100, user_image.h + 50), alpha=True)
-    bar = BuildImage(1600, 200, font_size=50, color="#F9F6F2", font="NotoSerifSC-Bold.otf")
+    bar = BuildImage(1600, 200, font_size=50, color="#fdf6e3", font="NotoSerifSC-Bold.otf")
     bar.text((50, 10), "角色背包", (104, 103, 101))
     bar.line((50, 90, 1550, 90), (227, 219, 209), width=10)
 
@@ -297,7 +297,7 @@ def get_country_data_image(world_data_dict: Dict) -> BuildImage:
     :param world_data_dict: 国家数据字典
     """
     # 层岩巨渊 和 地下矿区 算一个
-    region = BuildImage(790, 267 * (len(world_data_dict) - 1), color="#F9F6F2")
+    region = BuildImage(790, 267 * (len(world_data_dict) - 1), color="#fdf6e3")
     height = 0
     for country in ["蒙德", "龙脊雪山", "璃月", "层岩巨渊", "稻妻", "渊下宫"]:
         if not world_data_dict.get(country):
@@ -405,7 +405,7 @@ def get_char_data_image(
     region = BuildImage(
         1600,
         _h,
-        color="#F9F6F2",
+        color="#fdf6e3",
     )
     width = 120
     height = 0

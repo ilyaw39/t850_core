@@ -200,7 +200,7 @@ async def _(bot: Bot, event: GroupMessageEvent, arg: Message = CommandArg()):
                     one_img = image(
                         b64=(await text2image("\n".join(_problem_list[:max_line]),
                                               padding=10,
-                                              color="#f9f6f2",
+                                              color="#fdf6e3",
                                               )).pic2bs4()
                     )
                     if img_nu > 2:
@@ -222,7 +222,7 @@ async def _(bot: Bot, event: GroupMessageEvent, arg: Message = CommandArg()):
                     b64=(await text2image(
                         "该群已收录的词条：\n\n" + "\n".join(_problem_list),
                         padding=10,
-                        color="#f9f6f2",
+                        color="#fdf6e3",
                     )).pic2bs4()
                 )
             )
