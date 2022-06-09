@@ -123,7 +123,7 @@ async def create_shop_help() -> str:
     shop = BuildImage(w, h, font_size=20, color="#f9f6f2")
     shop.paste(A, (20, 230))
     zx_img = BuildImage(0, 0, background=f"{IMAGE_PATH}/zhenxun/toukan.png")
-    zx_img.replace_color_tran(((240, 240, 240), (255, 255, 255)), (249, 246, 242))
+    #zx_img.replace_color_tran(((240, 240, 240), (255, 255, 255)), (249, 246, 242))
     await shop.apaste(zx_img, (780, 100))
     await shop.apaste(shop_logo, (450, 30), True)
     shop.text(
