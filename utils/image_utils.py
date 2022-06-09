@@ -151,7 +151,7 @@ class BuildImage:
         image_mode: str = "RGBA",
         font_size: int = 10,
         background: Union[Optional[str], BytesIO, Path] = None,
-        font: str = "NotoSerifSC-Bold.otf",
+        font: str = "yz.ttf",
         ratio: float = 1,
         is_alpha: bool = False,
         plain_text: Optional[str] = None,
@@ -1333,7 +1333,7 @@ async def text2image(
     auto_parse: bool = True,
     font_size: int = 20,
     color: Union[str, Tuple[int, int, int], Tuple[int, int, int, int]] = "white",
-    font: str = "NotoSerifSC-Bold.otf",
+    font: str = "CJGaoDeGuo.otf",
     font_color: Union[str, Tuple[int, int, int]] = "black",
     padding: Union[int, Tuple[int, int, int, int]] = 0,
     _add_height: float = 0,
@@ -1348,7 +1348,7 @@ async def text2image(
             fs / font_size: int -> 特殊文本大小
             fc / font_color: Union[str, Tuple[int, int, int]] -> 特殊文本颜色
         示例
-            在不在，<f font=NotoSerifSC-Bold.otfaoShenTi-2.ttf font_size=30 font_color=red>HibiKi小姐</f>，
+            在不在，<f font=YSHaoShenTi-2.ttf font_size=30 font_color=red>HibiKi小姐</f>，
             你最近还好吗，<f font_size=15 font_color=black>我非常想你</f>，这段时间我非常不好过，
             <f font_size=25>抽卡抽不到金色</f>，这让我很痛苦
     参数：

@@ -164,7 +164,7 @@ class RequestManager(StaticData):
             )
             age_bk.text((3, 1), f"{age}", fill=(255, 255, 255))
             x = BuildImage(
-                90, 32, font_size=15, color="#EEEFF4", font="NotoSerifSC-Bold.otf"
+                90, 32, font_size=15, color="#EEEFF4", font="HYWenHei-85W.ttf"
             )
             x.text((0, 0), "同意/拒绝", center_type="center")
             x.circle_corner(10)
