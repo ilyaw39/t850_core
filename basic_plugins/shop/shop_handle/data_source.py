@@ -24,15 +24,15 @@ async def init_default_shop_goods():
     """
 
     @shop_register(
-        name=("奉納 ¥30", "奉納 ¥150", "奉納 ¥250"),
+        name=("好感度双倍加持卡Ⅰ", "好感度双倍加持卡Ⅱ", "好感度双倍加持卡Ⅲ"),
         price=(30, 150, 250),
         des=(
-            "下次签到双倍概率 + 10%",
-            "下次签到双倍概率 + 20%",
-            "下次签到双倍概率 + 30%",
+            "下次签到双倍好感度概率 + 10%（谁才是真命天子？）（同类商品将覆盖）",
+            "下次签到双倍好感度概率 + 20%（平平庸庸）（同类商品将覆盖）",
+            "下次签到双倍好感度概率 + 30%（金币才是真命天子！）（同类商品将覆盖）",
         ),
         load_status=Config.get_config("shop", "IMPORT_DEFAULT_SHOP_GOODS"),
-        ** {"奉納 ¥30_prob": 0.1, "奉納 ¥150_prob": 0.2, "奉納 ¥250_prob": 0.3},
+        ** {"好感度双倍加持卡Ⅰ_prob": 0.1, "好感度双倍加持卡Ⅱ_prob": 0.2, "好感度双倍加持卡Ⅲ_prob": 0.3},
     )
     async def sign_card(user_id: int, group_id: int, prob: float):
         user = await SignGroupUser.ensure(user_id, group_id)
@@ -63,12 +63,12 @@ async def create_shop_help() -> str:
     A = BuildImage(1000, h, color="#f9f6f2")
     current_h = 0
     for goods in _list:
-        bk = BuildImage(700, 80, font_size=15, color="#f9f6f2", font="NotoSerifSC-Bold.otf")
+        bk = BuildImage(700, 80, font_size=15, color="#f9f6f2", font="CJGaoDeGuo.otf")
         goods_image = BuildImage(
-            600, 80, font_size=20, color="#a29ad6", font="NotoSerifSC-Bold.otf"
+            600, 80, font_size=20, color="#a29ad6", font="CJGaoDeGuo.otf"
         )
         name_image = BuildImage(
-            580, 40, font_size=25, color="#e67b6b", font="NotoSerifSC-Bold.otf"
+            580, 40, font_size=25, color="#e67b6b", font="CJGaoDeGuo.otf"
         )
         await name_image.atext(
             (15, 0), f"{idx}.{goods.goods_name}", center_type="by_height"
@@ -84,7 +84,7 @@ async def create_shop_help() -> str:
                 + BuildImage(0, 0, plain_text=str(goods.goods_price), font_size=25).w,
                 0,
             ),
-            " 钱",
+            " 金币",
             center_type="by_height",
         )
         await name_image.acircle_corner(5)
@@ -99,7 +99,7 @@ async def create_shop_help() -> str:
             )
             await bk.apaste(_limit_time_logo, (600, 0), True)
             await bk.apaste(
-                BuildImage(0, 0, plain_text="限时！", font_size=23, font="NotoSerifSC-Bold.otf"),
+                BuildImage(0, 0, plain_text="限时！", font_size=23, font="CJGaoDeGuo.otf"),
                 (640, 10),
                 True,
             )
@@ -127,10 +127,10 @@ async def create_shop_help() -> str:
     await shop.apaste(zx_img, (780, 100))
     await shop.apaste(shop_logo, (450, 30), True)
     shop.text(
-        (int((1000 - shop.getsize("注: 通过 序列 或者 商品 购买")[0]) / 2), 170),
-        "注: 通过 序列 或者 商品 购买",
+        (int((1000 - shop.getsize("注【通过 序号 或者 商品名称 购买】")[0]) / 2), 170),
+        "注【通过 序号 或者 商品名称 购买】",
     )
-    shop.text((20, h - 100), "魔理沙的蘑菇\t\t售价：9999999钱\n\t\t鬼知道味道如何~")
+    shop.text((20, h - 100), "神秘药水\t\t售价：9999999金币\n\t\t鬼知道会有什么效果~")
     return shop.pic2bs4()
 
 

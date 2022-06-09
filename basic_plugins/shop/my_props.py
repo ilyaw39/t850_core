@@ -38,4 +38,4 @@ async def _(event: GroupMessageEvent):
         await my_props.send("\n" + rst[:-1], at_sender=True)
         logger.info(f"USER {event.user_id} GROUP {event.group_id} 查看我的道具")
     else:
-        await my_props.finish("你的背包里没有任何的道具噢~", at_sender=True)
+        await my_props.finish("您的背包里没有任何的道具噢~", at_sender=True)

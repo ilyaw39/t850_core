@@ -13,7 +13,8 @@ driver.on_shutdown(disconnect)
 nonebot.load_plugin("nonebot_plugin_apscheduler")
 nonebot.load_plugins("basic_plugins")
 nonebot.load_plugins("plugins")
-nonebot.load_plugins("extensive_plugins")
+nonebot.load_plugins("extensive_plugin")
+nonebot.load_plugins("custom_plugin")
 
 # 最后加载权限控制
 nonebot.load_plugins("basic_plugins/hooks")
