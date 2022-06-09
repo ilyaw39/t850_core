@@ -60,20 +60,20 @@ async def create_shop_help() -> str:
         if goods.goods_limit_time == 0 or time.time() < goods.goods_limit_time:
             h += len(goods.goods_description.strip().split("\n")) * font_h + 80
             _list.append(goods)
-    A = BuildImage(1000, h, color="#fdf6e3") # 背景色
+    A = BuildImage(1000, h, color="#f9f6f2") # 背景色
     current_h = 0
     for goods in _list:
-        bk = BuildImage(700, 80, font_size=15, color="#fdf6e3", font="NotoSerifSC-Bold.otf")
+        bk = BuildImage(700, 80, font_size=15, color="#f9f6f2", font="NotoSerifSC-Bold.otf")
         goods_image = BuildImage(
-            600, 80, font_size=20, color="#fdf6e3", font="NotoSerifSC-Bold.otf"
+            600, 80, font_size=20, color="#f9f6f2", font="NotoSerifSC-Bold.otf"
         )
         name_image = BuildImage(
-            580, 40, font_size=25, color="#fdf6e3", font="NotoSerifSC-Bold.otf"
+            580, 40, font_size=25, color="#f9f6f2", font="NotoSerifSC-Bold.otf"
         )
         await name_image.atext(
             (15, 0), f"{idx}.{goods.goods_name}", center_type="by_height"
         )
-        await name_image.aline((380, -5, 280, 45), "#fdf6e3", 5)
+        await name_image.aline((380, -5, 280, 45), "#f9f6f2", 5)
         await name_image.atext((390, 0), "售价：", center_type="by_height")
         await name_image.atext(
             (440, 0), str(goods.goods_price), (0, 0, 0), center_type="by_height"
