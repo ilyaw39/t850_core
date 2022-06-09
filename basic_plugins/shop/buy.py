@@ -16,7 +16,7 @@ usage：
     购买道具
     指令：
         购买 [序号或名称] ?[数量=1]
-        示例：购买 陪灵梦睡一晚
+        示例：购买 好感双倍加持卡Ⅰ
         示例：购买 1 4
 """.strip()
 __plugin_des__ = "商店 - 购买道具"
@@ -39,8 +39,8 @@ buy = on_command("购买", aliases={"购买道具"}, priority=5, block=True, per
 @buy.handle()
 async def _(event: GroupMessageEvent, arg: Message = CommandArg()):
     goods = None
-    if arg.extract_plain_text().strip() in ["神秘蘑菇"]:
-        await buy.finish("你们看看就好啦， 这是不可能卖给你们的~", at_sender=True)
+    if arg.extract_plain_text().strip() in ["魔理沙的蘑菇"]:
+        await buy.finish("你们看看就好啦，这是不可能卖给你们的~", at_sender=True)
     goods_list = [
         x
         for x in await GoodsInfo.get_all_goods()

@@ -39,7 +39,7 @@ async def _(event: GroupMessageEvent):
     try:
         await my_gold.send(msg)
     except ActionFailed:
-        await my_gold.send(image(b64=(await text2image(msg, color="#fdf6e3", padding=10)).pic2bs4()))
+        await my_gold.send(image(b64=(await text2image(msg, color="#f9f6f2", padding=10)).pic2bs4()))
 
 
 @gold_rank.handle()

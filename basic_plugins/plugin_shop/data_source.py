@@ -139,11 +139,11 @@ async def show_plugin_repo() -> Union[int, str]:
             f'简介：{plugin_info[key]["introduction"]}\n'
             f"-------------------"
         )
-        img = await text2image(s, font_size=20, color="#fdf6e3")
+        img = await text2image(s, font_size=20, color="#f9f6f2")
         w = w if w > img.w else img.w
         h += img.h + line_height
         image_list.append(img)
-    A = BuildImage(w + 50, h + 50, color="#fdf6e3")
+    A = BuildImage(w + 50, h + 50, color="#f9f6f2")
     cur_h = 25
     for img in image_list:
         await A.apaste(img, (25, cur_h))
