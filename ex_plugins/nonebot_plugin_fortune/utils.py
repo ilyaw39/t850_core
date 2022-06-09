@@ -141,8 +141,8 @@ def drawing(theme: str, spec_path: Optional[str], user_id: str, group_id: str) -
     font_length = ttfront.getsize(title)
     draw.text(
         (
-            image_font_center[0] - font_length[0] / 2,
-            image_font_center[1] - font_length[1] / 2,
+            image_font_center[0] - font_length[0] / 3,
+            image_font_center[1] - font_length[1] / 3,
         ),
         title,
         fill=color,
