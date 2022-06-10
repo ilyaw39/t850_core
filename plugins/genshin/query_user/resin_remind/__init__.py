@@ -12,7 +12,7 @@ __zx_plugin_name__ = "原神树脂提醒"
 __plugin_usage__ = """
 usage：
     即将满树脂的提醒
-    会在 120-140 140-160 160 以及溢出指定部分时提醒，
+    会在 120-140 140-160 160 以及溢出指定部分时提醒, 
     共提醒3-4次
     指令：
         开原神树脂提醒
@@ -32,12 +32,12 @@ __plugin_settings__ = {
 __plugin_configs__ = {
     "AUTO_CLOSE_QUERY_FAIL_RESIN_REMIND": {
         "value": True,
-        "help": "当请求连续三次失败时，关闭用户的树脂提醒",
+        "help": "当请求连续三次失败时, 关闭用户的树脂提醒",
         "default_value": True
     },
     "CUSTOM_RESIN_OVERFLOW_REMIND": {
         "value": 20,
-        "help": "自定义树脂溢出指定数量时的提醒，空值是为关闭",
+        "help": "自定义树脂溢出指定数量时的提醒, 空值是为关闭",
         "default_value": None
     }
 }

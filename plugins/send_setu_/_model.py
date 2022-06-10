@@ -67,7 +67,7 @@ class Setu(db.Model):
         参数：
             :param local_id: 本地色图 id
             :param tags: tags
-            :param r18: 是否 r18，0：非r18  1：r18  2：混合
+            :param r18: 是否 r18, 0：非r18  1：r18  2：混合
             :param limit: 获取数量
         """
         if local_id:

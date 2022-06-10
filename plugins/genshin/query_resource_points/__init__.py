@@ -16,7 +16,7 @@ except ModuleNotFoundError:
 __zx_plugin_name__ = "原神资源查询"
 __plugin_usage__ = """
 usage：
-    不需要打开网页，就能帮你生成资源图片
+    不需要打开网页, 就能帮你生成资源图片
     指令：
         原神资源查询 [资源名称]
         原神资源列表
@@ -62,7 +62,7 @@ async def _(event: MessageEvent, arg: Message = CommandArg()):
             f" 查询原神材料:" + resource_name
         )
     else:
-        await qr.send(f"未查找到 {resource_name} 资源，可通过 “原神资源列表” 获取全部资源名称..")
+        await qr.send(f"未查找到 {resource_name} 资源, 可通过 “原神资源列表” 获取全部资源名称..")
 
 
 @rex_qr.handle()

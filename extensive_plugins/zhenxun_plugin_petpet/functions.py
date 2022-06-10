@@ -11,9 +11,9 @@ from .utils import UserInfo, save_gif, make_jpg_or_gif, translate
 from .depends import *
 
 
-TEXT_TOO_LONG = "文字太长了哦，改短点再试吧~"
-NAME_TOO_LONG = "名字太长了哦，改短点再试吧~"
-REQUIRE_NAME = "找不到名字，加上名字再试吧~"
+TEXT_TOO_LONG = "文字太长了哦, 改短点再试吧~"
+NAME_TOO_LONG = "名字太长了哦, 改短点再试吧~"
+REQUIRE_NAME = "找不到名字, 加上名字再试吧~"
 REQUIRE_ARG = "该表情至少需要一个参数"
 
 
@@ -450,7 +450,7 @@ def ask(user: UserInfo = User(), arg: str = Arg()):
     start_h = img_h - gradient_h + 5
     text_img1 = Text2Image.from_text(f"{name}", 28, fill="orange", bold=True).to_image()
     text_img2 = Text2Image.from_text(
-        f"{name}不知道哦。", 28, fill="white", bold=True
+        f"{name}不知道哦.", 28, fill="white", bold=True
     ).to_image()
     img.paste(
         text_img1,
@@ -482,7 +482,7 @@ def ask(user: UserInfo = User(), arg: str = Arg()):
         )
         frame.draw_text(
             (sep_w, img_h + sep_h, img_w + sep_w, img_h + sep_h * 2),
-            f"啊这，{ta}说不知道",
+            f"啊这, {ta}说不知道",
             max_fontsize=35,
             halign="left",
         )
@@ -893,7 +893,7 @@ def always_like(users: List[UserInfo] = Users(1, 6), args: List[str] = Args(0, 6
         )
         name = (args[i] if len(args) > i else "") or user.name
         if not name:
-            return "找不到对应的名字，名字数须与目标数一致"
+            return "找不到对应的名字, 名字数须与目标数一致"
         try:
             frame.draw_text(
                 (400, current_h, frame.width - 20, current_h + 80),

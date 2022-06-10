@@ -38,7 +38,7 @@ async def _(matcher: Matcher, bot: Bot, event: GroupMessageEvent, state: T_State
                     try:
                         await bot.send_group_msg(
                             group_id=event.group_id,
-                            message=at(event.user_id) + "检测到恶意触发命令，您将被封禁 30 分钟",
+                            message=at(event.user_id) + "检测到恶意触发命令, 您将被封禁 30 分钟",
                         )
                     except ActionFailed:
                         pass
@@ -46,7 +46,7 @@ async def _(matcher: Matcher, bot: Bot, event: GroupMessageEvent, state: T_State
                     try:
                         await bot.send_private_msg(
                             user_id=event.user_id,
-                            message=at(event.user_id) + "检测到恶意触发命令，您将被封禁 30 分钟",
+                            message=at(event.user_id) + "检测到恶意触发命令, 您将被封禁 30 分钟",
                         )
                     except ActionFailed:
                         pass

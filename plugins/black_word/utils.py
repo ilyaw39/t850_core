@@ -161,7 +161,7 @@ async def _punish_handle(
     user_id: int, group_id: Optional[int], punish_level: int, black_word: str
 ):
     """
-    惩罚措施，级别越低惩罚越严
+    惩罚措施, 级别越低惩罚越严
     :param user_id: 用户id
     :param group_id: 群号
     :param black_word: 触发的黑名单词汇
@@ -171,7 +171,7 @@ async def _punish_handle(
     cycle_days = Config.get_config("black_word", "CYCLE_DAYS") or 7
     # 用户周期内触发punish_level级惩罚的次数
     user_count = await BlackWord.get_user_count(user_id, cycle_days, punish_level)
-    # 获取最近一次的惩罚等级，将在此基础上增加
+    # 获取最近一次的惩罚等级, 将在此基础上增加
     punish_level = await BlackWord.get_user_punish_level(user_id, cycle_days) or punish_level
     # 容忍次数：List[int]
     tolerate_count = Config.get_config("black_word", "TOLERATE_COUNT")
@@ -202,9 +202,9 @@ async def _punish_handle(
         await send_msg(
             user_id,
             group_id,
-            f"BlackWordChecker：该条发言已被记录，目前你在{cycle_days}天内的发表{punish_level}级"
-            f"言论记录次数为：{user_count}次，请注意你的发言\n"
-            f"* 如果你不清楚惩罚机制，请发送“惩罚机制” *",
+            f"BlackWordChecker：该条发言已被记录, 目前你在{cycle_days}天内的发表{punish_level}级"
+            f"言论记录次数为：{user_count}次, 请注意你的发言\n"
+            f"* 如果你不清楚惩罚机制, 请发送“惩罚机制” *",
         )
 
 
@@ -220,9 +220,9 @@ async def _get_punish(
     bot = get_bot()
     # 忽略的群聊
     # _ignore_group = Config.get_config("black_word", "IGNORE_GROUP")
-    # 处罚 id 4 ban 时间：int，List[int]
+    # 处罚 id 4 ban 时间：int, List[int]
     ban_3_duration = Config.get_config("black_word", "BAN_3_DURATION")
-    # 处罚 id 4 ban 时间：int，List[int]
+    # 处罚 id 4 ban 时间：int, List[int]
     ban_4_duration = Config.get_config("black_word", "BAN_4_DURATION")
     # 口头警告内容
     warning_result = Config.get_config("black_word", "WARNING_RESULT")
@@ -247,7 +247,7 @@ async def _get_punish(
                 logger.info(f"BlackWord 删除好友 {user_id}...")
             except ActionFailed:
                 pass
-    # 封禁用户指定时间，默认7天
+    # 封禁用户指定时间, 默认7天
     elif id_ == 3:
         if isinstance(ban_3_duration, list):
             ban_3_duration = random.randint(ban_3_duration[0], ban_3_duration[1])
@@ -255,11 +255,11 @@ async def _get_punish(
         await send_msg(
             user_id,
             group_id,
-            f"BlackWordChecker 对用户 USER {uname}({user_id}) 进行封禁 {ban_3_duration} 天处罚。",
+            f"BlackWordChecker 对用户 USER {uname}({user_id}) 进行封禁 {ban_3_duration} 天处罚.",
         )
         logger.info(f"BlackWord 封禁 USER {uname}({user_id}) {ban_3_duration} 天...")
         return ban_3_duration
-    # 封禁用户指定时间，默认360分钟
+    # 封禁用户指定时间, 默认360分钟
     elif id_ == 4:
         if isinstance(ban_4_duration, list):
             ban_4_duration = random.randint(ban_4_duration[0], ban_4_duration[1])
@@ -267,7 +267,7 @@ async def _get_punish(
         await send_msg(
             user_id,
             group_id,
-            f"BlackWordChecker 对用户 USER {uname}({user_id}) 进行封禁 {ban_4_duration} 分钟处罚。",
+            f"BlackWordChecker 对用户 USER {uname}({user_id}) 进行封禁 {ban_4_duration} 分钟处罚.",
         )
         logger.info(f"BlackWord 封禁 USER {uname}({user_id}) {ban_4_duration} 分钟...")
         return ban_4_duration
@@ -300,7 +300,7 @@ async def send_msg(user_id: int, group_id: Optional[int], message: str):
 
 async def check_text(text: str) -> bool:
     """
-    ALAPI文本检测，检测输入违规
+    ALAPI文本检测, 检测输入违规
     :param text: 回复
     """
     if not Config.get_config("alapi", "ALAPI_TOKEN"):

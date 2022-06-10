@@ -59,4 +59,4 @@ async def _(bot: Bot, event: MessageEvent, state: T_State, img_url: Message = Ar
             f"USER {event.user_id} GROUP "
             f"{event.group_id if isinstance(event, GroupMessageEvent) else 'private'} 识番 {img_url} 未找到"
         )
-        await what_anime.send(f"没有寻找到该番剧，果咩..", at_sender=True)
+        await what_anime.send(f"没有寻找到该番剧, 果咩..", at_sender=True)

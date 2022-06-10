@@ -45,7 +45,7 @@ async def _(bot: Bot, event: GroupMessageEvent, state: T_State):
             for file in os.listdir(path):
                 await upload_gocq_lasted(path, file, event.group_id)
                 logger.info(f"更新了cqhttp...{file}")
-            await lasted_gocqhttp.send(f"gocqhttp更新了，已上传成功！\n更新内容：\n{info}")
+            await lasted_gocqhttp.send(f"gocqhttp更新了, 已上传成功！\n更新内容：\n{info}")
         except Exception as e:
             logger.error(f"更新gocq错误 e：{e}")
 
@@ -68,7 +68,7 @@ async def _():
                 for file in os.listdir(path):
                     await upload_gocq_lasted(path, file, group)
                 await bot.send_group_msg(
-                    group_id=group, message=f"gocqhttp更新了，已上传成功！\n更新内容：\n{info}"
+                    group_id=group, message=f"gocqhttp更新了, 已上传成功！\n更新内容：\n{info}"
                 )
         except Exception as e:
             logger.error(f"自动更新gocq出错 e:{e}")

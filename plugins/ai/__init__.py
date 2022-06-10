@@ -29,7 +29,7 @@ __plugin_configs__ = {
     "ALAPI_AI_CHECK": {"value": False, "help": "是否检测青云客骂娘回复", "default_value": False},
     "TEXT_FILTER": {
         "value": ["鸡", "口交"],
-        "help": "文本过滤器，将敏感词更改为*",
+        "help": "文本过滤器, 将敏感词更改为*",
         "default_value": [],
     },
 }

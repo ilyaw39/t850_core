@@ -113,6 +113,6 @@ async def set_user_punish(user_id: int, id_: int, punish_level: int) -> str:
         5: "口头警告"
     }
     if await BlackWord.set_user_punish(user_id, punish[punish_level], id_=id_):
-        return f"已对 USER {user_id} 进行 {punish[punish_level]} 处罚。"
+        return f"已对 USER {user_id} 进行 {punish[punish_level]} 处罚."
     else:
-        return "操作失败，可能未找到用户，id或敏感词"
+        return "操作失败, 可能未找到用户, id或敏感词"

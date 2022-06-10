@@ -19,7 +19,7 @@ import numpy as np
 __zx_plugin_name__ = "各种图片简易操作"
 __plugin_usage__ = """
 usage：
-    简易的基础图片操作，输入 指定操作 或 序号 来进行选择
+    简易的基础图片操作, 输入 指定操作 或 序号 来进行选择
     指令：
         1.修改尺寸 [宽] [高] [图片]
         2.等比压缩 [比例] [图片]
@@ -97,7 +97,7 @@ def parse_key(key: str):
             await update_img.finish("已取消操作..")
         if key == "method":
             if inp not in method_oper:
-                await update_img.reject_arg("method", f"操作不正确，请重新输入！{method_str}")
+                await update_img.reject_arg("method", f"操作不正确, 请重新输入！{method_str}")
         elif key == "x":
             method = state["method"]
             if method in ["1", "修改尺寸"]:

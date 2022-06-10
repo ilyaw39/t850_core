@@ -29,7 +29,7 @@ driver: Driver = nonebot.get_driver()
 async def update_city():
     """
     部分插件需要中国省份城市
-    这里直接更新，避免插件内代码重复
+    这里直接更新, 避免插件内代码重复
     """
     china_city = TEXT_PATH / "china_city.json"
     data = {}
@@ -157,9 +157,9 @@ async def _(bot: Bot):
     """
     版本某些需要的变换
     """
-    # 清空不存在的群聊信息，并将已所有已存在的群聊group_flag设置为1（认证所有已存在的群）
+    # 清空不存在的群聊信息, 并将已所有已存在的群聊group_flag设置为1（认证所有已存在的群）
     if not await GroupInfo.get_group_info(114514):
-        # 标识符，该功能只需执行一次
+        # 标识符, 该功能只需执行一次
         await GroupInfo.add_group_info(114514, "114514", 114514, 114514, 1)
         group_list = await bot.get_group_list()
         group_list = [g["group_id"] for g in group_list]

@@ -61,7 +61,7 @@ Config.add_plugin_config(
     "black_word",
     "TOLERATE_COUNT",
     [5, 1, 1, 1, 1],
-    help_="各个级别惩罚的容忍次数，依次为：1, 2, 3, 4, 5",
+    help_="各个级别惩罚的容忍次数, 依次为：1, 2, 3, 4, 5",
     default_value=[5, 1, 1, 1, 1],
 )
 
@@ -70,14 +70,14 @@ Config.add_plugin_config(
 )
 
 # Config.add_plugin_config(
-#     "black_word", "IGNORE_GROUP", [], help_="退出群聊惩罚中忽略的群聊，即不会退出的群聊", default_value=[]
+#     "black_word", "IGNORE_GROUP", [], help_="退出群聊惩罚中忽略的群聊, 即不会退出的群聊", default_value=[]
 # )
 
 Config.add_plugin_config(
     "black_word",
     "BAN_4_DURATION",
     360,
-    help_="Union[int, List[int, int]]Ban时长（分钟），四级惩罚，可以为指定数字或指定列表区间(随机)，例如 [30, 360]",
+    help_="Union[int, List[int, int]]Ban时长（分钟）, 四级惩罚, 可以为指定数字或指定列表区间(随机), 例如 [30, 360]",
     default_value=360,
 )
 
@@ -85,7 +85,7 @@ Config.add_plugin_config(
     "black_word",
     "BAN_3_DURATION",
     7,
-    help_="Union[int, List[int, int]]Ban时长（天），三级惩罚，可以为指定数字或指定列表区间(随机)，例如 [7, 30]",
+    help_="Union[int, List[int, int]]Ban时长（天）, 三级惩罚, 可以为指定数字或指定列表区间(随机), 例如 [7, 30]",
     default_value=360,
 )
 
@@ -101,7 +101,7 @@ Config.add_plugin_config(
     "black_word",
     "AUTO_ADD_PUNISH_LEVEL",
     True,
-    help_="自动提级机制，当周期内处罚次数大于某一特定值就提升惩罚等级",
+    help_="自动提级机制, 当周期内处罚次数大于某一特定值就提升惩罚等级",
     default_value=True,
 )
 
@@ -117,7 +117,7 @@ Config.add_plugin_config(
     "black_word",
     "ALAPI_CHECK_FLAG",
     False,
-    help_="当未检测到已收录的敏感词时，开启ALAPI文本检测并将疑似文本发送给超级用户",
+    help_="当未检测到已收录的敏感词时, 开启ALAPI文本检测并将疑似文本发送给超级用户",
     default_value=False,
 )
 
@@ -125,7 +125,7 @@ Config.add_plugin_config(
     "black_word",
     "CONTAIN_BLACK_STOP_PROPAGATION",
     True,
-    help_="当文本包含任意敏感词时，停止向下级插件传递，即不触发ai",
+    help_="当文本包含任意敏感词时, 停止向下级插件传递, 即不触发ai",
     default_value=True,
 )
 
@@ -180,7 +180,7 @@ async def _(bot: Bot, reg_group: Tuple[Any, ...] = RegexGroup()):
         try:
             date = datetime.strptime(date, "%Y-%m-%d")
         except ValueError:
-            await show_black.finish("日期格式错误，需要：年-月-日")
+            await show_black.finish("日期格式错误, 需要：年-月-日")
     pic = await show_black_text_image(
         bot,
         int(user_id.split(":")[1]) if user_id else None,
@@ -196,9 +196,9 @@ async def _():
     text = f"""
     ** 惩罚机制 **
 
-    惩罚前包含容忍机制，在指定周期内会容忍偶尔少次数的敏感词只会进行警告提醒
+    惩罚前包含容忍机制, 在指定周期内会容忍偶尔少次数的敏感词只会进行警告提醒
 
-    多次触发同级惩罚会使惩罚等级提高，即惩罚自动提级机制
+    多次触发同级惩罚会使惩罚等级提高, 即惩罚自动提级机制
 
     目前公开的惩罚等级：
 
@@ -214,9 +214,9 @@ async def _():
 
     备注：
 
-        该功能为测试阶段，如果你有被误封情况，请联系管理员，会从数据库中提取出你的数据进行审核后判断
+        该功能为测试阶段, 如果你有被误封情况, 请联系管理员, 会从数据库中提取出你的数据进行审核后判断
 
-        目前该功能暂不完善，部分情况会由管理员鉴定，请注意对灵梦的发言
+        目前该功能暂不完善, 部分情况会由管理员鉴定, 请注意对灵梦的发言
     
     关于敏感词：
         
@@ -242,7 +242,7 @@ async def _(event: MessageEvent, arg: Message = CommandArg()):
         or not is_number(msg[1])
         or not is_number(msg[2])
     ):
-        await set_punish.finish("参数错误，请查看帮助...", at_sender=True)
+        await set_punish.finish("参数错误, 请查看帮助...", at_sender=True)
     uid = int(msg[0])
     id_ = int(msg[1])
     punish_level = int(msg[2])

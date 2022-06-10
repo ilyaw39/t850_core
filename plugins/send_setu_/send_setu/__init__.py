@@ -45,7 +45,7 @@ except ModuleNotFoundError:
 __zx_plugin_name__ = "色图"
 __plugin_usage__ = f"""
 usage：
-    搜索 lolicon 图库，每日色图time...
+    搜索 lolicon 图库, 每日色图time...
     指令：
         色图: 随机本地色图
         色图r: 随机在线十张r18涩图
@@ -57,7 +57,7 @@ usage：
     示例：色图 萝莉|少女 白丝|黑丝
     示例：色图 萝莉 猫娘
     注：
-        tag至多取前20项，| 为或，萝莉|少女=萝莉或者少女
+        tag至多取前20项, | 为或, 萝莉|少女=萝莉或者少女
 """.strip()
 __plugin_des__ = "不要小看涩图啊混蛋！"
 __plugin_cmd__ = ["色图 ?[id]", "色图 ?[tags]", "色图r ?[tags]", "[1-9]张?[tags]色图"]
@@ -72,31 +72,31 @@ __plugin_settings__ = {
 }
 __plugin_block_limit__ = {}
 __plugin_cd_limit__ = {
-    "rst": "您冲的太快了，请稍后再冲.",
+    "rst": "您冲的太快了, 请稍后再冲.",
 }
 __plugin_configs__ = {
     "WITHDRAW_SETU_MESSAGE": {
         "value": (0, 1),
-        "help": "自动撤回，参1：延迟撤回色图时间(秒)，0 为关闭 | 参2：监控聊天类型，0(私聊) 1(群聊) 2(群聊+私聊)",
+        "help": "自动撤回, 参1：延迟撤回色图时间(秒), 0 为关闭 | 参2：监控聊天类型, 0(私聊) 1(群聊) 2(群聊+私聊)",
         "default_value": (0, 1),
     },
     "ONLY_USE_LOCAL_SETU": {
         "value": False,
-        "help": "仅仅使用本地色图，不在线搜索",
+        "help": "仅仅使用本地色图, 不在线搜索",
         "default_value": False,
     },
     "INITIAL_SETU_PROBABILITY": {
         "value": 0.7,
-        "help": "初始色图概率，总概率 = 初始色图概率 + ",
+        "help": "初始色图概率, 总概率 = 初始色图概率 + ",
         "default_value": 0.7,
     },
     "DOWNLOAD_SETU": {
         "value": True,
-        "help": "是否存储下载的色图，使用本地色图可以加快图片发送速度",
+        "help": "是否存储下载的色图, 使用本地色图可以加快图片发送速度",
         "default_value": True,
     },
     "TIMEOUT": {"value": 10, "help": "色图下载超时限制(秒)", "default_value": 10},
-    "SHOW_INFO": {"value": True, "help": "是否显示色图的基本信息，如PID等", "default_value": True},
+    "SHOW_INFO": {"value": True, "help": "是否显示色图的基本信息, 如PID等", "default_value": True},
     "ALLOW_GROUP_R18": {"value": False, "help": "在群聊中启用R18权限", "default_value": False},
 }
 Config.add_plugin_config("pixiv", "PIXIV_NGINX_URL", "i.pixiv.re", help_="Pixiv反向代理")
@@ -226,12 +226,12 @@ async def send_setu_handle(
     r18: int,
 ):
     global setu_data_list
-    # 非 id，在线搜索
+    # 非 id, 在线搜索
     tags = msg.split()
     # 灵梦的色图？怎么可能
     if f"{NICKNAME}" in tags:
-        await matcher.finish("咳咳咳，虽然我很可爱，但是我木有自己的色图~~~有的话记得发我一份呀")
-    # 本地先拿图，下载失败补上去
+        await matcher.finish("咳咳咳, 虽然我很可爱, 但是我木有自己的色图~~~有的话记得发我一份呀")
+    # 本地先拿图, 下载失败补上去
     setu_list, code = None, 200
     setu_count = await get_setu_count(r18)
     if (
@@ -243,7 +243,7 @@ async def send_setu_handle(
         )
         for x in add_databases_list:
             setu_data_list.append(x)
-        # 未找到符合的色图，想来本地应该也没有
+        # 未找到符合的色图, 想来本地应该也没有
         if code == 401:
             await setu.finish(urls[0], at_sender=True)
         if code == 200:
@@ -290,7 +290,7 @@ async def send_setu_handle(
                             Config.get_config("send_setu", "WITHDRAW_SETU_MESSAGE"),
                         )
                 except ActionFailed:
-                    await matcher.finish("坏了，这张图色过头了，我自己看看就行了！", at_sender=True)
+                    await matcher.finish("坏了, 这张图色过头了, 我自己看看就行了！", at_sender=True)
             return
     if code != 200:
         await matcher.finish("网络连接失败...", at_sender=True)
@@ -302,7 +302,7 @@ async def send_setu_handle(
     # 开始发图
     for _ in range(num):
         if not setu_list:
-            await setu.finish("坏了，已经没图了，被榨干了！")
+            await setu.finish("坏了, 已经没图了, 被榨干了！")
         setu_image = random.choice(setu_list)
         setu_list.remove(setu_image)
         try:
@@ -323,4 +323,4 @@ async def send_setu_handle(
                 f" 发送本地色图 {setu_image.local_id}.png"
             )
         except ActionFailed:
-            await matcher.finish("坏了，这张图色过头了，我自己看看就行了！", at_sender=True)
+            await matcher.finish("坏了, 这张图色过头了, 我自己看看就行了！", at_sender=True)

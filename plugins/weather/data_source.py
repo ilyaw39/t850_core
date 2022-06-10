@@ -21,7 +21,7 @@ async def get_weather_of_city(city: str) -> str:
     """
     code = _check_exists_city(city)
     if code == 999:
-        return "不要查一个省份的天气啊，很累人的！"
+        return "不要查一个省份的天气啊, 很累人的！"
     elif code == 998:
         return f"{NICKNAME}没查到!!试试查火星的天气？"
     else:

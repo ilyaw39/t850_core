@@ -59,7 +59,7 @@ async def _(bot: Bot, event: GroupMessageEvent, arg: Message = CommandArg()):
                 name = msg
             _user_prop_count = property_[name]
             if num > _user_prop_count:
-                await use_props.finish(f"道具数量不足，无法使用{num}次！")
+                await use_props.finish(f"道具数量不足, 无法使用{num}次！")
             if num > (n := func_manager.get_max_num_limit(name)):
                 await use_props.finish(f"该道具单次只能使用 {n} 个！")
             if await BagUser.delete_property(

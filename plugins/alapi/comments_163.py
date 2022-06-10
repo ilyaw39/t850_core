@@ -6,11 +6,11 @@ from services.log import logger
 __zx_plugin_name__ = "网易云热评"
 __plugin_usage__ = """
 usage：
-    到点了，还是防不了下塔
+    到点了, 还是防不了下塔
     指令：
         网易云热评/到点了/12点了
 """.strip()
-__plugin_des__ = "生了个人，我很抱歉"
+__plugin_des__ = "生了个人, 我很抱歉"
 __plugin_cmd__ = ["网易云热评", "到点了", "12点了"]
 __plugin_version__ = 0.1
 __plugin_author__ = "HibiKier"

@@ -12,9 +12,9 @@ from typing import Tuple
 __zx_plugin_name__ = "原神自动签到"
 __plugin_usage__ = """
 usage：
-    米游社原神签到，需要uid以及cookie
+    米游社原神签到, 需要uid以及cookie
     且在第二天自动排序签到时间
-    # 不听，就要手动签到！（使用命令 “原神我硬签 or 米游社我硬签”
+    # 不听, 就要手动签到！（使用命令 “原神我硬签 or 米游社我硬签”
     指令：
         开/关原神自动签到
         原神我硬签
@@ -52,7 +52,7 @@ async def _(event: MessageEvent, cmd: Tuple[str, ...] = Command()):
                 f"(USER {event.user_id}, "
                 f"GROUP {event.group_id if isinstance(event, GroupMessageEvent) else 'private'}) UID：{uid} 原神签到"
             )
-            # 硬签，移除定时任务
+            # 硬签, 移除定时任务
             try:
                 for i in range(3):
                     scheduler.remove_job(f"genshin_auto_sign_{uid}_{event.user_id}_{i}",)

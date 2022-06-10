@@ -6,7 +6,7 @@ Config.add_plugin_config(
     "CHECK_NOTICE_INFO_CD",
     300,
     name="基础hook配置",
-    help_="群检测，个人权限检测等各种检测提示信息cd",
+    help_="群检测, 个人权限检测等各种检测提示信息cd",
     default_value=300
 )
 

@@ -69,10 +69,10 @@ async def get_memo(uid: str, server_id: str) -> "Union[str, dict], int":
             return data["data"], 200
         return data["message"], 999
     except TimeoutError:
-        return "访问超时，请稍后再试", 997
+        return "访问超时, 请稍后再试", 997
     except Exception as e:
         logger.error(f"便签查询获取失败未知错误 {e}：{e}")
-        return "发生了一些错误，请稍后再试", 998
+        return "发生了一些错误, 请稍后再试", 998
 
 
 def create_border(

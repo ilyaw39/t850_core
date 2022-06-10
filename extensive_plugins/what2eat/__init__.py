@@ -155,7 +155,7 @@ async def _(bot: Bot, event: GroupMessageEvent, args: Message = CommandArg()):
     msg = eating_manager.remove_greating(args[0])
     await remove_greating.finish(msg)
 
-# 重置吃什么次数，包括夜宵
+# 重置吃什么次数, 包括夜宵
 @eating_helper.scheduled_job("cron", hour="6,11,17,22", minute=0)
 async def _():
     eating_manager.reset_eating()

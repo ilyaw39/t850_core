@@ -62,7 +62,7 @@ def compressed_image(
     参数：
         :param in_file: 被压缩的文件路径
         :param out_file: 压缩后输出的文件路径
-        :param ratio: 压缩率，宽高 * 压缩率
+        :param ratio: 压缩率, 宽高 * 压缩率
     """
     in_file = IMAGE_PATH / in_file if isinstance(in_file, str) else in_file
     if out_file:
@@ -159,15 +159,15 @@ class BuildImage:
     ):
         """
         参数：
-            :param w: 自定义图片的宽度，w=0时为图片原本宽度
-            :param h: 自定义图片的高度，h=0时为图片原本高度
-            :param paste_image_width: 当图片做为背景图时，设置贴图的宽度，用于贴图自动换行
-            :param paste_image_height: 当图片做为背景图时，设置贴图的高度，用于贴图自动换行
+            :param w: 自定义图片的宽度, w=0时为图片原本宽度
+            :param h: 自定义图片的高度, h=0时为图片原本高度
+            :param paste_image_width: 当图片做为背景图时, 设置贴图的宽度, 用于贴图自动换行
+            :param paste_image_height: 当图片做为背景图时, 设置贴图的高度, 用于贴图自动换行
             :param color: 生成图片的颜色
             :param image_mode: 图片的类型
             :param font_size: 文字大小
             :param background: 打开图片的路径
-            :param font: 字体，默认在 resource/ttf/ 路径下
+            :param font: 字体, 默认在 resource/ttf/ 路径下
             :param ratio: 倍率压缩
             :param is_alpha: 是否背景透明
             :param plain_text: 纯文字文本
@@ -239,10 +239,10 @@ class BuildImage:
         说明：
             异步 贴图
         参数：
-            :param img: 已打开的图片文件，可以为 BuildImage 或 Image
+            :param img: 已打开的图片文件, 可以为 BuildImage 或 Image
             :param pos: 贴图位置（左上角）
             :param alpha: 图片背景是否为透明
-            :param center_type: 居中类型，可能的值 center: 完全居中，by_width: 水平居中，by_height: 垂直居中
+            :param center_type: 居中类型, 可能的值 center: 完全居中, by_width: 水平居中, by_height: 垂直居中
         """
         await self.loop.run_in_executor(None, self.paste, img, pos, alpha, center_type)
 
@@ -257,10 +257,10 @@ class BuildImage:
         说明：
             贴图
         参数：
-            :param img: 已打开的图片文件，可以为 BuildImage 或 Image
+            :param img: 已打开的图片文件, 可以为 BuildImage 或 Image
             :param pos: 贴图位置（左上角）
             :param alpha: 图片背景是否为透明
-            :param center_type: 居中类型，可能的值 center: 完全居中，by_width: 水平居中，by_height: 垂直居中
+            :param center_type: 居中类型, 可能的值 center: 完全居中, by_width: 水平居中, by_height: 垂直居中
         """
         if center_type:
             if center_type not in ["center", "by_height", "by_width"]:
@@ -378,7 +378,7 @@ class BuildImage:
             :param pos: 文字位置
             :param text: 文字内容
             :param fill: 文字颜色
-            :param center_type: 居中类型，可能的值 center: 完全居中，by_width: 水平居中，by_height: 垂直居中
+            :param center_type: 居中类型, 可能的值 center: 完全居中, by_width: 水平居中, by_height: 垂直居中
         """
         await self.loop.run_in_executor(None, self.text, pos, text, fill, center_type)
 
@@ -396,7 +396,7 @@ class BuildImage:
             :param pos: 文字位置
             :param text: 文字内容
             :param fill: 文字颜色
-            :param center_type: 居中类型，可能的值 center: 完全居中，by_width: 水平居中，by_height: 垂直居中
+            :param center_type: 居中类型, 可能的值 center: 完全居中, by_width: 水平居中, by_height: 垂直居中
         """
         if center_type:
             if center_type not in ["center", "by_height", "by_width"]:
@@ -479,7 +479,7 @@ class BuildImage:
         说明：
             异步 裁剪图片
         参数：
-            :param box: 左上角坐标，右下角坐标 (left, upper, right, lower)
+            :param box: 左上角坐标, 右下角坐标 (left, upper, right, lower)
         """
         await self.loop.run_in_executor(None, self.crop, box)
 
@@ -488,7 +488,7 @@ class BuildImage:
         说明：
             裁剪图片
         参数：
-            :param box: 左上角坐标，右下角坐标 (left, upper, right, lower)
+            :param box: 左上角坐标, 右下角坐标 (left, upper, right, lower)
         """
         self.markImg = self.markImg.crop(box)
         self.w, self.h = self.markImg.size
@@ -799,7 +799,7 @@ class BuildImage:
         说明：
             异步 颜色替换
         参数：
-            :param src_color: 目标颜色，或者使用列表，设置阈值
+            :param src_color: 目标颜色, 或者使用列表, 设置阈值
             :param replace_color: 替换颜色
         """
         self.loop.run_in_executor(
@@ -817,7 +817,7 @@ class BuildImage:
         说明：
             颜色替换
         参数：
-            :param src_color: 目标颜色，或者使用元祖，设置阈值
+            :param src_color: 目标颜色, 或者使用元祖, 设置阈值
             :param replace_color: 替换颜色
         """
         if isinstance(src_color, tuple):
@@ -847,7 +847,7 @@ class BuildImage:
 
 class BuildMat:
     """
-    针对 折线图/柱状图，基于 BuildImage 编写的 非常难用的 自定义画图工具
+    针对 折线图/柱状图, 基于 BuildImage 编写的 非常难用的 自定义画图工具
     目前仅支持 正整数
     """
 
@@ -876,21 +876,21 @@ class BuildMat:
             初始化 BuildMat
         参数：
             :param y: 坐标值
-            :param mat_type: 图像类型 可能的值：[line]: 折线图，[bar]: 柱状图，[barh]: 横向柱状图
+            :param mat_type: 图像类型 可能的值：[line]: 折线图, [bar]: 柱状图, [barh]: 横向柱状图
             :param x_name: 横坐标名称
             :param y_name: 纵坐标名称
             :param x_index: 横坐标值
             :param y_index: 纵坐标值
             :param x_rotate: 横坐标旋转角度
             :param title: 标题
-            :param size: 图像大小，建议默认
+            :param size: 图像大小, 建议默认
             :param font: 字体
-            :param font_size: 字体大小，建议默认
+            :param font_size: 字体大小, 建议默认
             :param display_num: 是否显示数值
             :param is_grid: 是否添加栅格
             :param background: 背景图片
             :param background_filler_type: 图像填充类型
-            :param bar_color: 柱状图颜色，位 ['*'] 时替换位彩虹随机色
+            :param bar_color: 柱状图颜色, 位 ['*'] 时替换位彩虹随机色
         """
         self.mat_type = mat_type
         self.markImg = None
@@ -1209,7 +1209,7 @@ class BuildMat:
     ) -> BuildImage:
         """
         说明：
-            初始化图像，生成xy轴
+            初始化图像, 生成xy轴
         参数：
             :param x_name: x轴名称
             :param y_name: y轴名称
@@ -1348,18 +1348,18 @@ async def text2image(
             fs / font_size: int -> 特殊文本大小
             fc / font_color: Union[str, Tuple[int, int, int]] -> 特殊文本颜色
         示例
-            在不在，<f font=NotoSerifSC-Bold.otf font_size=30 font_color=red>HibiKi小姐</f>，
-            你最近还好吗，<f font_size=15 font_color=black>我非常想你</f>，这段时间我非常不好过，
-            <f font_size=25>抽卡抽不到金色</f>，这让我很痛苦
+            在不在, <f font=NotoSerifSC-Bold.otf font_size=30 font_color=red>HibiKi小姐</f>, 
+            你最近还好吗, <f font_size=15 font_color=black>我非常想你</f>, 这段时间我非常不好过, 
+            <f font_size=25>抽卡抽不到金色</f>, 这让我很痛苦
     参数：
         :param text: 文本
-        :param auto_parse: 是否自动解析，否则原样发送
+        :param auto_parse: 是否自动解析, 否则原样发送
         :param font_size: 普通字体大小
         :param color: 背景颜色
         :param font: 普通字体
         :param font_color: 普通字体颜色
-        :param padding: 文本外边距，元组类型时为 （上，左，下，右）
-        :param _add_height: 由于get_size无法返回正确的高度，采用手动方式额外添加高度
+        :param padding: 文本外边距, 元组类型时为 （上, 左, 下, 右）
+        :param _add_height: 由于get_size无法返回正确的高度, 采用手动方式额外添加高度
     """
     pw = ph = top_padding = left_padding = 0
     if padding:
@@ -1395,7 +1395,7 @@ async def text2image(
         new_text += text.split("</f>")[-1]
         image_list = []
         current_placeholder_index = 0
-        # 切分换行，每行为单张图片
+        # 切分换行, 每行为单张图片
         for s in new_text.split("\n"):
             _tmp_text = s
             img_height = BuildImage(0, 0, font_size=font_size).getsize("正")[1]

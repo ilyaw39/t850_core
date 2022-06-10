@@ -40,14 +40,14 @@ class Plugins2countManager(StaticData):
         :param plugin: 插件模块名称
         :param max_count: 最大次数限制
         :param status: 默认开关状态
-        :param limit_type: 限制类型 监听对象，以user_id或group_id作为键来限制，'user'：用户id，'group'：群id
-        :param rst: 回复的话，为空则不回复
+        :param limit_type: 限制类型 监听对象, 以user_id或group_id作为键来限制, 'user'：用户id, 'group'：群id
+        :param rst: 回复的话, 为空则不回复
         """
         max_count = max_count or 5
         status = status or True
         limit_type = limit_type or "user"
         if limit_type not in ["user", "group"]:
-            raise ValueError(f"{plugin} 添加count限制错误，‘limit_type‘ 必须为 'user'/'group'")
+            raise ValueError(f"{plugin} 添加count限制错误, ‘limit_type‘ 必须为 'user'/'group'")
         self._data[plugin] = {
             "max_count": max_count,
             "status": status,

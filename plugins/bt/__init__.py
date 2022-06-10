@@ -18,7 +18,7 @@ usage：
         示例：bt 钢铁侠
         示例：bt 钢铁侠 3
 """.strip()
-__plugin_des__ = "bt(磁力搜索)[仅支持私聊，懂的都懂]"
+__plugin_des__ = "bt(磁力搜索)[仅支持私聊, 懂的都懂]"
 __plugin_cmd__ = ["bt [关键词] ?[页数]"]
 __plugin_version__ = 0.1
 __plugin_author__ = "HibiKier"
@@ -28,7 +28,7 @@ __plugin_settings__ = {
     "limit_superuser": False,
     "cmd": ["bt", "磁力搜索", "Bt", "BT"],
 }
-__plugin_block_limit__ = {"rst": "您有bt任务正在进行，请等待结束."}
+__plugin_block_limit__ = {"rst": "您有bt任务正在进行, 请等待结束."}
 __plugin_configs__ = {
     "BT_MAX_NUM": {
         "value": 10,

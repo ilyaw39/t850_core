@@ -32,7 +32,7 @@ class ChatHistory(db.Model):
             获取用户消息
         参数：
             :param uid: 用户qq
-            :param msg_type: 消息类型，私聊或群聊
+            :param msg_type: 消息类型, 私聊或群聊
             :param days: 限制日期
         """
         return await cls._get_msg(uid, None, "user", msg_type, days).gino.all()
@@ -52,7 +52,7 @@ class ChatHistory(db.Model):
             :param uid: qq
             :param gid: 群号
             :param limit: 获取数量
-            :param date_scope: 日期范围，默认None为全搜索
+            :param date_scope: 日期范围, 默认None为全搜索
         """
         return (
             await cls._get_msg(uid, gid, "group", days=date_scope)
@@ -91,7 +91,7 @@ class ChatHistory(db.Model):
         参数：
             :param gid: 群号
             :param limit: 获取数量
-            :param order: 排序类型，desc，des
+            :param order: 排序类型, desc, des
             :param date_scope: 日期范围
         """
         sql = f"SELECT user_qq, COUNT(id) as sum FROM public.chat_history WHERE group_id = {gid} "
@@ -128,7 +128,7 @@ class ChatHistory(db.Model):
             获取用户消息数量
         参数：
             :param uid: 用户qq
-            :param msg_type: 消息类型，私聊或群聊
+            :param msg_type: 消息类型, 私聊或群聊
             :param days: 限制日期
         """
         return (
@@ -183,8 +183,8 @@ class ChatHistory(db.Model):
         参数：
             :param uid: 用户qq
             :param gid: 群号
-            :param type_: 类型，私聊或群聊
-            :param msg_type: 消息类型，用户或群聊
+            :param type_: 类型, 私聊或群聊
+            :param msg_type: 消息类型, 用户或群聊
             :param days: 限制日期
         """
         if is_select_count:

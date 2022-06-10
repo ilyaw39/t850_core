@@ -11,7 +11,7 @@ except ModuleNotFoundError:
 class PluginConfig(BaseModel):
     fortune_path: str = os.path.join(os.path.dirname(__file__), "resource")
     '''
-        各主题抽签开关，仅在random抽签中生效
+        各主题抽签开关, 仅在random抽签中生效
         请确保不全是False
     '''
     amazing_grace: bool = False
@@ -48,7 +48,7 @@ CONFIG_PATH: Path = Path(FORTUNE_PATH) / "fortune_config.json"
 @driver.on_startup
 async def check_config():
     if not CONFIG_PATH.exists():
-        logger.warning("配置文件不存在，已重新生成配置文件……")
+        logger.warning("配置文件不存在, 已重新生成配置文件……")
         config = PluginConfig()
     else:
         with CONFIG_PATH.open("r", encoding="utf-8") as f:
@@ -57,7 +57,7 @@ async def check_config():
             config = PluginConfig.parse_obj({**global_config.dict(), **data})
         except ValidationError:
             config = PluginConfig()
-            logger.warning("配置文件格式错误，已重新生成配置文件……")
+            logger.warning("配置文件格式错误, 已重新生成配置文件……")
         
     with CONFIG_PATH.open("w", encoding="utf-8") as f:
         json.dump(config.dict(), f, ensure_ascii=False, indent=4)

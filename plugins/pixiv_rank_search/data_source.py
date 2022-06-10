@@ -65,7 +65,7 @@ async def parser_data(
     :param url: hibiapi搜索url
     :param num: 数量
     :param params: 参数
-    :param type_: 类型，rank或search
+    :param type_: 类型, rank或search
     :param r18: 是否r18
     """
     info_list = []

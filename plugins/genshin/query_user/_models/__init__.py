@@ -61,7 +61,7 @@ class Genshin(db.Model):
     async def set_bind_group(cls, uid: int, bind_group) -> bool:
         """
         说明：
-            绑定group_id，除私聊外的提醒将在此群发送
+            绑定group_id, 除私聊外的提醒将在此群发送
         参数：
             :param uid: uid
             :param bind_group: 群号
@@ -250,7 +250,7 @@ class Genshin(db.Model):
         参数：
             :param uid: 原神uid
         """
-        # 查找用户今日是否已经查找过，防止重复
+        # 查找用户今日是否已经查找过, 防止重复
         query = cls.query.where(cls.today_query_uid.contains(str(uid)))
         x = await query.gino.first()
         if x:

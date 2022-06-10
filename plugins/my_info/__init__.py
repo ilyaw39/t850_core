@@ -33,7 +33,7 @@ async def _(event: GroupMessageEvent):
 async def get_member_info(user_qq: int, group_id: int) -> str:
     user = await GroupInfoUser.get_member_info(user_qq, group_id)
     if user is None:
-        return "该群员不在列表中，请更新群成员信息"
+        return "该群员不在列表中, 请更新群成员信息"
     result = ""
     result += "昵称:" + user.user_name + "\n"
     result += "加群时间:" + str(user.user_join_time.date() + timedelta(hours=8))
@@ -43,5 +43,5 @@ async def get_member_info(user_qq: int, group_id: int) -> str:
 @my_level.handle()
 async def _(event: GroupMessageEvent):
     if (level := await LevelUser.get_user_level(event.user_id, event.group_id)) == -1:
-        await my_level.finish("您目前没有任何权限了，硬要说的话就是0吧~", at_sender=True)
+        await my_level.finish("您目前没有任何权限了, 硬要说的话就是0吧~", at_sender=True)
     await my_level.finish(f"您目前的权限等级：{level}", at_sender=True)

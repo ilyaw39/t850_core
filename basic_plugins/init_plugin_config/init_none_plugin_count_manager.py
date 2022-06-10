@@ -42,14 +42,14 @@ def init_none_plugin_count_manager():
                     plugins_manager.save()
                     # resources_manager.remove_resource(module)
                     none_plugin_count_manager.delete(module)
-                    logger.info(f"{module}:{plugin_name} 插件疑似已删除，清除对应插件数据...")
+                    logger.info(f"{module}:{plugin_name} 插件疑似已删除, 清除对应插件数据...")
                 except Exception as e:
                     logger.exception(
-                        f"{module}:{plugin_name} 插件疑似已删除，清除对应插件数据失败...{type(e)}：{e}")
+                        f"{module}:{plugin_name} 插件疑似已删除, 清除对应插件数据失败...{type(e)}：{e}")
             else:
                 none_plugin_count_manager.add_count(module)
                 logger.info(
-                    f"{module}:{plugin_name} 插件疑似已删除，加载{none_plugin_count_manager._max_count}次失败后将清除对应插件数据，当前次数：{none_plugin_count_manager._data[module]}")
+                    f"{module}:{plugin_name} 插件疑似已删除, 加载{none_plugin_count_manager._max_count}次失败后将清除对应插件数据, 当前次数：{none_plugin_count_manager._data[module]}")
         else:
             none_plugin_count_manager.reset(module)
     none_plugin_count_manager.save()

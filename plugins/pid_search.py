@@ -54,7 +54,7 @@ async def _g(event: MessageEvent, state: T_State, pid: str = Arg("pid")):
     if pid in ["取消", "算了"]:
         await pid_search.finish("已取消操作...")
     if not is_number(pid):
-        await pid_search.reject_arg("pid", "笨蛋，重新输入数！字！")
+        await pid_search.reject_arg("pid", "笨蛋, 重新输入数！字！")
     for _ in range(3):
         try:
             data = (

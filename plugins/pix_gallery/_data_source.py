@@ -189,7 +189,7 @@ async def search_image(
                     except UniqueViolationError:
                         logger.warning(f'{data["pid"]} | {img_url} 已存在...')
         except Exception as e:
-            logger.warning(f"PIX在线搜索图片错误，已再次调用 {type(e)}：{e}")
+            logger.warning(f"PIX在线搜索图片错误, 已再次调用 {type(e)}：{e}")
             await search_image(url, keyword, params, semaphore, page, black)
     return pid_count, pic_count
 
@@ -279,7 +279,7 @@ async def remove_image(pid: int, img_p: str) -> bool:
     """
     删除置顶图片
     :param pid: pid
-    :param img_p: 图片 p 如 p0，p1 等
+    :param img_p: 图片 p 如 p0, p1 等
     """
     if img_p:
         if "p" not in img_p:

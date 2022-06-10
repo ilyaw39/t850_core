@@ -5,7 +5,7 @@ from pathlib import Path
 
 class NonePluginCountManager(StaticData):
     """
-    插件加载容忍管理器，当连续 max_count 次插件加载，视为删除插件，清楚数据
+    插件加载容忍管理器, 当连续 max_count 次插件加载, 视为删除插件, 清楚数据
     """
 
     def __init__(self, file: Optional[Path], max_count: int = 5):
@@ -22,7 +22,7 @@ class NonePluginCountManager(StaticData):
         """
         添加次数
         :param module: 模块
-        :param count: 次数，无特殊情况均为 1
+        :param count: 次数, 无特殊情况均为 1
         """
         if module not in self._data.keys():
             self._data[module] = count

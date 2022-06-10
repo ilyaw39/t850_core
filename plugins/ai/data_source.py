@@ -25,7 +25,7 @@ anime_data = json.load(open(DATA_PATH / "anime.json", "r", encoding="utf8"))
 
 async def get_chat_result(text: str, img_url: str, user_id: int, nickname: str) -> str:
     """
-    获取 AI 返回值，顺序： 特殊回复 -> 图灵 -> 青云客
+    获取 AI 返回值, 顺序： 特殊回复 -> 图灵 -> 青云客
     :param text: 问题
     :param img_url: 图片链接
     :param user_id: 用户id
@@ -169,9 +169,9 @@ def hello() -> str:
         (
             "哦豁？！",
             "你好！Ov<",
-            f"库库库，呼唤{NICKNAME}做什么呢",
+            f"库库库, 呼唤{NICKNAME}做什么呢",
             "我在呢！",
-            "呼呼，叫俺干嘛",
+            "呼呼, 叫俺干嘛",
         )
     )
     img = random.choice(os.listdir(IMAGE_PATH / "zai"))
@@ -203,7 +203,7 @@ def no_result() -> str:
 
 async def check_text(text: str) -> str:
     """
-    ALAPI文本检测，主要针对青云客API，检测为恶俗文本改为无回复的回答
+    ALAPI文本检测, 主要针对青云客API, 检测为恶俗文本改为无回复的回答
     :param text: 回复
     """
     if not Config.get_config("alapi", "ALAPI_TOKEN"):

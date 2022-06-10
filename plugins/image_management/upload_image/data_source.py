@@ -23,7 +23,7 @@ async def upload_image_to_local(
     success_id = ""
     for img_url in img_list:
         if await AsyncHttpx.download_file(img_url, path / f"{img_id}.jpg"):
-            success_id += str(img_id) + "，"
+            success_id += str(img_id) + ", "
             img_id += 1
         else:
             failed_list.append(img_url)
@@ -32,7 +32,7 @@ async def upload_image_to_local(
         failed_result += str(img) + "\n"
     logger.info(
         f"USER {user_id}  GROUP {group_id}"
-        f" 上传图片至 {_path_name} 共 {len(img_list)} 张，失败 {len(failed_list)} 张，id={success_id[:-1]}"
+        f" 上传图片至 {_path_name} 共 {len(img_list)} 张, 失败 {len(failed_list)} 张, id={success_id[:-1]}"
     )
     if failed_list:
         return (

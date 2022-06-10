@@ -106,9 +106,9 @@ class EatingManager:
                 ]
             )
         else:
-            # 菜单全为空，建议避免["basic_food"]为空
+            # 菜单全为空, 建议避免["basic_food"]为空
             if len(self._data["basic_food"]) == 0 and len(self._data["group_food"][group_id]) == 0:
-                return "还没有菜单呢，就先饿着肚子吧，请[添加 菜名]🤤"
+                return "还没有菜单呢, 就先饿着肚子吧, 请[添加 菜名]🤤"
             
             food_list = self._data["basic_food"].copy()
             if len(self._data["group_food"][group_id]) > 0:
@@ -199,7 +199,7 @@ class EatingManager:
         # 在基础菜单
         else:
             if user_id not in config.superusers:
-                return f"{food_to_remove} 在基础菜单中，非超管不可操作哦~"
+                return f"{food_to_remove} 在基础菜单中, 非超管不可操作哦~"
             else:
                 self._data["basic_food"].remove(food_to_remove)
                 self.save()
@@ -236,7 +236,7 @@ class EatingManager:
             for food in self._data["group_food"][group_id]:
                 msg += MessageSegment.text(f"{food}\n")
         
-        return msg if len(msg) > 0 else "还没有群菜单呢，请[添加 菜名]~"
+        return msg if len(msg) > 0 else "还没有群菜单呢, 请[添加 菜名]~"
 
     def show_basic_menu(self) -> str:
         msg = []
@@ -246,10 +246,10 @@ class EatingManager:
             for food in self._data["basic_food"]:
                 msg += MessageSegment.text(f"{food}\n")
         
-        return msg if len(msg) > 0 else "还没有基础菜单呢，请[添加 菜名]~"
+        return msg if len(msg) > 0 else "还没有基础菜单呢, 请[添加 菜名]~"
 
     '''
-        干饭/摸鱼小助手：获取问候语，问候语为空返回None
+        干饭/摸鱼小助手：获取问候语, 问候语为空返回None
     '''
     def get2greating(self, meal: Meals) -> Optional[str]:
         if len(self._greating.get(meal.value)) > 0:

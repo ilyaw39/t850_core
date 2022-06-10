@@ -10,7 +10,7 @@ url = "https://buff.163.com/api/market/goods"
 async def get_price(d_name: str) -> "str, int":
     """
     查看皮肤价格
-    :param d_name: 武器皮肤，如：awp 二西莫夫
+    :param d_name: 武器皮肤, 如：awp 二西莫夫
     """
     cookie = {"session": Config.get_config("search_buff_skin_price", "COOKIE")}
     name_list = []
@@ -26,7 +26,7 @@ async def get_price(d_name: str) -> "str, int":
         if response.status_code == 200:
             try:
                 if response.text.find("Login Required") != -1:
-                    return "BUFF登录被重置，请联系管理员重新登入", 996
+                    return "BUFF登录被重置, 请联系管理员重新登入", 996
                 data = response.json()["data"]
                 total_page = data["total_page"]
                 data = data["items"]

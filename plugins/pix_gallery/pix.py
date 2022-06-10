@@ -17,7 +17,7 @@ __plugin_usage__ = """
 usage：
     查看 pix 好康图库
     指令：
-        pix ?*[tags]: 通过 tag 获取相似图片，不含tag时随机抽取
+        pix ?*[tags]: 通过 tag 获取相似图片, 不含tag时随机抽取
         pid [uid]: 通过uid获取图片
         pix pid[pid]: 查看图库中指定pid图片
 """.strip()
@@ -25,8 +25,8 @@ __plugin_superuser_usage__ = """
 usage：
     超级用户额外的 pix 指令
     指令：
-        pix -s ?*[tags]: 通过tag获取色图，不含tag时随机
-        pix -r ?*[tags]: 通过tag获取r18图，不含tag时随机
+        pix -s ?*[tags]: 通过tag获取色图, 不含tag时随机
+        pix -r ?*[tags]: 通过tag获取r18图, 不含tag时随机
 """.strip()
 __plugin_des__ = "这里是PIX图库！"
 __plugin_cmd__ = [
@@ -44,7 +44,7 @@ __plugin_settings__ = {
     "limit_superuser": False,
     "cmd": ["pix", "Pix", "PIX", "pIx"],
 }
-__plugin_block_limit__ = {"rst": "您有PIX图片正在处理，请稍等..."}
+__plugin_block_limit__ = {"rst": "您有PIX图片正在处理, 请稍等..."}
 __plugin_configs__ = {
     "MAX_ONCE_NUM2FORWARD": {
         "value": None,
@@ -87,7 +87,7 @@ async def _(bot: Bot, event: MessageEvent, arg: Message = CommandArg()):
         if (nsfw_tag == 1 and not Config.get_config("pix", "ALLOW_GROUP_SETU")) or (
             nsfw_tag == 2 and not Config.get_config("pix", "ALLOW_GROUP_R18")
         ):
-            await pix.finish("你不能看这些噢，这些都是是留给管理员看的...")
+            await pix.finish("你不能看这些噢, 这些都是是留给管理员看的...")
     if n := len(x) == 1 and is_number(x[0]) and int(x[0]) < 100:
         num = int(x[0])
         keyword = ""
@@ -99,7 +99,7 @@ async def _(bot: Bot, event: MessageEvent, arg: Message = CommandArg()):
                     str(event.user_id) in bot.config.superusers and num > 30
                 ):
                     num = random.randint(1, 10)
-                    await pix.send(f"太贪心了，就给你发 {num}张 好了")
+                    await pix.send(f"太贪心了, 就给你发 {num}张 好了")
             x = x[:-1]
             keyword = " ".join(x)
     pix_num = int(num * PIX_RATIO) + 15 if PIX_RATIO != 0 else 0
@@ -141,7 +141,7 @@ async def _(bot: Bot, event: MessageEvent, arg: Message = CommandArg()):
         img_url = None
         author = None
         # if not all_image:
-        #     await pix.finish("坏了...发完了，没图了...")
+        #     await pix.finish("坏了...发完了, 没图了...")
         img = random.choice(all_image)
         all_image.remove(img)
         if isinstance(img, OmegaPixivIllusts):
@@ -174,7 +174,7 @@ async def _(bot: Bot, event: MessageEvent, arg: Message = CommandArg()):
             msg_list.append("这张图似乎下载失败了")
             logger.info(
                 f"(USER {event.user_id}, GROUP {event.group_id if isinstance(event, GroupMessageEvent) else 'private'})"
-                f" 查看PIX图库PID: {pid}，下载图片出错"
+                f" 查看PIX图库PID: {pid}, 下载图片出错"
             )
     if (
         Config.get_config("pix", "MAX_ONCE_NUM2FORWARD")

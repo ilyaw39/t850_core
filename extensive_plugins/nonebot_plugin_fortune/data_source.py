@@ -176,7 +176,7 @@ class FortuneManager:
 
     def get_setting(self, event: GroupMessageEvent) -> str:
         '''
-            获取当前群抽签主题，若没有数据则置随机
+            获取当前群抽签主题, 若没有数据则置随机
         '''
         group_id = str(event.group_id)
         if group_id not in self.setting["group_rule"].keys():

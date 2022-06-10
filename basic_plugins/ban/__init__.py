@@ -27,7 +27,7 @@ usage：
 """.strip()
 __plugin_superuser_usage__ = """
 usage：
-    b了=屏蔽用户消息，相当于最上级.ban
+    b了=屏蔽用户消息, 相当于最上级.ban
     跨群ban以及跨群b了
     指令：
         b了 [at/qq]
@@ -100,7 +100,7 @@ async def _(
                 and str(event.user_id) not in bot.config.superusers
             ):
                 await ban.finish(
-                    f"ban掉 {user_name} 的管理员权限比您高，无法进行unban", at_sender=True
+                    f"ban掉 {user_name} 的管理员权限比您高, 无法进行unban", at_sender=True
                 )
             if await BanUser.unban(qq):
                 logger.info(
@@ -169,4 +169,4 @@ async def _(bot: Bot, event: MessageEvent, arg: Message = CommandArg()):
             await BanUser.ban(qq, 10, 99999999)
         await ban.send(f"已将 {user_name} 拉入黑名单！")
     else:
-        await super_ban.send("需要添加被super ban的对象，可以使用at或者指定qq..")
+        await super_ban.send("需要添加被super ban的对象, 可以使用at或者指定qq..")

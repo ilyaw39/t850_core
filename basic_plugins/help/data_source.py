@@ -202,7 +202,7 @@ def _create_help_img(
             font_size=24,
             color="white" if not ix % 2 else "black",
         )
-        # 切分，判断插件开关状态
+        # 切分, 判断插件开关状态
         _s_height = 10
         for _s in simple_help_str.split("\n"):
             text_color = (255, 255, 255) if ix % 2 else (0, 0, 0)
@@ -290,7 +290,7 @@ def _create_help_img(
         BuildImage(
             0,
             0,
-            plain_text="注: 红字代表功能被群管理员禁用，红线代表功能正在维护",
+            plain_text="注: 红字代表功能被群管理员禁用, 红线代表功能正在维护",
             font_size=24,
             font="NotoSerifSC-Bold.otf",
             font_color=(231, 74, 57)
@@ -305,7 +305,7 @@ def get_max_width_or_paste(
     simple_help_img_list: list, B: BuildImage = None, is_paste: bool = False
 ) -> "int, BuildImage":
     """
-    获取最大宽度，或直接贴图
+    获取最大宽度, 或直接贴图
     :param simple_help_img_list: 简单帮助图片列表
     :param B: 背景图
     :param is_paste: 是否直接贴图

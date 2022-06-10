@@ -8,7 +8,7 @@ v0.2.6
 
 适用于真寻 [Nonebot2](https://github.com/nonebot/nonebot2) 的 what2eat 今天吃什么插件
 
-数据默认位于`./resource`下`data.json`与`greating.json`，可通过设置`env`下`WHAT2EAT_PATH`更改；基础菜单、群特色菜单及群友询问Bot次数会记录在该文件中：
+数据默认位于`./resource`下`data.json`与`greating.json`, 可通过设置`env`下`WHAT2EAT_PATH`更改；基础菜单、群特色菜单及群友询问Bot次数会记录在该文件中：
 
     ```python
     WHAT2EAT_PATH="your-path-to-resource"
@@ -18,7 +18,7 @@ v0.2.6
 
 1. 选择恐惧症？让Bot建议你今天吃什么！
 
-2. 每餐每个时间段询问Bot建议上限可通过`EATING_LIMIT`修改（默认5次），每日6点、11点、17点、22点（夜宵）自动刷新：
+2. 每餐每个时间段询问Bot建议上限可通过`EATING_LIMIT`修改（默认5次）, 每日6点、11点、17点、22点（夜宵）自动刷新：
     
     ```python
     EATING_LIMIT=99
@@ -28,7 +28,7 @@ v0.2.6
 
 4. 各群特色菜单相互独立；各群每个时间段询问Bot建议次数独立；Bot会综合各群菜单+基础菜单给出建议；查看群菜单与基础菜单命令分立；
 
-5. 提醒按时吃饭小助手：每天7、12、15、18、22点群发**问候语**提醒群友按时吃饭/摸鱼，`GROUPS_ID`设置需要群发的群号列表，形如：
+5. 提醒按时吃饭小助手：每天7、12、15、18、22点群发**问候语**提醒群友按时吃饭/摸鱼, `GROUPS_ID`设置需要群发的群号列表, 形如：
 
     ```python
     GROUPS_ID=["123456789", "987654321"]
@@ -38,9 +38,9 @@ v0.2.6
 
 7. 吃什么帮助文案；
 
-8. **新增** 更多的预置基础菜单，精选家常菜及八大菜系（未经核实）；
+8. **新增** 更多的预置基础菜单, 精选家常菜及八大菜系（未经核实）；
 
-9. **新增** 初次使用该插件时，若不存在`data.json`与`greating.json`，设置`USE_PRESET_MENU`及`USE_PRESET_GREATING`可获取仓库中最新的预置菜单及问候语；若存在`data.json`与`greating.json`，则对应参数不会生效：
+9. **新增** 初次使用该插件时, 若不存在`data.json`与`greating.json`, 设置`USE_PRESET_MENU`及`USE_PRESET_GREATING`可获取仓库中最新的预置菜单及问候语；若存在`data.json`与`greating.json`, 则对应参数不会生效：
 
     ```python
     USE_PRESET_MENU=true
@@ -99,7 +99,7 @@ v0.2.6
 
     [群管] Q：移除 东方馅挂炒饭
 
-    A：东方馅挂炒饭 在基础菜单中，非超管不可操作哦~
+    A：东方馅挂炒饭 在基础菜单中, 非超管不可操作哦~
 
 ## 本插件改自：
 

@@ -52,7 +52,7 @@ class PluginsManager(StaticData):
             锁定插件
         参数：
             :param module: 功能模块名
-            :param group_id: 群组，None时为超级用户禁用
+            :param group_id: 群组, None时为超级用户禁用
             :param block_type: 限制类型
         """
         self._set_plugin_status(module, "block", group_id, block_type)

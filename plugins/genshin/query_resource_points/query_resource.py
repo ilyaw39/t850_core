@@ -47,7 +47,7 @@ async def query_resource(resource_name: str) -> str:
         resource_name = resource_name[:-2].strip()
         planning_route = True
     if not resource_name or resource_name not in resource_name_list:
-        # return f"未查找到 {resource_name} 资源，可通过 “原神资源列表” 获取全部资源名称.."
+        # return f"未查找到 {resource_name} 资源, 可通过 “原神资源列表” 获取全部资源名称.."
         return ""
     map_ = Map(
         resource_name, CENTER_POINT, planning_route=planning_route, ratio=MAP_RATIO
@@ -75,7 +75,7 @@ def get_resource_type_list():
     mes = "当前资源列表如下：\n"
 
     for resource_type in temp.keys():
-        mes += f"{resource_type}：{'，'.join(temp[resource_type])}\n"
+        mes += f"{resource_type}：{', '.join(temp[resource_type])}\n"
     return mes
 
 
@@ -259,9 +259,9 @@ async def download_image(
                     if gen_flag:
                         gen_icon(path)
                 else:
-                    logger.info(f"下载原神资源图标：{img_url} 失败，等待下次更新...")
+                    logger.info(f"下载原神资源图标：{img_url} 失败, 等待下次更新...")
         except Exception as e:
-            logger.warning(f"原神图片错误..已删除，等待下次更新... file: {path} {type(e)}：{e}")
+            logger.warning(f"原神图片错误..已删除, 等待下次更新... file: {path} {type(e)}：{e}")
             if os.path.exists(path):
                 os.remove(path)
 

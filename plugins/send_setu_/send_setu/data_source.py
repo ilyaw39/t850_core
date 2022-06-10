@@ -29,7 +29,7 @@ async def get_setu_urls(
 ) -> "List[str], List[str], List[tuple], int":
     tags = tags[:3] if len(tags) > 3 else tags
     params = {
-        "r18": r18,  # 添加r18参数 0为否，1为是，2为混合
+        "r18": r18,  # 添加r18参数 0为否, 1为是, 2为混合
         "tag": tags,  # 若指定tag
         "num": 100,  # 一次返回的结果数量
         "size": ["original"],
@@ -110,7 +110,7 @@ async def search_online_setu(
                     compressed_image(
                         path_ / f"{index}.jpg",
                     )
-            logger.info(f"下载 lolicon 图片 {url_} 成功， id：{index}")
+            logger.info(f"下载 lolicon 图片 {url_} 成功,  id：{index}")
             return image(path_ / file_name), index
         except TimeoutError:
             pass
@@ -119,7 +119,7 @@ async def search_online_setu(
     return "图片被小怪兽恰掉啦..!QAQ", -1
 
 
-# 检测本地是否有id涩图，无的话则下载
+# 检测本地是否有id涩图, 无的话则下载
 async def check_local_exists_or_download(setu_image: Setu) -> "MessageSegment, int":
     path_ = None
     id_ = None

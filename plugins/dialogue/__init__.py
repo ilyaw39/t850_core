@@ -25,7 +25,7 @@ superuser usage：
         /t [qq] [group] [文本]: 在group回复指定用户
         /t [qq] [文本]: 私聊用户
         /t -1 [group] [文本]: 在group内发送消息
-        /t [id] [文本]: 回复指定id的对话，id在 /t 中获取
+        /t [id] [文本]: 回复指定id的对话, id在 /t 中获取
         示例：/t 73747222 32848432 你好啊
         示例：/t 73747222 你好不好
         示例：/t -1 32848432 我不太好
@@ -144,7 +144,7 @@ async def _(bot: Bot, event: MessageEvent, arg: Message = CommandArg()):
                 group_id = 0
                 text = " ".join(msg[1:])
     else:
-        await reply.finish("第一参数，请输入数字.....", at_sender=True)
+        await reply.finish("第一参数, 请输入数字.....", at_sender=True)
     for img in get_message_img(event.json()):
         text += image(img)
     if group_id:

@@ -90,13 +90,13 @@ async def _sign(user_id: int, uid: int, count: int):
                 )
                 msg = (
                     f"{now.replace(microsecond=0)} 原神"
-                    f"签到失败，将在 {next_time.replace(microsecond=0)} 时重试！"
+                    f"签到失败, 将在 {next_time.replace(microsecond=0)} 时重试！"
                 )
             else:
-                msg = "今日原神签到失败，请手动签到..."
+                msg = "今日原神签到失败, 请手动签到..."
                 logger.debug(f"USER：{user_id} UID：{uid} 原神今日签到失败...")
     else:
-        msg = "今日原神自动签到重试次数已达到3次，请手动签到。"
+        msg = "今日原神自动签到重试次数已达到3次, 请手动签到."
         logger.debug(f"USER：{user_id} UID：{uid} 原神今日签到失败次数打到 3 次...")
     bot = get_bot()
     if bot:

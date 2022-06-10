@@ -14,7 +14,7 @@ import os
 __zx_plugin_name__ = "商店"
 __plugin_usage__ = """
 usage：
-    商店项目，这可不是奸商
+    商店项目, 这可不是奸商
     指令：
         商店
 """.strip()
@@ -25,7 +25,7 @@ usage：
         添加商品 name:[名称] price:[价格] des:[描述] ?discount:[折扣](小数) ?limit_time:[限时时间](小时)
         删除商品 [名称或序号]
         修改商品 name:[名称或序号] price:[价格] des:[描述] discount:[折扣] limit_time:[限时]
-        示例：添加商品 name:萝莉酒杯 price:9999 des:普通的酒杯，但是里面.. discount:0.4 limit_time:90
+        示例：添加商品 name:萝莉酒杯 price:9999 des:普通的酒杯, 但是里面.. discount:0.4 limit_time:90
         示例：添加商品 name:可疑的药 price:5 des:效果未知
         示例：删除商品 2
         示例：修改商品 name:1 price:900   修改序号为1的商品的价格为900

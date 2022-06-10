@@ -51,7 +51,7 @@ async def _(event: MessageEvent, arg: Message = CommandArg()):
         await fake_msg.send(share(url, title, content, img))
         logger.info(
             f"(USER {event.user_id}, GROUP {event.group_id if isinstance(event, GroupMessageEvent) else 'private'})"
-            f" 构造假消息 url {url}， title {title}， content {content}"
+            f" 构造假消息 url {url},  title {title},  content {content}"
         )
     else:
         await fake_msg.finish("消息格式错误：\n网址 标题 内容（可省略） 图片（可省略）")

@@ -8,7 +8,7 @@ class PluginConfig(BaseModel):
     superusers: List = []
     what2eat_path: str = os.path.join(os.path.dirname(__file__), "resource")
     eating_limit: int = 5
-    groups_id: List = ["871174040"]
+    groups_id: List = ["871174040", "230124276"]
     
     class Config:
         extra = "ignore"

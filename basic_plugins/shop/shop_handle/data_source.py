@@ -142,14 +142,14 @@ async def register_goods(
 ) -> bool:
     """
     添加商品
-    例如：                                                  折扣：可选参数↓  限时时间:可选，单位为小时
-        添加商品 name:萝莉酒杯 price:9999 des:普通的酒杯，但是里面.. discount:0.4 limit_time:90
+    例如：                                                  折扣：可选参数↓  限时时间:可选, 单位为小时
+        添加商品 name:萝莉酒杯 price:9999 des:普通的酒杯, 但是里面.. discount:0.4 limit_time:90
         添加商品 name:可疑的药 price:5 des:效果未知
     :param name: 商品名称
     :param price: 商品价格
     :param des: 商品简介
     :param discount: 商品折扣
-    :param limit_time: 商品限时销售时间，单位为小时
+    :param limit_time: 商品限时销售时间, 单位为小时
     :return: 是否添加成功
     """
     if not await GoodsInfo.get_goods_info(name):
@@ -177,7 +177,7 @@ async def delete_goods(name: str, id_: int) -> "str, str, int":
     goods_lst = await GoodsInfo.get_all_goods()
     if id_:
         if id_ < 1 or id_ > len(goods_lst):
-            return "序号错误，没有该序号商品...", "", 999
+            return "序号错误, 没有该序号商品...", "", 999
         goods_name = goods_lst[id_ - 1].goods_name
         if await GoodsInfo.delete_goods(goods_name):
             return f"删除商品 {goods_name} 成功！", goods_name, 200
@@ -201,12 +201,12 @@ async def update_goods(**kwargs) -> "str, str, int":
         goods_lst = await GoodsInfo.get_all_goods()
         if is_number(kwargs["name"]):
             if int(kwargs["name"]) < 1 or int(kwargs["name"]) > len(goods_lst):
-                return "序号错误，没有该序号的商品...", "", 999
+                return "序号错误, 没有该序号的商品...", "", 999
             goods = goods_lst[int(kwargs["name"]) - 1]
         else:
             goods = await GoodsInfo.get_goods_info(kwargs["name"])
             if not goods:
-                return "名称错误，没有该名称的商品...", "", 999
+                return "名称错误, 没有该名称的商品...", "", 999
         name = goods.goods_name
         price = goods.goods_price
         des = goods.goods_description
@@ -265,16 +265,16 @@ def parse_goods_info(msg: str) -> Union[dict, str]:
                 data["name"] = sp[1]
             elif sp[0] == "price":
                 if not is_number(sp[1]) or int(sp[1]) < 0:
-                    return "price参数不合法，必须大于等于0！"
+                    return "price参数不合法, 必须大于等于0！"
                 data["price"] = sp[1]
             elif sp[0] == "des":
                 data["des"] = sp[1]
             elif sp[0] == "discount":
                 if not is_number(sp[1]) or float(sp[1]) < 0:
-                    return "discount参数不合法，必须大于0！"
+                    return "discount参数不合法, 必须大于0！"
                 data["discount"] = sp[1]
             elif sp[0] == "limit_time":
                 if not is_number(sp[1]) or float(sp[1]) < 0:
-                    return "limit_time参数不合法，必须大于0！"
+                    return "limit_time参数不合法, 必须大于0！"
                 data["limit_time"] = sp[1]
     return data

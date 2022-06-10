@@ -92,7 +92,7 @@ async def get_image(
 {body:"",query:{game_id: 2(目前我知道有崩坏3是1原神是2)}}
 对应 https://api-takumi.mihoyo.com/game_record/app/card/wapi/getAnnouncement?game_id=    这个是公告api
 b=body q=query
-其中b只在post的时候有内容，q只在get的时候有内容
+其中b只在post的时候有内容, q只在get的时候有内容
 """
 
 
@@ -119,7 +119,7 @@ async def get_info(uid_: str, server_id: str) -> "Optional[Union[dict, str]], in
             return data["data"], 200
         return data["message"], 999
     except Exception as e:
-        logger.error(f"访问失败，请重试！ {type(e)}: {e}")
+        logger.error(f"访问失败, 请重试！ {type(e)}: {e}")
     return None, -1
 
 
@@ -155,7 +155,7 @@ async def get_character(
         if data["message"] == "OK":
             return data["data"]
     except Exception as e:
-        logger.error(f"访问失败，请重试！ {type(e)}: {e}")
+        logger.error(f"访问失败, 请重试！ {type(e)}: {e}")
     return None
 
 
@@ -246,5 +246,5 @@ async def get_mys_data(uid: str, mys_id: Optional[str]) -> Optional[List[Dict]]:
             if data["message"] == "OK":
                 return data["data"]["list"]
         except Exception as e:
-            logger.error(f"访问失败，请重试！ {type(e)}: {e}")
+            logger.error(f"访问失败, 请重试！ {type(e)}: {e}")
     return None

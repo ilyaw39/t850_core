@@ -45,7 +45,7 @@ async def remind(bot: Bot):
                     "python3 bot.py"
                 )
             os.system("chmod +x ./restart.sh")
-            logger.info("已自动生成 restart.sh(重启) 文件，请检查脚本是否与本地指令符合...")
+            logger.info("已自动生成 restart.sh(重启) 文件, 请检查脚本是否与本地指令符合...")
     is_restart_file = Path() / "is_restart"
     if is_restart_file.exists():
         await bot.send_private_msg(
@@ -67,10 +67,10 @@ async def check_update(bot: Bot) -> 'int, str':
         latest_version = data["name"]
         if _version != latest_version:
             tar_gz_url = data["tarball_url"]
-            logger.info(f"检测灵梦已更新，当前版本：{_version}，最新版本：{latest_version}")
+            logger.info(f"检测灵梦已更新, 当前版本：{_version}, 最新版本：{latest_version}")
             await bot.send_private_msg(
                 user_id=int(list(bot.config.superusers)[0]),
-                message=f"检测灵梦已更新，当前版本：{_version}，最新版本：{latest_version}\n" f"开始更新.....",
+                message=f"检测灵梦已更新, 当前版本：{_version}, 最新版本：{latest_version}\n" f"开始更新.....",
             )
             logger.info(f"开始下载灵梦最新版文件....")
             tar_gz_url = (await AsyncHttpx.get(tar_gz_url)).headers.get('Location')
@@ -81,7 +81,7 @@ async def check_update(bot: Bot) -> 'int, str':
                 )
                 if error:
                     return 998, error
-                logger.info("灵梦更新完毕，清理文件完成....")
+                logger.info("灵梦更新完毕, 清理文件完成....")
                 logger.info("开始获取灵梦更新日志.....")
                 update_info = data["body"]
                 width = 0
@@ -96,7 +96,7 @@ async def check_update(bot: Bot) -> 'int, str':
                 A.save(f'{IMAGE_PATH}/update_info.png')
                 await bot.send_private_msg(
                     user_id=int(list(bot.config.superusers)[0]),
-                    message=Message(f"灵梦更新完成，版本：{_version} -> {latest_version}\n"
+                    message=Message(f"灵梦更新完成, 版本：{_version} -> {latest_version}\n"
                                     f"更新日期：{data['created_at']}\n"
                                     f"更新日志：\n"
                                     f"{image('update_info.png')}"),
@@ -109,10 +109,10 @@ async def check_update(bot: Bot) -> 'int, str':
                     message=f"下载灵梦最新版本失败...版本号：{latest_version}.",
                 )
         else:
-            logger.info(f"自动获取灵梦版本成功：{latest_version}，当前版本为最新版，无需更新...")
+            logger.info(f"自动获取灵梦版本成功：{latest_version}, 当前版本为最新版, 无需更新...")
             await bot.send_private_msg(
                 user_id=int(list(bot.config.superusers)[0]),
-                message=f"自动获取灵梦版本成功：{latest_version}，当前版本为最新版，无需更新...",
+                message=f"自动获取灵梦版本成功：{latest_version}, 当前版本为最新版, 无需更新...",
             )
     else:
         logger.warning("自动获取灵梦版本失败....")

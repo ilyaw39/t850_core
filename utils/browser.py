@@ -20,7 +20,7 @@ async def init(**kwargs) -> Optional[Browser]:
         _browser = await browser.chromium.launch(**kwargs)
         return _browser
     except NotImplementedError:
-        logger.warning("win环境下 初始化playwright失败，相关功能将被限制....")
+        logger.warning("win环境下 初始化playwright失败, 相关功能将被限制....")
     except Exception as e:
         logger.warning(f"启动chromium发生错误 {type(e)}：{e}")
         if _browser:

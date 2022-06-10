@@ -19,7 +19,7 @@ driver: Driver = nonebot.get_driver()
 _path = IMAGE_PATH
 
 
-# 替换旧色图数据，修复local_id一直是50的问题
+# 替换旧色图数据, 修复local_id一直是50的问题
 @driver.on_startup
 async def update_old_setu_data():
     path = TEXT_PATH
@@ -65,7 +65,7 @@ async def update_old_setu_data():
                     except UniqueViolationError:
                         fail_count += 1
                         logger.info(
-                            f'添加旧色图数据失败，色图重复 PID：{data[x]["pid"]} index：{idx}....'
+                            f'添加旧色图数据失败, 色图重复 PID：{data[x]["pid"]} index：{idx}....'
                         )
                 file.unlink()
         setu_url_path = path / "setu_url.json"
@@ -74,7 +74,7 @@ async def update_old_setu_data():
             setu_url_path.unlink()
         if setu_r18_url_path.exists():
             setu_r18_url_path.unlink()
-        logger.info(f"更新旧色图数据完成，成功更新数据：{count} 条，累计失败：{fail_count} 条")
+        logger.info(f"更新旧色图数据完成, 成功更新数据：{count} 条, 累计失败：{fail_count} 条")
 
 
 # 删除色图rar文件夹
@@ -135,7 +135,7 @@ async def update_setu_img(flag: bool = False):
                         )
                     else:
                         logger.info(
-                            f"不需要压缩，移动图片{TEMP_PATH}/{image.local_id}.jpg "
+                            f"不需要压缩, 移动图片{TEMP_PATH}/{image.local_id}.jpg "
                             f"--> /{path}/{image.local_id}.jpg"
                         )
                         os.rename(
@@ -143,7 +143,7 @@ async def update_setu_img(flag: bool = False):
                             path / f"{image.local_id}.jpg",
                         )
                 except FileNotFoundError:
-                    logger.warning(f"文件 {image.local_id}.jpg 不存在，跳过...")
+                    logger.warning(f"文件 {image.local_id}.jpg 不存在, 跳过...")
                     continue
                 img_hash = str(get_img_hash(f"{path}/{image.local_id}.jpg"))
                 await Setu.update_setu_data(image.pid, img_hash=img_hash)
@@ -154,7 +154,7 @@ async def update_setu_img(flag: bool = False):
                         max_num = await Setu.delete_image(image.pid)
                         local_image.unlink()
                         os.rename(path / f"{max_num}.jpg", local_image)
-                        logger.warning(f"更新色图 PID：{image.pid} 404，已删除并替换")
+                        logger.warning(f"更新色图 PID：{image.pid} 404, 已删除并替换")
             except Exception as e:
                 _success -= 1
                 logger.error(f"更新色图 {image.local_id}.jpg 错误 {type(e)}: {e}")
@@ -166,6 +166,6 @@ async def update_setu_img(flag: bool = False):
     if _success or error_info or flag:
         await get_bot().send_private_msg(
             user_id=int(list(get_bot().config.superusers)[0]),
-            message=f'{str(datetime.now()).split(".")[0]} 更新 色图 完成，本地存在 {count} 张，实际更新 {_success} 张，'
+            message=f'{str(datetime.now()).split(".")[0]} 更新 色图 完成, 本地存在 {count} 张, 实际更新 {_success} 张, '
             f"以下为更新时未知错误：\n" + "\n".join(error_info),
         )

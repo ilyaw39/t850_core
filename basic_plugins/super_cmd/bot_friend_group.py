@@ -86,10 +86,10 @@ async def _(bot: Bot, cmd: Tuple[str, ...] = Command(), arg: Message = CommandAr
         else:
             flag = await requests_manager.refused(bot, id_, "private")
         if flag == 1:
-            await friend_handle.send(f"{cmd[:2]}好友请求失败，该请求已失效..")
+            await friend_handle.send(f"{cmd[:2]}好友请求失败, 该请求已失效..")
             requests_manager.delete_request(id_, "private")
         elif flag == 2:
-            await friend_handle.send(f"{cmd[:2]}好友请求失败，未找到此id的请求..")
+            await friend_handle.send(f"{cmd[:2]}好友请求失败, 未找到此id的请求..")
         else:
             await friend_handle.send(f"{cmd[:2]}好友请求成功！")
     else:
@@ -119,14 +119,14 @@ async def _(bot: Bot, cmd: Tuple[str, ...] = Command(), arg: Message = CommandAr
                     )
                 flag = await requests_manager.approve(bot, id_, "group")
             else:
-                await group_handle.send("同意群聊请求失败，未找到此id的请求..")
+                await group_handle.send("同意群聊请求失败, 未找到此id的请求..")
         else:
             flag = await requests_manager.refused(bot, id_, "group")
         if flag == 1:
-            await group_handle.send(f"{cmd[:2]}群聊请求失败，该请求已失效..")
+            await group_handle.send(f"{cmd[:2]}群聊请求失败, 该请求已失效..")
             requests_manager.delete_request(id_, "group")
         elif flag == 2:
-            await group_handle.send(f"{cmd[:2]}群聊请求失败，未找到此id的请求..")
+            await group_handle.send(f"{cmd[:2]}群聊请求失败, 未找到此id的请求..")
         else:
             await group_handle.send(f"{cmd[:2]}群聊请求成功！")
     else:

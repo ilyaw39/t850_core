@@ -69,11 +69,11 @@ async def _(arg: Message = CommandArg()):
         else:
             await start_update.finish("参数错误...第二参数必须为数字")
     if num < 10000:
-        keyword_str = "，".join(
+        keyword_str = ", ".join(
             _keyword[: num if num < len(_keyword) else len(_keyword)]
         )
-        uid_str = "，".join(_uid[: num if num < len(_uid) else len(_uid)])
-        pid_str = "，".join(_pid[: num if num < len(_pid) else len(_pid)])
+        uid_str = ", ".join(_uid[: num if num < len(_uid) else len(_uid)])
+        pid_str = ", ".join(_pid[: num if num < len(_pid) else len(_pid)])
         if msg.lower() == "pid":
             update_lst = _pid
             info = f"开始更新Pixiv搜图PID：\n{pid_str}"
@@ -123,10 +123,10 @@ async def _(arg: Message = CommandArg()):
             x_uid.append(img.uid)
     await check_not_update_uid_pid.send(
         "从未更新过的UID："
-        + "，".join([f"uid:{x}" for x in _uid if x not in x_uid])
+        + ", ".join([f"uid:{x}" for x in _uid if x not in x_uid])
         + "\n"
         + "从未更新过的PID："
-        + "，".join([f"pid:{x}" for x in _pid if x not in x_pid])
+        + ", ".join([f"pid:{x}" for x in _pid if x not in x_pid])
     )
     if flag:
         await check_not_update_uid_pid.send("开始自动自动更新PID....")
@@ -178,7 +178,7 @@ async def _():
                 datetime.min,
         ):
             logger.info(
-                f"成功添加OmegaPixivIllusts图库数据 pid：{pid} 本次预计存储 {length} 张，已更新第 {index} 张"
+                f"成功添加OmegaPixivIllusts图库数据 pid：{pid} 本次预计存储 {length} 张, 已更新第 {index} 张"
             )
         else:
             logger.info(f"添加OmegaPixivIllusts图库数据已存在 ---> pid：{pid}")
@@ -193,7 +193,7 @@ async def _():
         length = len([x for x in lines if "INSERT INTO" in x.upper()])
         all_pid = await OmegaPixivIllusts.get_all_pid()
         index = 0
-        logger.info("检测到OmegaPixivIllusts数据库，准备开始更新....")
+        logger.info("检测到OmegaPixivIllusts数据库, 准备开始更新....")
         for line in lines:
             if "INSERT INTO" in line.upper():
                 index += 1

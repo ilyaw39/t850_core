@@ -137,7 +137,7 @@ class AsyncHttpx:
             :param headers: 请求头
             :param cookies: cookies
             :param timeout: 超时时间
-            :param stream: 是否使用流式下载（流式写入+进度条，适用于下载大文件）
+            :param stream: 是否使用流式下载（流式写入+进度条, 适用于下载大文件）
         """
         if isinstance(path, str):
             path = Path(path)
@@ -235,7 +235,7 @@ class AsyncHttpx:
         """
         if n := len(url_list) != len(path_list):
             raise UrlPathNumberNotEqual(
-                f"Url数量与Path数量不对等，Url：{len(url_list)}，Path：{len(path_list)}"
+                f"Url数量与Path数量不对等, Url：{len(url_list)}, Path：{len(path_list)}"
             )
         if limit_async_number and n > limit_async_number:
             m = float(n) / limit_async_number
@@ -344,7 +344,7 @@ class AsyncPlaywright:
     ) -> Optional[MessageSegment]:
         """
         说明：
-            截图，该方法仅用于简单快捷截图，复杂截图请操作 page
+            截图, 该方法仅用于简单快捷截图, 复杂截图请操作 page
         参数：
             :param url: 网址
             :param path: 存储路径

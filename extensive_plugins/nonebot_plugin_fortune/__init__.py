@@ -11,7 +11,7 @@ __fortune_vsrsion__ = "v0.4.3"
 plugin_notes = f'''
 今日运势 {__fortune_vsrsion__}
 [今日运势/抽签/运势] 抽签
-[指定xx签] 指定特殊角色签底，需要自己尝试哦~
+[指定xx签] 指定特殊角色签底, 需要自己尝试哦~
 [设置xx签] 设置群抽签主题
 [重置抽签] 重置群抽签主题
 [主题列表] 查看可选的抽签主题
@@ -51,7 +51,7 @@ async def _(bot: Bot, event: GroupMessageEvent):
 async def _(bot: Bot, event: GroupMessageEvent):
     image_file, status = fortune_manager.divine(spec_path=None, event=event)
     if not status:
-        msg = MessageSegment.text("你今天抽过签了，再给你看一次哦🤗\n") + MessageSegment.image(image_file)
+        msg = MessageSegment.text("你今天抽过签了, 再给你看一次哦🤗\n") + MessageSegment.image(image_file)
     else:
         logger.info(f"User {event.user_id} | Group {event.group_id} 占卜了今日运势")
         msg = MessageSegment.text("✨今日运势✨\n") + MessageSegment.image(image_file)
@@ -93,12 +93,12 @@ async def _(bot: Bot, event: GroupMessageEvent):
     else:
         spec_path = fortune_manager.limit_setting_check(limit)
         if not spec_path:
-            await limit_setting.finish("还不可以指定这种签哦，请确认该签底对应主题开启或图片路径存在~")
+            await limit_setting.finish("还不可以指定这种签哦, 请确认该签底对应主题开启或图片路径存在~")
         else:
             image_file, status = fortune_manager.divine(spec_path=spec_path, event=event)
         
     if not status:
-        msg = MessageSegment.text("你今天抽过签了，再给你看一次哦🤗\n") + MessageSegment.image(image_file)
+        msg = MessageSegment.text("你今天抽过签了, 再给你看一次哦🤗\n") + MessageSegment.image(image_file)
     else:
         logger.info(f"User {event.user_id} | Group {event.group_id} 占卜了今日运势")
         msg = MessageSegment.text("✨今日运势✨\n") + MessageSegment.image(image_file)

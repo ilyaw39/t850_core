@@ -63,9 +63,9 @@ async def _(
     ):
         await move_img.finish("已取消操作...")
     if source_path not in Config.get_config("image_management", "IMAGE_DIR_LIST"):
-        await move_img.reject_arg("source_path", "移除目录不正确，请重新输入！")
+        await move_img.reject_arg("source_path", "移除目录不正确, 请重新输入！")
     if destination_path not in Config.get_config("image_management", "IMAGE_DIR_LIST"):
-        await move_img.reject_arg("destination_path", "移入目录不正确，请重新输入！")
+        await move_img.reject_arg("destination_path", "移入目录不正确, 请重新输入！")
     if not is_number(img_id):
         await move_img.reject_arg("id", "id不正确！请重新输入数字...")
     source_path = _path / cn2py(source_path)
@@ -79,11 +79,11 @@ async def _(
     source_path.mkdir(exist_ok=True, parents=True)
     destination_path.mkdir(exist_ok=True, parents=True)
     if not len(os.listdir(source_path)):
-        await move_img.finish(f"{source_path}图库中没有任何图片，移动失败。")
+        await move_img.finish(f"{source_path}图库中没有任何图片, 移动失败.")
     max_id = len(os.listdir(source_path)) - 1
     des_max_id = len(os.listdir(destination_path))
     if int(img_id) > max_id or int(img_id) < 0:
-        await move_img.finish(f"Id超过上下限，上限：{max_id}", at_sender=True)
+        await move_img.finish(f"Id超过上下限, 上限：{max_id}", at_sender=True)
     try:
         move_file = source_path / f"{img_id}.jpg"
         move_file.rename(destination_path / f"{des_max_id}.jpg")

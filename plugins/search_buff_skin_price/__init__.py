@@ -28,9 +28,9 @@ __plugin_settings__ = {
     "limit_superuser": False,
     "cmd": ["查询皮肤"],
 }
-__plugin_block_limit__ = {"rst": "您有皮肤正在搜索，请稍等..."}
+__plugin_block_limit__ = {"rst": "您有皮肤正在搜索, 请稍等..."}
 __plugin_configs__ = {
-    "BUFF_PROXY": {"value": None, "help": "BUFF代理，有些厂ip可能被屏蔽"},
+    "BUFF_PROXY": {"value": None, "help": "BUFF代理, 有些厂ip可能被屏蔽"},
     "COOKIE": {"value": None, "help": "BUFF的账号cookie"},
 }
 
@@ -81,7 +81,7 @@ async def arg_handle(
             f"{event.group_id if isinstance(event, GroupMessageEvent) else 'private'}"
             f" 查询皮肤：{name} 没有查询到"
         )
-        await search_skin.finish("没有查询到哦，请检查格式吧")
+        await search_skin.finish("没有查询到哦, 请检查格式吧")
 
 
 update_buff_session = on_command(

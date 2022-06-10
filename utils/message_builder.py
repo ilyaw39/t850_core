@@ -17,8 +17,8 @@ def image(
         生成一个 MessageSegment.image 消息
         生成顺序：绝对路径(abspath) > base64(b64) > img_name
     参数：
-        :param file: 图片文件名称，默认在 resource/img 目录下
-        :param path: 图片所在路径，默认在 resource/img 目录下
+        :param file: 图片文件名称, 默认在 resource/img 目录下
+        :param path: 图片所在路径, 默认在 resource/img 目录下
         :param b64: 图片base64
     """
     if isinstance(file, Path):
@@ -57,8 +57,8 @@ def record(voice_name: str, path: str = None) -> MessageSegment or str:
     说明：
         生成一个 MessageSegment.record 消息
     参数：
-        :param voice_name: 音频文件名称，默认在 resource/voice 目录下
-        :param path: 音频文件路径，默认在 resource/voice 目录下
+        :param voice_name: 音频文件名称, 默认在 resource/voice 目录下
+        :param path: 音频文件路径, 默认在 resource/voice 目录下
     """
     if len(voice_name.split(".")) == 1:
         voice_name += ".mp3"

@@ -40,10 +40,10 @@ async def _(event: MessageEvent, arg: Message = CommandArg()):
     await roll.send(
         random.choice(
             [
-                "转动命运的齿轮，拨开眼前迷雾...",
-                f"启动吧，命运的水晶球，为{user_name}指引方向！",
-                "嗯哼，在此刻转动吧！命运！",
-                f"在此祈愿，请为{user_name}降下指引...",
+                "转动命运的齿轮, 拨开眼前迷雾...",
+                f"启动吧, 命运的水晶球, 为{user_name}指引方向！",
+                "嗯哼, 在此刻转动吧！命运！",
+                f"在此祈愿, 请为{user_name}降下指引...",
             ]
         )
     )
@@ -53,9 +53,9 @@ async def _(event: MessageEvent, arg: Message = CommandArg()):
         random.choice(
             [
                 f"让{NICKNAME}看看是什么结果！答案是：‘{x}’",
-                f"根据命运的指引，接下来{user_name} ‘{x}’ 会比较好",
+                f"根据命运的指引, 接下来{user_name} ‘{x}’ 会比较好",
                 f"祈愿被回应了！是 ‘{x}’！",
-                f"结束了，{user_name}，命运之轮停在了 ‘{x}’！",
+                f"结束了, {user_name}, 命运之轮停在了 ‘{x}’！",
             ]
         )
     )

@@ -15,7 +15,7 @@ import os
 __zx_plugin_name__ = "自动更新 [Superuser]"
 __plugin_usage__ = """
 usage：
-    检查更新灵梦最新版本，包括了自动更新
+    检查更新灵梦最新版本, 包括了自动更新
     指令：
         检查更新灵梦
         重启
@@ -67,7 +67,7 @@ async def _(bot: Bot):
     else:
         if code == 200:
             await bot.send_private_msg(
-                user_id=int(list(bot.config.superusers)[0]), message=f"更新完毕，请重启灵梦...."
+                user_id=int(list(bot.config.superusers)[0]), message=f"更新完毕, 请重启灵梦...."
             )
 
 
@@ -77,7 +77,7 @@ async def _():
         await restart.finish("暂无windows重启脚本...")
 
 
-@restart.got("flag", prompt="确定是否重启灵梦？确定请回复[是|好|确定]（重启失败咱们将失去联系，请谨慎！）")
+@restart.got("flag", prompt="确定是否重启灵梦？确定请回复[是|好|确定]（重启失败咱们将失去联系, 请谨慎！）")
 async def _(flag: str = ArgStr("flag")):
     if flag.lower() in ["true", "是", "好", "确定", "确定是"]:
         await restart.send("开始重启灵梦..请稍等...")
@@ -111,7 +111,7 @@ async def _():
                 await bot.send_private_msg(
                     user_id=int(list(bot.config.superusers)[0]),
                     message=f"检测到灵梦版本更新\n"
-                    f"当前版本：{_version}，最新版本：{latest_version}",
+                    f"当前版本：{_version}, 最新版本：{latest_version}",
                 )
                 if Config.get_config("check_zhenxun_update", "AUTO_UPDATE_ZHENXUN"):
                     try:
@@ -126,5 +126,5 @@ async def _():
                         if code == 200:
                             await bot.send_private_msg(
                                 user_id=int(list(bot.config.superusers)[0]),
-                                message=f"更新完毕，请重启灵梦....",
+                                message=f"更新完毕, 请重启灵梦....",
                             )

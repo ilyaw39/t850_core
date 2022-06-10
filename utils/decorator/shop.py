@@ -24,7 +24,7 @@ class ShopRegister(dict):
     ):
         def add_register_item(func: Callable):
             if name in self._data.keys():
-                raise ValueError("该商品已注册，请替换其他名称！")
+                raise ValueError("该商品已注册, 请替换其他名称！")
             for n, p, d, dd, l, s in zip(name, price, des, discount, limit_time, load_status):
                 if s:
                     _temp_kwargs = {}
@@ -75,7 +75,7 @@ class ShopRegister(dict):
                 if _current_len == -1:
                     _current_len = len(x)
                 if _current_len != len(x):
-                    raise ValueError(f"注册商品 {name} 中 name，price，des，discount，limit_time，load_status 数量不符！")
+                    raise ValueError(f"注册商品 {name} 中 name, price, des, discount, limit_time, load_status 数量不符！")
         _current_len = _current_len if _current_len > -1 else 1
         _name = name if isinstance(name, tuple) else (name,)
         _price = (

@@ -28,7 +28,7 @@ async def group_user_check_in(
     async with db.transaction():
         # 取得相应用户
         user = await SignGroupUser.ensure(user_qq, group, for_update=True)
-        # 如果同一天签到过，特殊处理
+        # 如果同一天签到过, 特殊处理
         if (
             user.checkin_time_last + timedelta(hours=8)
         ).date() >= present.date() or f"{user}_{group}_sign_{datetime.now().date()}" in os.listdir(

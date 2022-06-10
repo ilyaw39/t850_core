@@ -22,7 +22,7 @@ scheduler = require("nonebot_plugin_apscheduler").scheduler
 
 class CountLimiter:
     """
-    次数检测工具，检测调用次数是否超过设定值
+    次数检测工具, 检测调用次数是否超过设定值
     """
 
     def __init__(self, max_count: int):
@@ -64,7 +64,7 @@ class UserBlockLimiter:
 
 class FreqLimiter:
     """
-    命令冷却，检测用户是否处于冷却状态
+    命令冷却, 检测用户是否处于冷却状态
     """
 
     def __init__(self, default_cd_seconds: int):

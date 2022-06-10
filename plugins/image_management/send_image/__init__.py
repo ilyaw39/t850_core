@@ -25,7 +25,7 @@ usage：
         示例：美图 
         示例: 萝莉 2
 """.strip()
-__plugin_des__ = "让看看我的私藏，指[图片]"
+__plugin_des__ = "让看看我的私藏, 指[图片]"
 __plugin_cmd__ = Config.get_config("image_management", "IMAGE_DIR_LIST")
 __plugin_type__ = ("来点好康的",)
 __plugin_version__ = 0.1
@@ -75,7 +75,7 @@ async def _(event: MessageEvent):
             path.mkdir(parents=True, exist_ok=True)
     length = len(os.listdir(path))
     if length == 0:
-        logger.warning(f'图库 {cn2py(gallery)} 为空，调用取消！')
+        logger.warning(f'图库 {cn2py(gallery)} 为空, 调用取消！')
         await send_img.finish("该图库中没有图片噢")
     index = img_id if img_id else str(random.randint(0, length - 1))
     if not is_number(index):

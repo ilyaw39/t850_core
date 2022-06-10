@@ -46,13 +46,13 @@ def init_plugins_cd_limit(data_path):
 # key：模块名称
 # cd：cd 时长（秒）
 # status：此限制的开关状态
-# check_type：'private'/'group'/'all'，限制私聊/群聊/全部
-# limit_type：监听对象，以user_id或group_id作为键来限制，'user'：用户id，'group'：群id
-#                                     示例：'user'：用户N秒内触发1次，'group'：群N秒内触发1次
-# rst：回复的话，可以添加[at]，[uname]，[nickname]来对应艾特，用户群名称，昵称系统昵称
+# check_type：'private'/'group'/'all', 限制私聊/群聊/全部
+# limit_type：监听对象, 以user_id或group_id作为键来限制, 'user'：用户id, 'group'：群id
+#                                     示例：'user'：用户N秒内触发1次, 'group'：群N秒内触发1次
+# rst：回复的话, 可以添加[at], [uname], [nickname]来对应艾特, 用户群名称, 昵称系统昵称
 # rst 为 "" 或 None 时则不回复
-# rst示例："[uname]你冲的太快了，[nickname]先生，请稍后再冲[at]"
-# rst回复："老色批你冲的太快了，欧尼酱先生，请稍后再冲@老色批"
+# rst示例："[uname]你冲的太快了, [nickname]先生, 请稍后再冲[at]"
+# rst回复："老色批你冲的太快了, 欧尼酱先生, 请稍后再冲@老色批"
 #      用户昵称↑     昵称系统的昵称↑          艾特用户↑""",
         indent=2,
     )
@@ -94,13 +94,13 @@ def init_plugins_block_limit(data_path):
 # 用发送消息阻止用户重复调用此命令直到该命令结束
 # key：模块名称
 # status：此限制的开关状态
-# check_type：'private'/'group'/'all'，限制私聊/群聊/全部
-# limit_type：监听对象，以user_id或group_id作为键来限制，'user'：用户id，'group'：群id
-#                                     示例：'user'：阻塞用户，'group'：阻塞群聊
-# rst：回复的话，可以添加[at]，[uname]，[nickname]来对应艾特，用户群名称，昵称系统昵称
+# check_type：'private'/'group'/'all', 限制私聊/群聊/全部
+# limit_type：监听对象, 以user_id或group_id作为键来限制, 'user'：用户id, 'group'：群id
+#                                     示例：'user'：阻塞用户, 'group'：阻塞群聊
+# rst：回复的话, 可以添加[at], [uname], [nickname]来对应艾特, 用户群名称, 昵称系统昵称
 # rst 为 "" 或 None 时则不回复
-# rst示例："[uname]你冲的太快了，[nickname]先生，请稍后再冲[at]"
-# rst回复："老色批你冲的太快了，欧尼酱先生，请稍后再冲@老色批"
+# rst示例："[uname]你冲的太快了, [nickname]先生, 请稍后再冲[at]"
+# rst回复："老色批你冲的太快了, 欧尼酱先生, 请稍后再冲@老色批"
 #      用户昵称↑     昵称系统的昵称↑          艾特用户↑""",
         indent=2,
     )
@@ -138,17 +138,17 @@ def init_plugins_count_limit(data_path):
     _data = round_trip_load(open(plugins2count_file, encoding="utf8"))
     _data["PluginCountLimit"].yaml_set_start_comment(
         """# 命令每日次数限制
-# 即 用户/群聊 每日可调用命令的次数 [数据内存存储，重启将会重置]
+# 即 用户/群聊 每日可调用命令的次数 [数据内存存储, 重启将会重置]
 # 每日调用直到 00:00 刷新
 # key：模块名称
 # max_count: 每日调用上限
 # status：此限制的开关状态
-# limit_type：监听对象，以user_id或group_id作为键来限制，'user'：用户id，'group'：群id
-#                                     示例：'user'：用户上限，'group'：群聊上限
-# rst：回复的话，可以添加[at]，[uname]，[nickname]来对应艾特，用户群名称，昵称系统昵称
+# limit_type：监听对象, 以user_id或group_id作为键来限制, 'user'：用户id, 'group'：群id
+#                                     示例：'user'：用户上限, 'group'：群聊上限
+# rst：回复的话, 可以添加[at], [uname], [nickname]来对应艾特, 用户群名称, 昵称系统昵称
 # rst 为 "" 或 None 时则不回复
-# rst示例："[uname]你冲的太快了，[nickname]先生，请稍后再冲[at]"
-# rst回复："老色批你冲的太快了，欧尼酱先生，请稍后再冲@老色批"
+# rst示例："[uname]你冲的太快了, [nickname]先生, 请稍后再冲[at]"
+# rst回复："老色批你冲的太快了, 欧尼酱先生, 请稍后再冲@老色批"
 #      用户昵称↑     昵称系统的昵称↑          艾特用户↑""",
         indent=2,
     )

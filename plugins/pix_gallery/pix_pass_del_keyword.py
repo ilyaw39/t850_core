@@ -67,7 +67,7 @@ async def _(event: MessageEvent, arg: Message = CommandArg()):
             f" 删除了pixiv搜图关键词:" + msg
         )
     else:
-        await del_keyword.send(f"未查询到搜索关键词/UID/PID：{msg}，删除失败！")
+        await del_keyword.send(f"未查询到搜索关键词/UID/PID：{msg}, 删除失败！")
 
 
 @del_pic.handle()
@@ -95,7 +95,7 @@ async def _(bot: Bot, event: MessageEvent, arg: Message = CommandArg()):
             if is_number(pid):
                 if await Pixiv.query_images(pid=int(pid), r18=2):
                     if await remove_image(int(pid), img_p):
-                        msg += f'{pid}{f"_p{img_p}" if img_p else ""}，'
+                        msg += f'{pid}{f"_p{img_p}" if img_p else ""}, '
                         if flag:
                             if await PixivKeywordUser.add_keyword(
                                 114514,
@@ -103,7 +103,7 @@ async def _(bot: Bot, event: MessageEvent, arg: Message = CommandArg()):
                                 f"black:{pid}{f'_p{img_p}' if img_p else ''}",
                                 bot.config.superusers,
                             ):
-                                black_pid += f'{pid}{f"_p{img_p}" if img_p else ""}，'
+                                black_pid += f'{pid}{f"_p{img_p}" if img_p else ""}, '
                         logger.info(
                             f"(USER {event.user_id}, GROUP "
                             f"{event.group_id if isinstance(event, GroupMessageEvent) else 'private'})"
@@ -143,11 +143,11 @@ async def _(bot: Bot, event: MessageEvent, cmd: Tuple[str, ...] = Command(), arg
             x = f"pid:{x}"
         if x.lower().find("pid") != -1 or x.lower().find("uid") != -1:
             if not is_number(x[4:]):
-                await pass_keyword.send(f"UID/PID：{x} 非全数字，跳过该关键词...")
+                await pass_keyword.send(f"UID/PID：{x} 非全数字, 跳过该关键词...")
                 continue
         user_id, group_id = await PixivKeywordUser.set_keyword_pass(x, flag)
         if not user_id:
-            await pass_keyword.send(f"未找到关键词/UID：{x}，请检查关键词/UID是否存在...")
+            await pass_keyword.send(f"未找到关键词/UID：{x}, 请检查关键词/UID是否存在...")
             continue
         if flag:
             if group_id == -1:
@@ -165,16 +165,16 @@ async def _(bot: Bot, event: MessageEvent, cmd: Tuple[str, ...] = Command(), arg
     msg = " ".join(msg)
     await pass_keyword.send(f'已成功{cmd[0][:2]}搜图关键词：{msg}....')
     for user in tmp["private"]:
-        x = "，".join(tmp["private"][user]["keyword"])
+        x = ", ".join(tmp["private"][user]["keyword"])
         await bot.send_private_msg(
-            user_id=user, message=f"你的关键词/UID/PID {x} 已被管理员通过，将在下一次进行更新..."
+            user_id=user, message=f"你的关键词/UID/PID {x} 已被管理员通过, 将在下一次进行更新..."
         )
     for group in tmp["group"]:
         for user in tmp["group"][group]:
-            x = "，".join(tmp["group"][group][user]["keyword"])
+            x = ", ".join(tmp["group"][group][user]["keyword"])
             await bot.send_group_msg(
                 group_id=group,
-                message=Message(f"{at(user)}你的关键词/UID/PID {x} 已被管理员通过，将在下一次进行更新..."),
+                message=Message(f"{at(user)}你的关键词/UID/PID {x} 已被管理员通过, 将在下一次进行更新..."),
             )
     logger.info(
         f"(USER {event.user_id}, GROUP {event.group_id if isinstance(event, GroupMessageEvent) else 'private'})"

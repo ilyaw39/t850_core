@@ -41,7 +41,7 @@ class LevelUser(db.Model):
             :param user_qq: qq号
             :param group_id: 群号
             :param level: 权限等级
-            :param group_flag: 是否被自动更新刷新权限 0：是，1：否
+            :param group_flag: 是否被自动更新刷新权限 0：是, 1：否
         """
         query = cls.query.where((cls.user_qq == user_qq) & (cls.group_id == group_id))
         query = query.with_for_update()

@@ -17,7 +17,7 @@ def init_plugins_resources():
             try:
                 _module = _plugin.module
             except AttributeError:
-                logger.warning(f"插件 {matcher.plugin_name} 加载失败...，资源控制未加载...")
+                logger.warning(f"插件 {matcher.plugin_name} 加载失败..., 资源控制未加载...")
             else:
                 try:
                     resources = _module.__getattribute__("__plugin_resources__")

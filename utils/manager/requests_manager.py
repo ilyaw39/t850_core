@@ -37,8 +37,8 @@ class RequestManager(StaticData):
     ):
         """
         添加一个请求
-        :param id_: id，用户id或群id
-        :param type_: 类型，private 或 group
+        :param id_: id, 用户id或群id
+        :param type_: 类型, private 或 group
         :param flag: event.flag
         :param nickname: 用户昵称
         :param level: 等级
@@ -67,7 +67,7 @@ class RequestManager(StaticData):
         """
         删除一个请求数据
         :param type_: 类型
-        :param id_: id，user_id 或 group_id
+        :param id_: id, user_id 或 group_id
         """
         for x in self._data[type_].keys():
             if self._data[type_][x].get("id") == id_:
@@ -90,7 +90,7 @@ class RequestManager(StaticData):
         同意请求
         :param bot: Bot
         :param id_: id
-        :param type_: 类型，private 或 group
+        :param type_: 类型, private 或 group
         """
         return await self._set_add_request(bot, id_, type_, True)
 
@@ -99,13 +99,13 @@ class RequestManager(StaticData):
         拒绝请求
         :param bot: Bot
         :param id_: id
-        :param type_: 类型，private 或 group
+        :param type_: 类型, private 或 group
         """
         return await self._set_add_request(bot, id_, type_, False)
 
     def clear(self, type_: Optional[str] = None):   # type_: Optional[Literal["group", "private"]] = None
         """
-        清空所有请求信息，无视请求
+        清空所有请求信息, 无视请求
         :param type_: 类型
         """
         if type_:
@@ -237,7 +237,7 @@ class RequestManager(StaticData):
         处理请求
         :param bot: Bot
         :param id_: id
-        :param type_: 类型，private 或 group
+        :param type_: 类型, private 或 group
         :param approve: 是否同意
         """
         id_ = str(id_)

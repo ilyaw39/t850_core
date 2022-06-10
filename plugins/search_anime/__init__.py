@@ -27,7 +27,7 @@ __plugin_settings__ = {
     "limit_superuser": False,
     "cmd": ["搜番"],
 }
-__plugin_block_limit__ = {"rst": "搜索还未完成，不要重复触发！"}
+__plugin_block_limit__ = {"rst": "搜索还未完成, 不要重复触发！"}
 __plugin_configs__ = {
     "SEARCH_ANIME_MAX_INFO": {"value": 20, "help": "搜索动漫返回的最大数量", "default_value": 20}
 }
@@ -62,4 +62,4 @@ async def _(bot: Bot, event: MessageEvent, state: T_State, key_word: str = ArgSt
         )
     else:
         logger.warning(f"未找到番剧 {key_word}")
-        await search_anime.send(f"未找到番剧 {key_word}（也有可能是超时，再尝试一下？）")
+        await search_anime.send(f"未找到番剧 {key_word}（也有可能是超时, 再尝试一下？）")

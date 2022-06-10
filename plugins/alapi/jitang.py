@@ -11,7 +11,7 @@ usage：
     指令：
         鸡汤
 """.strip()
-__plugin_des__ = "喏，亲手为你煮的鸡汤"
+__plugin_des__ = "喏, 亲手为你煮的鸡汤"
 __plugin_cmd__ = ["鸡汤"]
 __plugin_version__ = 0.1
 __plugin_author__ = "HibiKier"

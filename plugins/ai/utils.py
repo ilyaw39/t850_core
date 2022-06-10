@@ -11,21 +11,21 @@ class AiMessageManager(StaticData):
         super().__init__(None)
         self._same_message = [
             "为什么要发一样的话？",
-            "请不要再重复对我说一句话了，不然我就要生气了！",
-            "别再发这句话了，我已经知道了...",
+            "请不要再重复对我说一句话了, 不然我就要生气了！",
+            "别再发这句话了, 我已经知道了...",
             "你是只会说这一句话吗？",
-            "[*]，你发我也发！",
-            "[uname]，[*]",
+            "[*], 你发我也发！",
+            "[uname], [*]",
             f"救命！有笨蛋一直给{NICKNAME}发一样的话！",
-            "这句话你已经给我发了{}次了，再发就生气！",
+            "这句话你已经给我发了{}次了, 再发就生气！",
         ]
         self._repeat_message = [
             f"请不要学{NICKNAME}说话",
             f"为什么要一直学{NICKNAME}说话？",
             "你再学！你再学我就生气了！",
-            f"呜呜，你是想欺负{NICKNAME}嘛..",
+            f"呜呜, 你是想欺负{NICKNAME}嘛..",
             "[uname]不要再学我说话了！",
-            "再学我说话，我就把你拉进黑名单（生气",
+            "再学我说话, 我就把你拉进黑名单（生气",
             "你再学！[uname]是个笨蛋！",
             "你已经学我说话{}次了！别再学了！",
         ]
@@ -86,7 +86,7 @@ class AiMessageManager(StaticData):
         if msg:
             if "[uname]" in msg:
                 msg = msg.replace("[uname]", nickname)
-            if not msg.startswith("生气了！你好烦，闭嘴！") and "[*]" in msg:
+            if not msg.startswith("生气了！你好烦, 闭嘴！") and "[*]" in msg:
                 msg = msg.replace("[*]", self._data[user_id]["message"][-1])
         return msg
 
@@ -109,7 +109,7 @@ class AiMessageManager(StaticData):
                 rand = random.randint(60, 300)
                 await BanUser.ban(user_id, 9, rand)
                 self._data[user_id]["message"].clear()
-                return f"生气了！你好烦，闭嘴！给我老实安静{rand}秒"
+                return f"生气了！你好烦, 闭嘴！给我老实安静{rand}秒"
             return random.choice(self._same_message).format(cnt)
         return None
 
@@ -132,7 +132,7 @@ class AiMessageManager(StaticData):
                     await BanUser.ban(user_id, 9, rand)
                     self._data[user_id]["result"].clear()
                     self._data[user_id]["repeat_count"] = 0
-                    return f"生气了！你好烦，闭嘴！给我老实安静{rand}秒"
+                    return f"生气了！你好烦, 闭嘴！给我老实安静{rand}秒"
                 return random.choice(self._repeat_message).format(cnt)
         return None
 

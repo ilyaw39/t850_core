@@ -15,7 +15,7 @@ usage：
     指令：
         识图 [图片]
 """.strip()
-__plugin_des__ = "以图搜图，看破本源"
+__plugin_des__ = "以图搜图, 看破本源"
 __plugin_cmd__ = ["识图"]
 __plugin_type__ = ("一些工具",)
 __plugin_version__ = 0.1
@@ -30,7 +30,7 @@ __plugin_configs__ = {
     "MAX_FIND_IMAGE_COUNT": {"value": 3, "help": "识图返回的最大结果数", "default_value": 3},
     "API_KEY": {
         "value": None,
-        "help": "Saucenao的API_KEY，通过 https://saucenao.com/user.php?page=search-api 注册获取",
+        "help": "Saucenao的API_KEY, 通过 https://saucenao.com/user.php?page=search-api 注册获取",
     },
 }
 

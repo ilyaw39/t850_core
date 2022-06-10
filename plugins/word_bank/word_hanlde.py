@@ -24,10 +24,10 @@ from models.group_member_info import GroupInfoUser
 __zx_plugin_name__ = "词库问答 [Admin]"
 __plugin_usage__ = """
 usage：
-    对指定问题的随机回答，对相同问题可以设置多个不同回答
-    删除词条后每个词条的id可能会变化，请查看后再删除
+    对指定问题的随机回答, 对相同问题可以设置多个不同回答
+    删除词条后每个词条的id可能会变化, 请查看后再删除
     指令：
-        添加词条 ?[模糊/关键字|词]...答...：添加问答词条，可重复添加相同问题的不同回答
+        添加词条 ?[模糊/关键字|词]...答...：添加问答词条, 可重复添加相同问题的不同回答
         删除词条 [问题/下标] ?[下标]：删除指定词条指定或全部回答
         修改词条 [问题/下标] ?[下标/新回答] [新回答]：修改指定词条指定回答默认修改为第一条
         查看词条 ?[问题/下标]：查看全部词条或对应词条回答
@@ -97,14 +97,14 @@ async def _(bot: Bot, event: GroupMessageEvent, state: T_State, arg: Message = C
         logger.info(f"已保存词条 问：{_builder.problem} 答：{msg}")
         await add_word.send("已保存词条：" + _builder.problem)
     else:
-        await delete_word.send("保存失败，可能是回答重复")
+        await delete_word.send("保存失败, 可能是回答重复")
 
 
 @delete_word.handle()
 async def _(event: GroupMessageEvent, arg: Message = CommandArg()):
     msg = str(arg).strip()
     if not msg:
-        await delete_word.finish("此命令之后需要跟随指定词条，通过“显示词条“查看")
+        await delete_word.finish("此命令之后需要跟随指定词条, 通过“显示词条“查看")
     index = None
     _sp_msg = msg.split()
     if len(_sp_msg) > 1:
@@ -131,7 +131,7 @@ async def _(event: GroupMessageEvent, arg: Message = CommandArg()):
                 f" 删除词条: {problem}"
             )
         else:
-            await delete_word.send("删除词条：" + problem + "失败，可能该词条不存在")
+            await delete_word.send("删除词条：" + problem + "失败, 可能该词条不存在")
     except IndexError:
         await delete_word.send("指定下标错误...请通过查看词条来确定..")
 
@@ -140,7 +140,7 @@ async def _(event: GroupMessageEvent, arg: Message = CommandArg()):
 async def _(bot: Bot, event: GroupMessageEvent, arg: Message = CommandArg()):
     msg = str(arg)
     if not msg:
-        await update_word.finish("此命令之后需要跟随指定词条，通过“显示词条“查看")
+        await update_word.finish("此命令之后需要跟随指定词条, 通过“显示词条“查看")
     index = None
     new_answer = None
     problem = None
@@ -174,7 +174,7 @@ async def _(bot: Bot, event: GroupMessageEvent, arg: Message = CommandArg()):
                 f" 修改词条: {problem}"
             )
         else:
-            await update_word.send(f"修改词条：" + _builder.problem + f"失败，可能该词条不存在")
+            await update_word.send(f"修改词条：" + _builder.problem + f"失败, 可能该词条不存在")
     except IndexError:
         await update_word.send("指定下标错误...请通过查看词条来确定..")
 

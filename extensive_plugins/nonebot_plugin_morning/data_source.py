@@ -181,7 +181,7 @@ class MorningManager:
 
     def morning_config(self, args: List) -> str:
         if args[0] not in mor_switcher.keys():
-            msg = f'在早安设置中未找到"{args[0]}"，请确保输入正确，目前可选值有:'
+            msg = f'在早安设置中未找到"{args[0]}", 请确保输入正确, 目前可选值有:'
             for key in mor_switcher.keys():
                 msg += " " + key
             return msg
@@ -192,11 +192,11 @@ class MorningManager:
                 early_time = int(args[1])
                 late_time = int(args[2])
             except:
-                msg = "获取参数错误，请确保你输入了正确的命令，样例参考：\n[早安设置 时限 1 18] 即1点到18点期间可以起床，数字会自动强制取整"
+                msg = "获取参数错误, 请确保你输入了正确的命令, 样例参考：\n[早安设置 时限 1 18] 即1点到18点期间可以起床, 数字会自动强制取整"
                 return msg
             
             if early_time < 0 or early_time > 24 or late_time < 0 or late_time > 24:
-                msg = "错误！您设置的时间未在0-24之间，要求：0 <= 时间 <= 24"
+                msg = "错误！您设置的时间未在0-24之间, 要求：0 <= 时间 <= 24"
                 return msg
 
             msg = self.change_set_time("morning", server, early_time, late_time)
@@ -204,10 +204,10 @@ class MorningManager:
             try:
                 interval = int(args[1])
             except:
-                msg = "获取参数错误，请确保你输入了正确的命令，样例参考：\n[早安设置 多重起床 6] 即最小间隔6小时，数字会自动强制取整"
+                msg = "获取参数错误, 请确保你输入了正确的命令, 样例参考：\n[早安设置 多重起床 6] 即最小间隔6小时, 数字会自动强制取整"
                 return msg
             if interval < 0 or interval > 24:
-                msg = "错误！您设置的时间间隔未在0-24之间，要求：0 <= 时间 <= 24"
+                msg = "错误！您设置的时间间隔未在0-24之间, 要求：0 <= 时间 <= 24"
                 return msg
 
             msg = self.change_set_time("morning", server, interval)
@@ -216,7 +216,7 @@ class MorningManager:
 
     def morning_switch(self, mor_server: str, enable: bool) -> str:
         if mor_server not in mor_switcher.keys():
-            msg = f'在早安设置中未找到"{mor_server}"，请确保输入正确，目前可选值有:'
+            msg = f'在早安设置中未找到"{mor_server}", 请确保输入正确, 目前可选值有:'
             for key in mor_switcher.keys():
                 msg += " " + key
         else:   
@@ -227,7 +227,7 @@ class MorningManager:
 
     def night_config(self, args: List) -> str:
         if args[0] not in nig_switcher.keys():
-            msg = f'在晚安设置中未找到"{args[0]}"，请确保输入正确，目前可选值有:'
+            msg = f'在晚安设置中未找到"{args[0]}", 请确保输入正确, 目前可选值有:'
             for key in nig_switcher.keys():
                 msg += " " + key
             return msg
@@ -238,11 +238,11 @@ class MorningManager:
                 early_time = int(args[1])
                 late_time = int(args[2])
             except:
-                msg = "获取参数错误，请确保你输入了正确的命令，样例参考：\n[晚安设置 时限 18 6] 即18点到第二天6点期间可以晚安，数字会自动强制取整，注意第二个数字一定是第二天的时间"
+                msg = "获取参数错误, 请确保你输入了正确的命令, 样例参考：\n[晚安设置 时限 18 6] 即18点到第二天6点期间可以晚安, 数字会自动强制取整, 注意第二个数字一定是第二天的时间"
                 return msg
             
             if early_time < 0 or early_time > 24 or late_time < 0 or late_time > 24:
-                msg = "错误！您设置的时间未在0-24之间，要求：0 <= 时间 <= 24"
+                msg = "错误！您设置的时间未在0-24之间, 要求：0 <= 时间 <= 24"
                 return msg
 
             msg = self.change_set_time("night", server, early_time, late_time)
@@ -250,10 +250,10 @@ class MorningManager:
             try:
                 interval = int(args[1])
             except:
-                msg = "获取参数错误，请确保你输入了正确的命令，样例参考：\n[晚安设置 深度睡眠 6] 即最小间隔6小时，数字会自动强制取整"
+                msg = "获取参数错误, 请确保你输入了正确的命令, 样例参考：\n[晚安设置 深度睡眠 6] 即最小间隔6小时, 数字会自动强制取整"
                 return msg
             if interval < 0 or interval > 24:
-                msg = "错误！您设置的时间间隔未在0-24之间，要求：0 <= 时间 <= 24"
+                msg = "错误！您设置的时间间隔未在0-24之间, 要求：0 <= 时间 <= 24"
                 return msg
 
             msg = self.change_set_time("night", server, interval)
@@ -262,7 +262,7 @@ class MorningManager:
 
     def night_switch(self, nig_server: str, enable: bool) -> str:
         if nig_server not in nig_switcher.keys():
-            msg = f'在晚安设置中未找到"{nig_server}"，请确保输入正确，目前可选值有:'
+            msg = f'在晚安设置中未找到"{nig_server}", 请确保输入正确, 目前可选值有:'
             for key in nig_switcher.keys():
                 msg += " " + key
         else:   
@@ -325,13 +325,13 @@ class MorningManager:
         user_id = str(event.user_id)
         group_id = str(event.group_id)
         
-        # 若开启规定时间早安，则判断该时间是否允许早安
+        # 若开启规定时间早安, 则判断该时间是否允许早安
         now_time = datetime.datetime.now()
         if self.config['morning']['get_up_intime']['enable']:
             early_time_tmp = self.config['morning']['get_up_intime']['early_time']
             late_time_tmp = self.config['morning']['get_up_intime']['late_time']
             if not MorningManager.judge_mor_time(early_time_tmp, late_time_tmp, now_time):
-                msg = f'现在不能早安哦，可以早安的时间为{early_time_tmp}时到{late_time_tmp}时~'
+                msg = f'现在不能早安哦, 可以早安的时间为{early_time_tmp}时到{late_time_tmp}时~'
                 return msg
 
         self._init_data(group_id)
@@ -339,14 +339,14 @@ class MorningManager:
         # 当数据里有过这个人的信息就判断:
         if user_id in self.user_data[group_id].keys():
             
-            # 若关闭连续多次早安，则判断在设定时间内是否多次早安
+            # 若关闭连续多次早安, 则判断在设定时间内是否多次早安
             if not self.config['morning']['multi_get_up']['enable'] and self.user_data[group_id][user_id]['get_up_time'] != 0:
                 interval = self.config['morning']['multi_get_up']['interval']
                 if self.judge_have_mor(group_id, user_id, now_time, interval):
                     msg = f'{interval}小时内你已经早安过了哦~'
                     return msg
             
-            # 若关闭超级亢奋，则判断睡眠时长是否小于设定时间
+            # 若关闭超级亢奋, 则判断睡眠时长是否小于设定时间
             if not self.config['morning']['super_get_up']['enable']:
                 interval = self.config['morning']['super_get_up']['interval']
                 if self.judge_super_get_up(group_id, user_id, now_time, interval):
@@ -357,12 +357,12 @@ class MorningManager:
             msg = '你还没睡过觉呢！不能早安哦~'
             return msg
 
-        # 当前面条件均符合的时候，允许早安
+        # 当前面条件均符合的时候, 允许早安
         num, in_sleep = self.morning_and_update(now_time, group_id, user_id)
         if in_sleep == 0:
             msg = f'早安成功！你是今天第{num}个起床的{sex_str}！'
         else:
-            msg = f'早安成功！你的睡眠时长为{in_sleep}，\n你是今天第{num}个起床的{sex_str}！'
+            msg = f'早安成功！你的睡眠时长为{in_sleep}, \n你是今天第{num}个起床的{sex_str}！'
         return msg
 
 # ------------------------------ night judgement ------------------------------ #
@@ -429,13 +429,13 @@ class MorningManager:
         user_id = str(event.user_id)
         group_id = str(event.group_id)
 
-        # 若开启规定时间晚安，则判断该时间是否允许晚安
+        # 若开启规定时间晚安, 则判断该时间是否允许晚安
         now_time = datetime.datetime.now()
         if self.config['night']['sleep_intime']['enable']:
             early_time_tmp = self.config['night']['sleep_intime']['early_time']
             late_time_tmp = self.config['night']['sleep_intime']['late_time']
             if not MorningManager.judge_sle_time(early_time_tmp, late_time_tmp, now_time):
-                msg = f'现在不能晚安哦，可以晚安的时间为{early_time_tmp}时到第二天早上{late_time_tmp}时~'
+                msg = f'现在不能晚安哦, 可以晚安的时间为{early_time_tmp}时到第二天早上{late_time_tmp}时~'
                 return msg
 
         self._init_data(group_id)
@@ -443,26 +443,26 @@ class MorningManager:
         # 当数据里有过这个人的信息就判断:
         if user_id in self.user_data[group_id].keys():
 
-            # 若开启优质睡眠，则判断在设定时间内是否多次晚安
+            # 若开启优质睡眠, 则判断在设定时间内是否多次晚安
             if self.config['night']['good_sleep']['enable']:
                 interval = self.config['night']['good_sleep']['interval']
                 if self.judge_have_sle(group_id, user_id, now_time, interval):
                     msg = f'{interval}小时内你已经晚安过了哦~'
                     return msg
             
-            # 若关闭深度睡眠，则判断不在睡觉的时长是否小于设定时长
+            # 若关闭深度睡眠, 则判断不在睡觉的时长是否小于设定时长
             if not self.config['night']['deep_sleep']['enable'] and self.user_data[group_id][user_id]['get_up_time'] != 0:
                 interval = self.config['night']['deep_sleep']['interval']
                 if self.judge_deep_sleep(group_id, user_id, now_time, interval):
                     msg = f'睡这么久还不够？现在不能晚安哦~'
                     return msg
 
-        # 当数据里没有这个人或者前面条件均符合的时候，允许晚安
+        # 当数据里没有这个人或者前面条件均符合的时候, 允许晚安
         num, in_day = self.night_and_update(now_time, group_id, user_id)
         if in_day == 0:
             msg = f'晚安成功！你是今天第{num}个睡觉的{sex_str}！'
         else:
-            msg = f'晚安成功！你今天的清醒时长为{in_day}，\n你是今天第{num}个睡觉的{sex_str}！'
+            msg = f'晚安成功！你今天的清醒时长为{in_day}, \n你是今天第{num}个睡觉的{sex_str}！'
         return msg
     
 # ------------------------------ routine ------------------------------ #
@@ -493,7 +493,7 @@ class MorningManager:
         self._init_data(group_id)
         moring_count = self.user_data[group_id]['today_count']['morning']
         night_count = self.user_data[group_id]['today_count']['night']
-        msg = f'今天已经有{moring_count}位群友起床了，{night_count}位群友睡觉了~'
+        msg = f'今天已经有{moring_count}位群友起床了, {night_count}位群友睡觉了~'
 
         return msg
 

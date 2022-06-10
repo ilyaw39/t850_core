@@ -18,7 +18,7 @@ usage：
         上传图片 [图库] [图片]
         连续上传图片 [图库]
         示例：上传图片 美图 [图片]
-    * 连续上传图片可以通过发送 “stop” 表示停止收集发送的图片，可以开始上传 *
+    * 连续上传图片可以通过发送 “stop” 表示停止收集发送的图片, 可以开始上传 *
 """.strip()
 __plugin_des__ = "指定图库图片上传"
 __plugin_cmd__ = ["上传图片 [图库] [图片]", "连续上传图片 [图库]", "查看公开图库"]
@@ -68,7 +68,7 @@ async def _(
     img_list: Message = Arg("img_list"),
 ):
     if path not in Config.get_config("image_management", "IMAGE_DIR_LIST"):
-        await upload_img.reject_arg("path", "此目录不正确，请重新输入目录！")
+        await upload_img.reject_arg("path", "此目录不正确, 请重新输入目录！")
     if not get_message_img(img_list):
         await upload_img.reject_arg("img_list", "图呢图呢图呢图呢！GKD！")
     img_list = get_message_img(img_list)
@@ -102,7 +102,7 @@ async def _(
     img: Message = Arg("img"),
 ):
     if path not in Config.get_config("image_management", "IMAGE_DIR_LIST"):
-        await upload_img.reject_arg("path", "此目录不正确，请重新输入目录！")
+        await upload_img.reject_arg("path", "此目录不正确, 请重新输入目录！")
     if not img.extract_plain_text() == "stop":
         img = get_message_img(img)
         if img:

@@ -70,7 +70,7 @@ add_group = on_request(priority=1, block=False)
 async def _(bot: Bot, event: GroupIncreaseNoticeEvent):
     if event.user_id == int(bot.self_id):
         group = await GroupInfo.get_group_info(event.group_id)
-        # 群聊不存在或被强制拉群，退出该群
+        # 群聊不存在或被强制拉群, 退出该群
         if (not group or group.group_flag == 0) and Config.get_config(
             "invite_manager", "flag"
         ):
@@ -81,15 +81,15 @@ async def _(bot: Bot, event: GroupIncreaseNoticeEvent):
                 await bot.set_group_leave(group_id=event.group_id)
                 await bot.send_private_msg(
                     user_id=int(list(bot.config.superusers)[0]),
-                    message=f"触发强制入群保护，已成功退出群聊 {event.group_id}..",
+                    message=f"触发强制入群保护, 已成功退出群聊 {event.group_id}..",
                 )
-                logger.info(f"强制拉群或未有群信息，退出群聊 {group} 成功")
+                logger.info(f"强制拉群或未有群信息, 退出群聊 {group} 成功")
                 requests_manager.remove_request("group", event.group_id)
             except Exception as e:
-                logger.info(f"强制拉群或未有群信息，退出群聊 {group} 失败 e:{e}")
+                logger.info(f"强制拉群或未有群信息, 退出群聊 {group} 失败 e:{e}")
                 await bot.send_private_msg(
                     user_id=int(list(bot.config.superusers)[0]),
-                    message=f"触发强制入群保护，退出群聊 {event.group_id} 失败..",
+                    message=f"触发强制入群保护, 退出群聊 {event.group_id} 失败..",
                 )
         # 默认群功能开关
         elif event.group_id not in group_manager["group_manager"].keys():
@@ -155,7 +155,7 @@ async def _(bot: Bot, event: GroupIncreaseNoticeEvent):
                 )
             else:
                 await group_increase_handle.send(
-                    "[[_task|group_welcome]][at]我乃照亮混沌网络世界的一道光, 为漂泊在电子之海的宅宅们献上笑容.\n 向大家保证世界和平! 尽管我没钱, 但请放心!\n 当代互联网小巫女, 堂堂降临！"
+                    "[[_task|group_welcome]]我乃照亮混沌网络世界的一道光, 为漂泊在电子之海的宅宅们献上笑容.\n向大家保证世界和平! 尽管我没钱, 但请放心!\n当代互联网小巫女, 堂堂降临！"
                     + image(random.choice(os.listdir(IMAGE_PATH / "qxz")), "qxz")
                 )
 

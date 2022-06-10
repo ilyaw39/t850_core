@@ -7,7 +7,7 @@ from .data_source import create_help_image, admin_help_image
 
 
 __zx_plugin_name__ = '管理帮助 [Admin]'
-__plugin_usage__ = '管理员帮助，在群内回复“管理员帮助”'
+__plugin_usage__ = '管理员帮助, 在群内回复“管理员帮助”'
 __plugin_version__ = 0.1
 __plugin_author__ = 'HibiKier'
 __plugin_settings__ = {

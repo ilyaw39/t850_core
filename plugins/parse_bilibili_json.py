@@ -20,7 +20,7 @@
 # __zx_plugin_name__ = "B站转发解析"
 # __plugin_usage__ = """
 # usage：
-#     B站转发解析，解析b站分享信息，支持bv，bilibili链接，b站手机端转发卡片，cv，b23.tv，且5分钟内不解析相同url
+#     B站转发解析, 解析b站分享信息, 支持bv, bilibili链接, b站手机端转发卡片, cv, b23.tv, 且5分钟内不解析相同url
 # """.strip()
 # __plugin_des__ = "B站转发解析"
 # __plugin_type__ = ("其他",)
@@ -150,7 +150,7 @@
 #                     image(vd_info["pic"]) + f"\nav{aid}\n标题：{title}\n"
 #                     f"UP：{author}\n"
 #                     f"上传日期：{date}\n"
-#                     f"回复：{reply}，收藏：{favorite}，投币：{coin}\n"
+#                     f"回复：{reply}, 收藏：{favorite}, 投币：{coin}\n"
 #                     f"{url}"
 #                 )
 #             except ActionFailed:

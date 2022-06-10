@@ -88,12 +88,12 @@ class ResourcesManager(StaticData):
                     elif not move_path.exists():
                         logger.warning(
                             f"移动资源路径文件{source_path.absolute()} >>>"
-                            f" {move_path.absolute()} 失败，源文件不存在.."
+                            f" {move_path.absolute()} 失败, 源文件不存在.."
                         )
                 except Exception as e:
                     logger.error(
                         f"移动资源路径文件{source_path.absolute()} >>>"
-                        f" {move_path.absolute()}失败，{type(e)}：{e}"
+                        f" {move_path.absolute()}失败, {type(e)}：{e}"
                     )
         self.save()
 

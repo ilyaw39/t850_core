@@ -61,19 +61,19 @@ async def install_plugin(name: str) -> str:
             logger.debug("解压插件压缩包完成...")
             logger.debug("开始移动插件文件夹...")
             if (extensive_plugin_path / f"{name}").exists():
-                logger.debug("extensive_plugin目录下文件夹已存在，删除该目录插件文件夹...")
+                logger.debug("extensive_plugin目录下文件夹已存在, 删除该目录插件文件夹...")
                 shutil.rmtree(
                     (extensive_plugin_path / f"{name}").absolute(), ignore_errors=True
                 )
             extract_path.rename(extensive_plugin_path / f"{name}")
             tmp = ""
             if "pyproject.toml" in os.listdir(extensive_plugin_path / f"{name}"):
-                tmp = "检测到该插件含有额外依赖，当前安装无法保证依赖完全安装成功。"
+                tmp = "检测到该插件含有额外依赖, 当前安装无法保证依赖完全安装成功."
                 os.system(
                     f"poetry run pip install -r {(extensive_plugin_path / f'{name}' / 'pyproject.toml').absolute()}"
                 )
             elif "requirements.txt" in os.listdir(extensive_plugin_path / f"{name}"):
-                tmp = "检测到该插件含有额外依赖，当前安装无法保证依赖完全安装成功。"
+                tmp = "检测到该插件含有额外依赖, 当前安装无法保证依赖完全安装成功."
                 os.system(
                     f"poetry run pip install -r {(extensive_plugin_path / f'{name}' / 'requirements.txt').absolute()}"
                 )
@@ -81,7 +81,7 @@ async def install_plugin(name: str) -> str:
                 json.dump(data[name], f, ensure_ascii=False, indent=4)
             logger.debug("移动插件文件夹完成...")
             logger.info(f"成功安装插件 {name} 成功！\n{tmp}")
-        return f"成功安装插件 {name}，请重启bot！"
+        return f"成功安装插件 {name}, 请重启bot！"
     except Exception as e:
         logger.error(f"安装插件 {name} 失败 {type(e)}：{e}")
         return f"安装插件 {name} 失败 {type(e)}：{e}"

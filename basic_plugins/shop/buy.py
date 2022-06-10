@@ -40,7 +40,7 @@ buy = on_command("购买", aliases={"购买道具"}, priority=5, block=True, per
 async def _(event: GroupMessageEvent, arg: Message = CommandArg()):
     goods = None
     if arg.extract_plain_text().strip() in ["魔理沙的蘑菇"]:
-        await buy.finish("你们看看就好啦，这是不可能卖给你们的~", at_sender=True)
+        await buy.finish("你们看看就好啦, 这是不可能卖给你们的~", at_sender=True)
     goods_list = [
         x
         for x in await GoodsInfo.get_all_goods()

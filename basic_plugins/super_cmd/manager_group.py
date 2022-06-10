@@ -129,7 +129,7 @@ async def _(event: GroupMessageEvent):
 @what_up_group_level.handle()
 async def _():
     await what_up_group_level.finish(
-        f"[此功能用于防止内鬼，如果引起不便那真是抱歉了]\n" f"目前提高群权限的方法：\n" f"\t1.管理员修改权限"
+        f"[此功能用于防止内鬼, 如果引起不便那真是抱歉了]\n" f"目前提高群权限的方法：\n" f"\t1.管理员修改权限"
     )
 
 
@@ -155,7 +155,7 @@ async def _(bot: Bot, cmd: Tuple[str, ...] = Command(), arg: Message = CommandAr
             "已成功将 " + "\n".join(group_list) + " " + cmd
         )
     else:
-        await manager_group_whitelist.send(f"添加失败，请检查{NICKNAME}是否已加入这些群聊或重复添加/删除群白单名")
+        await manager_group_whitelist.send(f"添加失败, 请检查{NICKNAME}是否已加入这些群聊或重复添加/删除群白单名")
 
 
 @show_group_whitelist.handle()
@@ -174,7 +174,7 @@ async def _(bot: Bot, cmd: Tuple[str, ...] = Command(), arg: Message = CommandAr
     msg = arg.extract_plain_text().strip().split()
     for group_id in msg:
         if not is_number(group_id):
-            await group_auth.send(f"{group_id}非纯数字，已跳过该项..")
+            await group_auth.send(f"{group_id}非纯数字, 已跳过该项..")
         group_id = int(group_id)
         if cmd[:2] == "添加":
             if await GroupInfo.get_group_info(group_id):

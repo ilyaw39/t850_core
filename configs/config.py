@@ -17,7 +17,7 @@ address: str = ""  # 数据库地址
 port: str = ""  # 数据库端口
 database: str = ""  # 数据库名称
 
-# 代理，例如 "http://127.0.0.1:7890"
+# 代理, 例如 "http://127.0.0.1:7890"
 SYSTEM_PROXY: Optional[str] = None  # 全局代理
 
 

@@ -10,16 +10,16 @@ from typing import Tuple
 __zx_plugin_name__ = "原神绑定"
 __plugin_usage__ = """
 usage：
-    绑定原神uid等数据，cookie极为重要，请谨慎绑定
-    ** 如果对拥有者不熟悉，并不建议添加cookie **
-    该项目只会对cookie用于”米游社签到“，“原神玩家查询”，“原神便笺查询”
+    绑定原神uid等数据, cookie极为重要, 请谨慎绑定
+    ** 如果对拥有者不熟悉, 并不建议添加cookie **
+    该项目只会对cookie用于”米游社签到“, “原神玩家查询”, “原神便笺查询”
     指令：
         原神绑定uid [uid]
         原神绑定米游社id [mys_id]
         原神绑定cookie [cookie] # 该绑定请私聊
         原神解绑
         示例：原神绑定uid 92342233
-    如果不明白怎么获取cookie请输入“原神绑定cookie”。
+    如果不明白怎么获取cookie请输入“原神绑定cookie”.
 """.strip()
 __plugin_des__ = "绑定自己的原神uid等"
 __plugin_cmd__ = ["原神绑定uid [uid]", "原神绑定米游社id [mys_id]", "原神绑定cookie [cookie]", "原神解绑"]
@@ -51,10 +51,10 @@ async def _(event: MessageEvent, cmd: Tuple[str, ...] = Command(), arg: Message 
     if cmd == "原神绑定uid":
         uid = await Genshin.get_user_uid(event.user_id)
         if uid:
-            await bind.finish(f"您已绑定过uid：{uid}，如果希望更换uid，请先发送原神解绑")
+            await bind.finish(f"您已绑定过uid：{uid}, 如果希望更换uid, 请先发送原神解绑")
         flag = await Genshin.add_uid(event.user_id, msg)
         if not flag:
-            await bind.finish("添加失败，该uid可能已存在...")
+            await bind.finish("添加失败, 该uid可能已存在...")
         _x = f"已成功添加原神uid：{msg}"
     elif cmd == "原神绑定米游社id":
         uid = await Genshin.get_user_uid(event.user_id)

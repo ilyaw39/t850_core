@@ -78,7 +78,7 @@ class Pixiv(db.Model):
             删除图片数据
         参数：
             :param pid: 图片pid
-            :param img_p: 图片pid的张数，如：p0，p1
+            :param img_p: 图片pid的张数, 如：p0, p1
         """
         try:
             if img_p:
@@ -118,7 +118,7 @@ class Pixiv(db.Model):
             :param keywords: 关键词
             :param uid: 画师uid
             :param pid: 图片pid
-            :param r18: 是否r18，0：非r18  1：r18  2：混合
+            :param r18: 是否r18, 0：非r18  1：r18  2：混合
             :param num: 查找图片的数量
         """
         if r18 == 0:

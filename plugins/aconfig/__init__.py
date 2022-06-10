@@ -30,7 +30,7 @@ async def _():
     if NICKNAME.find('灵梦') != -1:
         result = (
             "我是灵梦\n"
-            "你们可以叫我灵梦， 灵梦酱, 哪怕你们叫我十万巫女我也能接受！\n"
+            "你们可以叫我灵梦,  灵梦酱, 哪怕你们叫我十万巫女我也能接受！\n"
             + image("lym")
         )
         await self_introduction.finish(result)

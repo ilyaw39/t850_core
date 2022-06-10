@@ -12,7 +12,7 @@ async def get_anime(anime: str) -> str:
         anime_json = (await AsyncHttpx.get(url)).json()
         if not anime_json["error"]:
             if anime_json == "Error reading imagenull":
-                return "图像源错误，注意必须是静态图片哦"
+                return "图像源错误, 注意必须是静态图片哦"
             repass = ""
             # 拿到动漫 中文名
             for anime in anime_json["result"][:5]:
@@ -44,4 +44,4 @@ async def get_anime(anime: str) -> str:
             return f'访问错误 error：{anime_json["error"]}'
     except Exception as e:
         logger.error(f"识番发生错误 {type(e)}：{e}")
-        return "发生了奇怪的错误，那就没办法了，再试一次？"
+        return "发生了奇怪的错误, 那就没办法了, 再试一次？"

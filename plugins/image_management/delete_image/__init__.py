@@ -55,7 +55,7 @@ async def arg_handle(
     if path in ["取消", "算了"] or img_id in ["取消", "算了"]:
         await delete_img.finish("已取消操作...")
     if path not in Config.get_config("image_management", "IMAGE_DIR_LIST"):
-        await delete_img.reject_arg("path", "此目录不正确，请重新输入目录！")
+        await delete_img.reject_arg("path", "此目录不正确, 请重新输入目录！")
     if not is_number(img_id):
         await delete_img.reject_arg("id", "id不正确！请重新输入数字...")
     path = _path / cn2py(path)
@@ -63,7 +63,7 @@ async def arg_handle(
         path = path.parent.parent / cn2py(state["path"])
     max_id = len(os.listdir(path)) - 1
     if int(img_id) > max_id or int(img_id) < 0:
-        await delete_img.finish(f"Id超过上下限，上限：{max_id}", at_sender=True)
+        await delete_img.finish(f"Id超过上下限, 上限：{max_id}", at_sender=True)
     try:
         if (TEMP_PATH / "delete.jpg").exists():
             (TEMP_PATH / "delete.jpg").unlink()

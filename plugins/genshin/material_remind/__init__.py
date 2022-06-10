@@ -49,7 +49,7 @@ super_cmd = on_command("更新原神今日素材", permission=SUPERUSER, priorit
 @material.handle()
 async def _(event: MessageEvent):
     if time.strftime("%w") == "0":
-        await material.send("今天是周日，所有材料副本都开放了。")
+        await material.send("今天是周日, 所有材料副本都开放了.")
         return
     file_name = str((datetime.now() - timedelta(hours=4)).date())
     if not (IMAGE_PATH / "genshin" / "material" / f"{file_name}.png").exists():
@@ -84,7 +84,7 @@ async def update_image():
             os.remove(f"{IMAGE_PATH}/genshin/material/{file}")
         browser = await get_browser()
         if not browser:
-            logger.warning("获取 browser 失败，请部署至 linux 环境....")
+            logger.warning("获取 browser 失败, 请部署至 linux 环境....")
             return False
         url = "https://genshin.pub/daily"
         page = await browser.new_page()

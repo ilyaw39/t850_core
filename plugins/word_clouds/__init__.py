@@ -23,7 +23,7 @@ usage：
         本月词云：获取本月词云
         年度词云：获取年度词云
 
-        历史词云(支持 ISO8601 格式的日期与时间，如 2022-02-22T22:22:22)
+        历史词云(支持 ISO8601 格式的日期与时间, 如 2022-02-22T22:22:22)
         获取某日的词云
         历史词云 2022-01-01
         获取指定时间段的词云
@@ -31,7 +31,7 @@ usage：
         示例：历史词云 2022-01-01~2022-02-22
         示例：历史词云 2022-02-22T11:11:11~2022-02-22T22:22:22
 
-        如果想要获取自己的发言，可在命令前添加 我的
+        如果想要获取自己的发言, 可在命令前添加 我的
         示例：我的今日词云
 """.strip()
 __plugin_des__ = "词云"
@@ -66,12 +66,12 @@ Config.add_plugin_config(
     "word_clouds",
     "WORD_CLOUDS_TEMPLATE",
     1,
-    help_="词云模板 参1：图片生成，默认使用灵梦图片，可在项目路径resources/image/wordcloud下配置图片，多张则随机 | 参2/其他：黑底图片"
+    help_="词云模板 参1：图片生成, 默认使用灵梦图片, 可在项目路径resources/image/wordcloud下配置图片, 多张则随机 | 参2/其他：黑底图片"
 )
 
 
 def parse_datetime(key: str):
-    """解析数字，并将结果存入 state 中"""
+    """解析数字, 并将结果存入 state 中"""
 
     async def _key_parser(
             matcher: Matcher,
@@ -85,18 +85,18 @@ def parse_datetime(key: str):
         try:
             state[key] = get_datetime_fromisoformat_with_timezone(plaintext)
         except ValueError:
-            await matcher.reject_arg(key, "请输入正确的日期，不然我没法理解呢！")
+            await matcher.reject_arg(key, "请输入正确的日期, 不然我没法理解呢！")
 
     return _key_parser
 
 
 def get_datetime_now_with_timezone() -> datetime:
-    """获取当前时间，并包含时区信息"""
+    """获取当前时间, 并包含时区信息"""
     return datetime.now().astimezone()
 
 
 def get_datetime_fromisoformat_with_timezone(date_string: str) -> datetime:
-    """从 iso8601 格式字符串中获取时间，并包含时区信息"""
+    """从 iso8601 格式字符串中获取时间, 并包含时区信息"""
     return datetime.fromisoformat(date_string).astimezone()
 
 
@@ -150,13 +150,13 @@ async def handle_first_receive(
                 if stop:
                     state["stop"] = get_datetime_fromisoformat_with_timezone(stop)
                 else:
-                    # 如果没有指定结束日期，则认为是指查询这一天的词云
+                    # 如果没有指定结束日期, 则认为是指查询这一天的词云
                     state["start"] = state["start"].replace(
                         hour=0, minute=0, second=0, microsecond=0
                     )
                     state["stop"] = state["start"] + timedelta(days=1)
             except ValueError:
-                await wordcloud_cmd.finish("请输入正确的日期，不然我没法理解呢！")
+                await wordcloud_cmd.finish("请输入正确的日期, 不然我没法理解呢！")
     else:
         await wordcloud_cmd.finish()
 

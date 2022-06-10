@@ -42,7 +42,7 @@ class GroupInfo(db.Model):
             :param group_name: 群名称
             :param max_member_count: 群员最大数量
             :param member_count: 群员数量
-            :param group_flag: 群认证，0为未认证，1为认证
+            :param group_flag: 群认证, 0为未认证, 1为认证
         """
         try:
             group = (
@@ -95,7 +95,7 @@ class GroupInfo(db.Model):
         """
         设置群认证
         :param group_id: 群号
-        :param group_flag: 群认证，0为未认证，1为认证
+        :param group_flag: 群认证, 0为未认证, 1为认证
         """
         group = (
             await cls.query.where(cls.group_id == group_id)

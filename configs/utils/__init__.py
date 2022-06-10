@@ -27,7 +27,7 @@ class ConfigsManager:
                     raise ValueError(
                         "配置文件为空！\n"
                         "***********************************************************\n"
-                        "****** 配置文件 plugins2config.yaml 为空，已删除，请重启 ******\n"
+                        "****** 配置文件 plugins2config.yaml 为空, 已删除, 请重启 ******\n"
                         "***********************************************************"
                     )
             if self._simple_file.exists():
@@ -53,7 +53,7 @@ class ConfigsManager:
         _override: bool = False,
     ):
         """
-        为插件添加一个配置，不会被覆盖，只有第一个生效
+        为插件添加一个配置, 不会被覆盖, 只有第一个生效
         :param module: 模块
         :param key: 键
         :param value: 值
@@ -156,7 +156,7 @@ class ConfigsManager:
 
     def get_level2module(self, module: str, key: str) -> Optional[str]:
         """
-        获取指定key所绑定的module，一般为权限等级
+        获取指定key所绑定的module, 一般为权限等级
         :param module: 模块名
         :param key: 配置名称
         :return:

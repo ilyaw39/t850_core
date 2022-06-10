@@ -12,7 +12,7 @@ __plugin_usage__ = """
 usage：
     查看pix图库
     指令：
-        查看pix图库 ?[tags]: 查看指定tag图片数量，为空时查看整个图库
+        查看pix图库 ?[tags]: 查看指定tag图片数量, 为空时查看整个图库
 """.strip()
 __plugin_des__ = "让我看看管理员私藏了多少货"
 __plugin_cmd__ = ["查看pix图库 ?[tags]"]
@@ -39,7 +39,7 @@ async def _(event: MessageEvent):
     if data.get(event.user_id) is None or not data[event.user_id]["keyword"]:
         await my_keyword.finish("您目前没有提供任何Pixiv搜图关键字...", at_sender=True)
     await my_keyword.send(
-        f"您目前提供的如下关键字：\n\t" + "，".join(data[event.user_id]["keyword"])
+        f"您目前提供的如下关键字：\n\t" + ", ".join(data[event.user_id]["keyword"])
     )
 
 

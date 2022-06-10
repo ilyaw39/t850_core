@@ -12,7 +12,7 @@ _yaml = YAML(typ="safe")
 
 def init_plugins_settings(data_path: str):
     """
-    初始化插件设置，从插件中获取 __zx_plugin_name__，__plugin_cmd__，__plugin_settings__
+    初始化插件设置, 从插件中获取 __zx_plugin_name__, __plugin_cmd__, __plugin_settings__
     """
     plugins2settings_file = data_path / "configs" / "plugins2settings.yaml"
     plugins2settings_file.parent.mkdir(exist_ok=True, parents=True)
@@ -34,7 +34,7 @@ def init_plugins_settings(data_path: str):
             try:
                 _module = _plugin.module
             except AttributeError:
-                logger.warning(f"插件 {matcher.plugin_name} 加载失败...，插件控制未加载.")
+                logger.warning(f"插件 {matcher.plugin_name} 加载失败..., 插件控制未加载.")
             else:
                 try:
                     plugin_name = _module.__getattribute__("__zx_plugin_name__")
@@ -63,7 +63,7 @@ def init_plugins_settings(data_path: str):
                 except AttributeError:
                     if matcher.plugin_name not in _tmp:
                         logger.warning(
-                            f"获取插件 {matcher.plugin_name} __zx_plugin_name__ 失败...，插件控制未加载."
+                            f"获取插件 {matcher.plugin_name} __zx_plugin_name__ 失败..., 插件控制未加载."
                         )
                 else:
                     try:
@@ -115,8 +115,8 @@ def init_plugins_settings(data_path: str):
 # level：需要的群等级
 # default_status：加入群时功能的默认开关状态
 # limit_superuser: 功能状态是否限制超级用户
-# cmd: 关闭[cmd] 都会触发命令 关闭对应功能，cmd列表第一个词为统计的功能名称
-# plugin_type: 帮助类别 示例：('原神相关',) 或 ('原神相关', 1)，1代表帮助命令列向排列，否则为横向排列""",
+# cmd: 关闭[cmd] 都会触发命令 关闭对应功能, cmd列表第一个词为统计的功能名称
+# plugin_type: 帮助类别 示例：('原神相关',) 或 ('原神相关', 1), 1代表帮助命令列向排列, 否则为横向排列""",
         indent=2,
     )
     for plugin in _data["PluginSettings"].keys():

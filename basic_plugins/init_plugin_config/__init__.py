@@ -50,7 +50,7 @@ def _():
         for key in x.keys():
             plugins_manager.block_plugin(key, block_type=x[key])
     if _flag:
-        raise Exception("首次运行，已在configs目录下生成配置文件config.yaml，修改后重启即可...")
+        raise Exception("首次运行, 已在configs目录下生成配置文件config.yaml, 修改后重启即可...")
     logger.info("初始化数据完成...")
 
 

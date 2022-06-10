@@ -11,7 +11,7 @@ except ModuleNotFoundError:
 from .config import config, FORTUNE_PATH
 
 '''
-    抽签主题开关，当随机抽签时判断某主题是否开启
+    抽签主题开关, 当随机抽签时判断某主题是否开启
 '''
 MainThemeEnable = {
     "pcr":              config.pcr_flag,
@@ -37,7 +37,7 @@ MainThemeEnable = {
     "amazing_grace":    config.amazing_grace
 }
 '''
-    抽签主题对应表，第一键值为“抽签设置”或“主题列表”展示的主题名称
+    抽签主题对应表, 第一键值为“抽签设置”或“主题列表”展示的主题名称
     Key-Value: 主题资源文件夹名-设置主题别名
 '''
 MainThemeList = {

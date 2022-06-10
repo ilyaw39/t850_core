@@ -61,7 +61,7 @@ async def _():
             try:
                 await bot.send_group_msg(group_id=g, message="[[_task|zwa]]早上好" + result)
             except ActionFailed:
-                logger.warning(f"{g} 群被禁言中，无法发送早安")
+                logger.warning(f"{g} 群被禁言中, 无法发送早安")
     except Exception as e:
         logger.error(f"早晚安错误 e:{e}")
 
@@ -81,10 +81,10 @@ async def _():
             result = image("sleep.jpg", "zhenxun")
             try:
                 await bot.send_group_msg(
-                    group_id=g, message=f"[[_task|zwa]]{NICKNAME}要睡觉了，你们也要早点睡呀" + result
+                    group_id=g, message=f"[[_task|zwa]]{NICKNAME}要睡觉了, 你们也要早点睡呀" + result
                 )
             except ActionFailed:
-                logger.warning(f"{g} 群被禁言中，无法发送晚安")
+                logger.warning(f"{g} 群被禁言中, 无法发送晚安")
     except Exception as e:
         logger.error(f"早晚安错误 e:{e}")
 
@@ -161,7 +161,7 @@ async def _():
 
 
     #  一次性任务
-# 固定时间触发，仅触发一次：
+# 固定时间触发, 仅触发一次：
 #
 # from datetime import datetime
 #
@@ -172,10 +172,10 @@ async def _():
 # )
 # async def _():
 #     await bot.send_group_msg(group_id=123456,
-#                              message="2021，新年快乐！")
+#                              message="2021, 新年快乐！")
 
 #  定期任务
-#  从 start_date 开始到 end_date 结束，根据类似 Cron
+#  从 start_date 开始到 end_date 结束, 根据类似 Cron
 #
 # 的规则触发任务：
 #
@@ -201,7 +201,7 @@ async def _():
 #
 # interval 触发器
 #
-# 从 start_date 开始，每间隔一段时间触发，到 end_date 结束：
+# 从 start_date 开始, 每间隔一段时间触发, 到 end_date 结束：
 #
 # @nonebot.scheduler.scheduled_job(
 #     'interval',
@@ -240,10 +240,10 @@ async def _():
 #
 #     # 添加任务
 #     scheduler.add_job(
-#         func=session.send,  # 要添加任务的函数，不要带参数
+#         func=session.send,  # 要添加任务的函数, 不要带参数
 #         trigger=trigger,  # 触发器
-#         args=('不要再赖床啦！',),  # 函数的参数列表，注意：只有一个值时，不能省略末尾的逗号
+#         args=('不要再赖床啦！',),  # 函数的参数列表, 注意：只有一个值时, 不能省略末尾的逗号
 #         # kwargs=None,
-#         misfire_grace_time=60,  # 允许的误差时间，建议不要省略
-#         # jobstore='default',  # 任务储存库，在下一小节中说明
+#         misfire_grace_time=60,  # 允许的误差时间, 建议不要省略
+#         # jobstore='default',  # 任务储存库, 在下一小节中说明
 #     )

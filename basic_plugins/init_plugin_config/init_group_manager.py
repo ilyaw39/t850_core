@@ -67,7 +67,7 @@ async def init_group_manager():
             query = db.text("DROP TABLE group_reminds;")
             await db.first(query)
             old_data_table.unlink()
-            logger.info("旧数据读取完毕，删除了舍弃表 group_reminds...")
+            logger.info("旧数据读取完毕, 删除了舍弃表 group_reminds...")
     except (ModuleNotFoundError, DuplicateColumnError):
         pass
     group_manager.save()

@@ -37,19 +37,19 @@ class Plugins2blockManager(StaticData):
         添加插件调用 block 限制
         :param plugin: 插件模块名称
         :param status: 默认开关状态
-        :param check_type: 检查类型 'private'/'group'/'all'，限制私聊/群聊/全部
-        :param limit_type: 限制类型 监听对象，以user_id或group_id作为键来限制，'user'：用户id，'group'：群id
-        :param rst: 回复的话，为空则不回复
+        :param check_type: 检查类型 'private'/'group'/'all', 限制私聊/群聊/全部
+        :param limit_type: 限制类型 监听对象, 以user_id或group_id作为键来限制, 'user'：用户id, 'group'：群id
+        :param rst: 回复的话, 为空则不回复
         """
         status = status or True
         check_type = check_type or "all"
         limit_type = limit_type or "user"
         if check_type not in ["all", "group", "private"]:
             raise ValueError(
-                f"{plugin} 添加block限制错误，‘check_type‘ 必须为 'private'/'group'/'all'"
+                f"{plugin} 添加block限制错误, ‘check_type‘ 必须为 'private'/'group'/'all'"
             )
         if limit_type not in ["user", "group"]:
-            raise ValueError(f"{plugin} 添加block限制错误，‘limit_type‘ 必须为 'user'/'group'")
+            raise ValueError(f"{plugin} 添加block限制错误, ‘limit_type‘ 必须为 'user'/'group'")
         self._data[plugin] = {
             "status": status,
             "check_type": check_type,

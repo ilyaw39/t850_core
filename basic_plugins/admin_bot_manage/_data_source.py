@@ -46,8 +46,8 @@ async def custom_group_welcome(
     """
     替换群欢迎消息
     :param msg: 欢迎消息文本
-    :param imgs: 欢迎消息图片，只取第一张
-    :param user_id: 用户id，用于log记录
+    :param imgs: 欢迎消息图片, 只取第一张
+    :param user_id: 用户id, 用于log记录
     :param group_id: 群号
     """
     img_result = ""
@@ -92,7 +92,7 @@ async def change_group_switch(cmd: str, group_id: int, is_super: bool = False):
     修改群功能状态
     :param cmd: 功能名称
     :param group_id: 群号
-    :param is_super: 是否位超级用户，超级用户用于私聊开关功能状态
+    :param is_super: 是否位超级用户, 超级用户用于私聊开关功能状态
     """
     if not task_data:
         task_data = group_manager.get_task_data()

@@ -59,7 +59,7 @@ async def _(matcher: Matcher, bot: Bot, event: Event, state: T_State):
         if await BagUser.get_gold(event.user_id, event.group_id) < cost_gold:
             await send_msg(f"钱不足..该功能需要{cost_gold}钱..", bot, event)
             raise IgnoredException(f"{module} 钱限制...")
-        # 当插件不阻塞超级用户时，超级用户提前扣除钱
+        # 当插件不阻塞超级用户时, 超级用户提前扣除钱
         if (
             str(event.user_id) in bot.config.superusers
             and not plugins2info_dict[module]["limit_superuser"]
@@ -125,7 +125,7 @@ async def _(matcher: Matcher, bot: Bot, event: Event, state: T_State):
                         _flmt.start_cd(event.user_id)
                         await bot.send_group_msg(
                             group_id=event.group_id,
-                            message=f"{at(event.user_id)}你的权限不足喔，该功能需要的权限等级："
+                            message=f"{at(event.user_id)}你的权限不足喔, 该功能需要的权限等级："
                             f"{admin_manager.get_plugin_level(module)}",
                         )
                 except ActionFailed:
@@ -141,7 +141,7 @@ async def _(matcher: Matcher, bot: Bot, event: Event, state: T_State):
                 try:
                     await bot.send_private_msg(
                         user_id=event.user_id,
-                        message=f"你的权限不足喔，该功能需要的权限等级：{admin_manager.get_plugin_level(module)}",
+                        message=f"你的权限不足喔, 该功能需要的权限等级：{admin_manager.get_plugin_level(module)}",
                     )
                 except ActionFailed:
                     pass

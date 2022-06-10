@@ -29,7 +29,7 @@ usage：
             7. R18周排行
             8. R18受男性欢迎排行
             9. R18重口排行【慎重！】
-        【使用时选择参数序号即可，R18仅可私聊】
+        【使用时选择参数序号即可, R18仅可私聊】
         p站排行 ?[参数] ?[数量] ?[日期]
         示例：
             p站排行榜   [无参数默认为日榜]
@@ -47,9 +47,9 @@ usage：
             搜图 樱岛麻衣#1000users 5
         【多个关键词用#分割】
         【默认为 热度排序】
-        【注意空格！！】【在线搜索会较慢】【数量可能不符？可能该页数量不够，也可能被R-18屏蔽】
+        【注意空格！！】【在线搜索会较慢】【数量可能不符？可能该页数量不够, 也可能被R-18屏蔽】
 """.strip()
-__plugin_des__ = "P站排行榜直接冲，P站搜图跟着冲"
+__plugin_des__ = "P站排行榜直接冲, P站搜图跟着冲"
 __plugin_cmd__ = ["p站排行 ?[参数] ?[数量] ?[日期]", "搜图 [关键词] ?[数量] ?[页数=1] ?[r18](不屏蔽R-18)"]
 __plugin_type__ = ("来点好康的",)
 __plugin_version__ = 0.1
@@ -60,7 +60,7 @@ __plugin_settings__ = {
     "limit_superuser": False,
     "cmd": ["p站排行", "搜图", "p站搜图", "P站搜图"],
 }
-__plugin_block_limit__ = {"rst": "P站排行榜或搜图正在搜索，请不要重复触发命令..."}
+__plugin_block_limit__ = {"rst": "P站排行榜或搜图正在搜索, 请不要重复触发命令..."}
 __plugin_configs__ = {
     "TIMEOUT": {
         "value": 10,
@@ -69,7 +69,7 @@ __plugin_configs__ = {
     },
     "MAX_PAGE_LIMIT": {
         "value": 20,
-        "help": "作品最大页数限制，超过的作品会被略过",
+        "help": "作品最大页数限制, 超过的作品会被略过",
         "default_value": 20
     },
     "ALLOW_GROUP_R18": {
@@ -143,11 +143,11 @@ async def _(bot: Bot, event: MessageEvent, arg: Message = CommandArg()):
             rank_dict.get(msg[0]), int(msg[1]), date=msg[2]
         )
     else:
-        await pixiv_rank.finish("格式错了噢，参数不够？看看帮助？", at_sender=True)
+        await pixiv_rank.finish("格式错了噢, 参数不够？看看帮助？", at_sender=True)
     if code != 200 and info_list:
         await pixiv_rank.finish(info_list[0])
     if not info_list:
-        await pixiv_rank.finish("没有找到啊，等等再试试吧~V", at_sender=True)
+        await pixiv_rank.finish("没有找到啊, 等等再试试吧~V", at_sender=True)
     await send_image(info_list, pixiv_rank, bot, event)
     logger.info(
         f"(USER {event.user_id}, GROUP {event.group_id if isinstance(event, GroupMessageEvent) else 'private'})"
@@ -183,7 +183,7 @@ async def _(bot: Bot, event: MessageEvent, arg: Message = CommandArg()):
         if code != 200:
             await pixiv_keyword.finish(info_list[0])
     if not info_list:
-        await pixiv_keyword.finish("没有找到啊，等等再试试吧~V", at_sender=True)
+        await pixiv_keyword.finish("没有找到啊, 等等再试试吧~V", at_sender=True)
     await send_image(info_list, pixiv_keyword, bot, event)
     logger.info(
         f"(USER {event.user_id}, GROUP {event.group_id if isinstance(event, GroupMessageEvent) else 'private'})"

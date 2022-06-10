@@ -20,21 +20,21 @@ Config.add_plugin_config(
     "PIX_IMAGE_SIZE",
     "master",
     name="PIX图库",
-    help_="PIX图库下载的画质 可能的值：original：原图，master：缩略图（加快发送速度）",
+    help_="PIX图库下载的画质 可能的值：original：原图, master：缩略图（加快发送速度）",
     default_value="master"
 )
 Config.add_plugin_config(
     "pix",
     "SEARCH_HIBIAPI_BOOKMARKS",
     5000,
-    help_="最低收藏，PIX使用HIBIAPI搜索图片时达到最低收藏才会添加至图库",
+    help_="最低收藏, PIX使用HIBIAPI搜索图片时达到最低收藏才会添加至图库",
     default_value=5000
 )
 Config.add_plugin_config(
     "pix",
     "WITHDRAW_PIX_MESSAGE",
     (0, 1),
-    help_="自动撤回，参1：延迟撤回色图时间(秒)，0 为关闭 | 参2：监控聊天类型，0(私聊) 1(群聊) 2(群聊+私聊)",
+    help_="自动撤回, 参1：延迟撤回色图时间(秒), 0 为关闭 | 参2：监控聊天类型, 0(私聊) 1(群聊) 2(群聊+私聊)",
     default_value=(0, 1)
 )
 Config.add_plugin_config(
@@ -56,7 +56,7 @@ Config.add_plugin_config(
     "pix",
     "SHOW_INFO",
     True,
-    help_="是否显示图片的基本信息，如PID等",
+    help_="是否显示图片的基本信息, 如PID等",
     default_value=True
 )
 

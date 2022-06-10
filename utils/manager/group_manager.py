@@ -35,7 +35,7 @@ class GroupManager(StaticData):
             锁定插件
         参数：
             :param module: 功能模块名
-            :param group_id: 群组，None时为超级用户禁用
+            :param group_id: 群组, None时为超级用户禁用
         """
         self._set_plugin_status(module, "block", group_id)
 
@@ -369,7 +369,7 @@ class GroupManager(StaticData):
     def get_super_old_data(self) -> Optional[dict]:
         """
         说明：
-            获取旧数据，平时使用请不要调用
+            获取旧数据, 平时使用请不要调用
         """
         if self._data["super"].get("close_plugins"):
             _x = self._data["super"].get("close_plugins")

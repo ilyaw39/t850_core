@@ -16,7 +16,7 @@ async def init_rank(
         :param title: 排行榜标题
         :param all_user_id: 所有用户的qq号
         :param all_user_data: 所有用户需要排行的对应数据
-        :param group_id: 群号，用于从数据库中获取该用户在此群的昵称
+        :param group_id: 群号, 用于从数据库中获取该用户在此群的昵称
         :param total_count: 获取人数总数
     """
     _uname_lst = []

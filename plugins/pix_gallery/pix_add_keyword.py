@@ -50,7 +50,7 @@ async def _(bot: Bot, event: MessageEvent, arg: Message = CommandArg()):
             event.user_id, group_id, msg, bot.config.superusers
         ):
             await add_keyword.send(
-                f"已成功添加pixiv搜图关键词：{msg}，请等待管理员通过该关键词！", at_sender=True
+                f"已成功添加pixiv搜图关键词：{msg}, 请等待管理员通过该关键词！", at_sender=True
             )
             logger.info(
                 f"(USER {event.user_id}, GROUP {event.group_id if isinstance(event, GroupMessageEvent) else 'private'})"
@@ -80,7 +80,7 @@ async def _(bot: Bot, event: MessageEvent, cmd: Tuple[str, ...] = Command(), arg
                 if await Pixiv.check_exists(int(msg[4:]), "p0"):
                     await add_uid_pid.finish(f"该PID：{msg[4:]}已存在...", at_sender=True)
             if not await uid_pid_exists(msg) and exists_flag:
-                await add_uid_pid.finish("画师或作品不存在或搜索正在CD，请稍等...", at_sender=True)
+                await add_uid_pid.finish("画师或作品不存在或搜索正在CD, 请稍等...", at_sender=True)
             group_id = -1
             if isinstance(event, GroupMessageEvent):
                 group_id = event.group_id
@@ -88,7 +88,7 @@ async def _(bot: Bot, event: MessageEvent, cmd: Tuple[str, ...] = Command(), arg
                 event.user_id, group_id, msg, bot.config.superusers
             ):
                 await add_uid_pid.send(
-                    f"已成功添加pixiv搜图UID/PID：{msg[4:]}，请等待管理员通过！", at_sender=True
+                    f"已成功添加pixiv搜图UID/PID：{msg[4:]}, 请等待管理员通过！", at_sender=True
                 )
             else:
                 await add_uid_pid.finish(f"该UID/PID：{msg[4:]} 已存在...")
@@ -118,4 +118,4 @@ async def _(bot: Bot, event: MessageEvent, arg: Message = CommandArg()):
             f" 添加了pixiv搜图黑名单 PID:{pid}"
         )
     else:
-        await add_black_pid.send(f"PID：{pid} 已添加黑名单中，添加失败...")
+        await add_black_pid.send(f"PID：{pid} 已添加黑名单中, 添加失败...")

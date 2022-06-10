@@ -21,13 +21,13 @@ except ModuleNotFoundError:
 __zx_plugin_name__ = "刷屏禁言 [Admin]"
 __plugin_usage__ = f"""
 usage：
-    刷屏禁言相关操作，需要 {NICKNAME} 有群管理员权限
+    刷屏禁言相关操作, 需要 {NICKNAME} 有群管理员权限
     指令：
         设置刷屏检测时间 [秒]
         设置刷屏检测次数 [次数]
         设置刷屏禁言时长 [分钟]
         刷屏检测设置: 查看当前的刷屏检测设置
-        * 即 X 秒内发送同样消息 N 次，禁言 M 分钟 *
+        * 即 X 秒内发送同样消息 N 次, 禁言 M 分钟 *
 """.strip()
 __plugin_des__ = "刷屏禁言相关操作"
 __plugin_cmd__ = ["设置刷屏检测时间 [秒]", "设置刷屏检测次数 [次数]", "设置刷屏禁言时长 [分钟]", "刷屏检测设置"]
@@ -122,7 +122,7 @@ async def _(bot: Bot, event: GroupMessageEvent):
                         user_id=event.user_id,
                         duration=mute_data[group_id]["duration"] * 60,
                     )
-                    await mute.send(f"检测到恶意刷屏，{NICKNAME}要把你关进小黑屋！", at_sender=True)
+                    await mute.send(f"检测到恶意刷屏, {NICKNAME}要把你关进小黑屋！", at_sender=True)
                     mute_dict[event.user_id]["count"] = 0
                     logger.info(
                         f"USER {event.user_id} GROUP {event.group_id} "
