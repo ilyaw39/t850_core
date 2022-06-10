@@ -129,7 +129,7 @@ async def create_shop_help() -> str:
         (int((1000 - shop.getsize("注: 通过 序列 或者 商品 购买")[0]) / 2), 170),
         "注: 通过 序列 或者 商品 购买",
     )
-    shop.text((20, h - 100), "魔理沙的蘑菇\t\t售价：9999999钱\n\t\t鬼知道味道如何~")
+    shop.text((20, h - 100), "魔理沙的蘑菇\t\t售价：9999999 块钱\n\t\t鬼知道味道如何~")
     return shop.pic2bs4()
 
 
