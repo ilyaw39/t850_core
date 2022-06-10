@@ -49,10 +49,10 @@ def make_jpg_or_gif(
     """
     制作静图或者动图
     :params
-      * ``img``: 输入图片, 如头像
-      * ``func``: 图片处理函数, 输入img, 返回处理后的图片
-      * ``gif_zoom``: gif 图片缩放比率, 避免生成的 gif 太大
-      * ``gif_max_frames``: gif 最大帧数, 避免生成的 gif 太大
+      * ``img``: 输入图片，如头像
+      * ``func``: 图片处理函数，输入img，返回处理后的图片
+      * ``gif_zoom``: gif 图片缩放比率，避免生成的 gif 太大
+      * ``gif_max_frames``: gif 最大帧数，避免生成的 gif 太大
     """
     image = img.image
     if not getattr(image, "is_animated", False):
@@ -99,7 +99,7 @@ def help_image(commands: List[Command]) -> BytesIO:
     idx = math.ceil(len(commands) / 2)
     text2 = cmd_text(commands[:idx])
     text3 = cmd_text(commands[idx:], start=idx + 1)
-    img1 = Text2Image.from_text(text1, 30, bold=True).to_image(padding=(20, 10))
+    img1 = Text2Image.from_text(text1, 30, weight="bold").to_image(padding=(20, 10))
     img2 = Text2Image.from_text(text2, 30).to_image(padding=(20, 10))
     img3 = Text2Image.from_text(text3, 30).to_image(padding=(20, 10))
     w = max(img1.width, img2.width + img3.width)

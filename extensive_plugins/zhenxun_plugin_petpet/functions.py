@@ -1,4 +1,5 @@
 import random
+from datetime import datetime
 from collections import namedtuple
 from PIL import Image, ImageFilter
 from PIL.Image import Image as IMG
@@ -11,9 +12,9 @@ from .utils import UserInfo, save_gif, make_jpg_or_gif, translate
 from .depends import *
 
 
-TEXT_TOO_LONG = "文字太长了哦, 改短点再试吧~"
-NAME_TOO_LONG = "名字太长了哦, 改短点再试吧~"
-REQUIRE_NAME = "找不到名字, 加上名字再试吧~"
+TEXT_TOO_LONG = "文字太长了哦，改短点再试吧~"
+NAME_TOO_LONG = "名字太长了哦，改短点再试吧~"
+REQUIRE_NAME = "找不到名字，加上名字再试吧~"
 REQUIRE_ARG = "该表情至少需要一个参数"
 
 
@@ -298,20 +299,20 @@ def littleangel(user: UserInfo = User(), arg: str = Arg()):
 
     text = "非常可爱！简直就是小天使"
     frame.draw_text(
-        (10, img_h + 120, 590, img_h + 185), text, max_fontsize=48, bold=True
+        (10, img_h + 120, 590, img_h + 185), text, max_fontsize=48, weight="bold"
     )
 
     ta = "他" if user.gender == "male" else "她"
     text = f"{ta}没失踪也没怎么样  我只是觉得你们都该看一下"
     frame.draw_text(
-        (20, img_h + 180, 580, img_h + 215), text, max_fontsize=26, bold=True
+        (20, img_h + 180, 580, img_h + 215), text, max_fontsize=26, weight="bold"
     )
 
     name = arg or user.name or ta
     text = f"请问你们看到{name}了吗?"
     try:
         frame.draw_text(
-            (20, 0, 580, 110), text, max_fontsize=70, min_fontsize=25, bold=True
+            (20, 0, 580, 110), text, max_fontsize=70, min_fontsize=25, weight="bold"
         )
     except ValueError:
         return NAME_TOO_LONG
@@ -448,9 +449,11 @@ def ask(user: UserInfo = User(), arg: str = Arg()):
 
     start_w = 20
     start_h = img_h - gradient_h + 5
-    text_img1 = Text2Image.from_text(f"{name}", 28, fill="orange", bold=True).to_image()
+    text_img1 = Text2Image.from_text(
+        f"{name}", 28, fill="orange", weight="bold"
+    ).to_image()
     text_img2 = Text2Image.from_text(
-        f"{name}不知道哦.", 28, fill="white", bold=True
+        f"{name}不知道哦。", 28, fill="white", weight="bold"
     ).to_image()
     img.paste(
         text_img1,
@@ -482,7 +485,7 @@ def ask(user: UserInfo = User(), arg: str = Arg()):
         )
         frame.draw_text(
             (sep_w, img_h + sep_h, img_w + sep_w, img_h + sep_h * 2),
-            f"啊这, {ta}说不知道",
+            f"啊这，{ta}说不知道",
             max_fontsize=35,
             halign="left",
         )
@@ -863,7 +866,7 @@ def always_like(users: List[UserInfo] = Users(1, 6), args: List[str] = Args(0, 6
             text,
             max_fontsize=70,
             min_fontsize=30,
-            bold=True,
+            weight="bold",
         )
     except ValueError:
         return NAME_TOO_LONG
@@ -893,14 +896,14 @@ def always_like(users: List[UserInfo] = Users(1, 6), args: List[str] = Args(0, 6
         )
         name = (args[i] if len(args) > i else "") or user.name
         if not name:
-            return "找不到对应的名字, 名字数须与目标数一致"
+            return "找不到对应的名字，名字数须与目标数一致"
         try:
             frame.draw_text(
                 (400, current_h, frame.width - 20, current_h + 80),
                 name,
                 max_fontsize=70,
                 min_fontsize=30,
-                bold=True,
+                weight="bold",
             )
         except ValueError:
             return NAME_TOO_LONG
@@ -967,7 +970,7 @@ def cyan(img: BuildImage = UserImg(), arg=NoArg()):
         (400, 40, 480, 280),
         "群\n青",
         max_fontsize=80,
-        bold=True,
+        weight="bold",
         fill="white",
         stroke_ratio=0.04,
         stroke_fill=color,
@@ -1226,3 +1229,44 @@ def painter(img: BuildImage = UserImg(), arg=NoArg()):
     frame = load_image("painter/0.png")
     frame.paste(img, (125, 91), below=True)
     return frame.save_jpg()
+
+
+def repeat(
+    users: List[UserInfo] = Users(1, 5), sender: UserInfo = Sender(), arg: str = Arg()
+):
+    def single_msg(user: UserInfo) -> BuildImage:
+        user_img = user.img.convert("RGBA").circle().resize((100, 100))
+        user_name_img = Text2Image.from_text(f"{user.name}", 40).to_image()
+        time = datetime.now().strftime("%H:%M")
+        time_img = Text2Image.from_text(time, 40, fill="gray").to_image()
+        bg = BuildImage.new("RGB", (1079, 200), (248, 249, 251, 255))
+        bg.paste(user_img, (50, 50), alpha=True)
+        bg.paste(user_name_img, (175, 45), alpha=True)
+        bg.paste(time_img, (200 + user_name_img.width, 50), alpha=True)
+        bg.paste(text_img, (175, 100), alpha=True)
+        return bg
+
+    text = arg or "救命啊"
+    text_img = Text2Image.from_text(text, 50).to_image()
+    if text_img.width > 900:
+        return TEXT_TOO_LONG
+
+    msg_img = BuildImage.new("RGB", (1079, 1000))
+    for i in range(5):
+        index = i % len(users)
+        msg_img.paste(single_msg(users[index]), (0, 200 * i))
+    msg_img_twice = BuildImage.new("RGB", (msg_img.width, msg_img.height * 2))
+    msg_img_twice.paste(msg_img).paste(msg_img, (0, msg_img.height))
+
+    input_img = load_image("repeat/0.jpg")
+    self_img = sender.img.convert("RGBA").circle().resize((75, 75))
+    input_img.paste(self_img, (15, 40), alpha=True)
+
+    frames: List[IMG] = []
+    for i in range(50):
+        frame = BuildImage.new("RGB", (1079, 1192), "white")
+        frame.paste(msg_img_twice, (0, -20 * i))
+        frame.paste(input_img, (0, 1000))
+        frames.append(frame.image)
+
+    return save_gif(frames, 0.08)

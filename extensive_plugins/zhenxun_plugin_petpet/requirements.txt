@@ -1,2 +1,2 @@
 imageio
-nonebot-plugin-imageutils
+nonebot-plugin-imageutils>=0.1.6
