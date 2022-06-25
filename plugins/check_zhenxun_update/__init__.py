@@ -20,7 +20,7 @@ usage：
         检查更新灵梦
         重启
 """.strip()
-__plugin_des__ = "就算是灵梦也会成长的"
+__plugin_des__ = "就算是灵梦也可以成长的"
 __plugin_cmd__ = ["检查更新灵梦", "重启"]
 __plugin_version__ = 0.1
 __plugin_author__ = "HibiKier"

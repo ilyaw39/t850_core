@@ -53,7 +53,7 @@ class ConfigsManager:
         _override: bool = False,
     ):
         """
-        为插件添加一个配置, 不会被覆盖, 只有第一个生效
+        为插件添加一个配置, 不可以被覆盖, 只有第一个生效
         :param module: 模块
         :param key: 键
         :param value: 值

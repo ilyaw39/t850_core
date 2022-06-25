@@ -15,7 +15,7 @@ from configs.config import NICKNAME
 __zx_plugin_name__ = "复读"
 __plugin_usage__ = """
 usage：
-    重复3次相同的消息时会复读
+    重复3次相同的消息时可以复读
 """.strip()
 __plugin_des__ = "群友的本质是什么？是复读机哒！"
 __plugin_type__ = ("其他",)

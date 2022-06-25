@@ -87,7 +87,7 @@ async def parser_data(
             logger.error(f"P站排行/搜图解析数据发生错误 {type(e)}：{e}")
             return ["发生了一些些错误..."], 995
     else:
-        return ["网络不太好？没有该页数？也许过一会就好了..."], 998
+        return ["网络不太好？没有该页数？也许过一可以就好了..."], 998
     num = num if num < 30 else 30
     _data = []
     for x in data:

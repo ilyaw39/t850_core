@@ -36,7 +36,7 @@ usage：
             p站排行榜 1
             p站排行榜 1 5
             p站排行榜 1 5 2018-4-25
-        【注意空格！！】【在线搜索会较慢】
+        【注意空格！！】【在线搜索可以较慢】
     ---------------------------------
     P站搜图：
         搜图 [关键词] ?[数量] ?[页数=1] ?[r18](不屏蔽R-18)
@@ -47,7 +47,7 @@ usage：
             搜图 樱岛麻衣#1000users 5
         【多个关键词用#分割】
         【默认为 热度排序】
-        【注意空格！！】【在线搜索会较慢】【数量可能不符？可能该页数量不够, 也可能被R-18屏蔽】
+        【注意空格！！】【在线搜索可以较慢】【数量可能不符？可能该页数量不够, 也可能被R-18屏蔽】
 """.strip()
 __plugin_des__ = "P站排行榜直接冲, P站搜图跟着冲"
 __plugin_cmd__ = ["p站排行 ?[参数] ?[数量] ?[日期]", "搜图 [关键词] ?[数量] ?[页数=1] ?[r18](不屏蔽R-18)"]
@@ -69,7 +69,7 @@ __plugin_configs__ = {
     },
     "MAX_PAGE_LIMIT": {
         "value": 20,
-        "help": "作品最大页数限制, 超过的作品会被略过",
+        "help": "作品最大页数限制, 超过的作品可以被略过",
         "default_value": 20
     },
     "ALLOW_GROUP_R18": {
@@ -160,7 +160,7 @@ async def _(bot: Bot, event: MessageEvent, arg: Message = CommandArg()):
     msg = arg.extract_plain_text().strip()
     if isinstance(event, GroupMessageEvent):
         if "r18" in msg.lower() and not Config.get_config("pixiv_rank_search", "ALLOW_GROUP_R18"):
-            await pixiv_keyword.finish("(脸红#) 你不会害羞的 八嘎！", at_sender=True)
+            await pixiv_keyword.finish("(脸红#) 你不可以害羞的 八嘎！", at_sender=True)
     r18 = 0 if "r18" in msg else 1
     msg = msg.replace("r18", "").strip().split()
     msg = [m.strip() for m in msg if m]

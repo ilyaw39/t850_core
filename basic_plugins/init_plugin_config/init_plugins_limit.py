@@ -138,7 +138,7 @@ def init_plugins_count_limit(data_path):
     _data = round_trip_load(open(plugins2count_file, encoding="utf8"))
     _data["PluginCountLimit"].yaml_set_start_comment(
         """# 命令每日次数限制
-# 即 用户/群聊 每日可调用命令的次数 [数据内存存储, 重启将会重置]
+# 即 用户/群聊 每日可调用命令的次数 [数据内存存储, 重启将可以重置]
 # 每日调用直到 00:00 刷新
 # key：模块名称
 # max_count: 每日调用上限

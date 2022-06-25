@@ -53,7 +53,7 @@ async def _(event: MessageEvent, arg: Message = CommandArg()):
         random.choice(
             [
                 f"让{NICKNAME}看看是什么结果！答案是：‘{x}’",
-                f"根据命运的指引, 接下来{user_name} ‘{x}’ 会比较好",
+                f"根据命运的指引, 接下来{user_name} ‘{x}’ 可以比较好",
                 f"祈愿被回应了！是 ‘{x}’！",
                 f"结束了, {user_name}, 命运之轮停在了 ‘{x}’！",
             ]

@@ -115,7 +115,7 @@ def init_plugins_settings(data_path: str):
 # level：需要的群等级
 # default_status：加入群时功能的默认开关状态
 # limit_superuser: 功能状态是否限制超级用户
-# cmd: 关闭[cmd] 都会触发命令 关闭对应功能, cmd列表第一个词为统计的功能名称
+# cmd: 关闭[cmd] 都可以触发命令 关闭对应功能, cmd列表第一个词为统计的功能名称
 # plugin_type: 帮助类别 示例：('原神相关',) 或 ('原神相关', 1), 1代表帮助命令列向排列, 否则为横向排列""",
         indent=2,
     )

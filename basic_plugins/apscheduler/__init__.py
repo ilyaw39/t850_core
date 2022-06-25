@@ -230,7 +230,7 @@ async def _():
 #
 # @on_command('赖床')
 # async def _(session: CommandSession):
-#     await session.send('我会在5分钟后再喊你')
+#     await session.send('我可以在5分钟后再喊你')
 #
 #     # 制作一个“5分钟后”触发器
 #     delta = datetime.timedelta(minutes=5)

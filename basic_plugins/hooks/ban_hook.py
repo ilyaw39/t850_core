@@ -19,7 +19,7 @@ from ._utils import ignore_rst_module, other_limit_plugins
 Config.add_plugin_config(
     "hook",
     "BAN_RESULT",
-    "才不会给你发消息.",
+    "才不可以给你发消息.",
     help_="对被ban用户发送的消息",
 )
 
@@ -71,7 +71,7 @@ async def _(matcher: Matcher, bot: Bot, event: Event, state: T_State):
                                 group_id=event.group_id,
                                 message=at(event.user_id)
                                 + ban_result
-                                + f" 在..在 {time} 后才会理你喔",
+                                + f" 在..在 {time} 后才可以理你喔",
                             )
                     except ActionFailed:
                         pass
@@ -87,7 +87,7 @@ async def _(matcher: Matcher, bot: Bot, event: Event, state: T_State):
                                 user_id=event.user_id,
                                 message=at(event.user_id)
                                 + ban_result
-                                + f" 在..在 {time}后才会理你喔",
+                                + f" 在..在 {time}后才可以理你喔",
                             )
                     except ActionFailed:
                         pass

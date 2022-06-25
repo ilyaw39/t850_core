@@ -28,7 +28,7 @@ __zx_plugin_name__ = "签到"
 __plugin_usage__ = """
 usage：
     每日签到
-    会影响色图概率和开箱次数, 以及签到的随机道具获取
+    可以影响色图概率和开箱次数, 以及签到的随机道具获取
     指令：
         签到 ?[all]: all代表签到所有群
         我的签到
@@ -128,12 +128,12 @@ async def _(event: GroupMessageEvent, arg: Message = CommandArg()):
         if event.user_id in data["0"]:
             await total_sign_rank.finish("您已经在屏蔽名单中了, 请勿重复添加！", at_sender=True)
         data["0"].append(event.user_id)
-        await total_sign_rank.send("设置成功, 您不会出现在签到总榜中！", at_sender=True)
+        await total_sign_rank.send("设置成功, 您不可以出现在签到总榜中！", at_sender=True)
     elif msg in ["显示我"]:
         if event.user_id not in data["0"]:
             await total_sign_rank.finish("您不在屏蔽名单中！", at_sender=True)
         data["0"].remove(event.user_id)
-        await total_sign_rank.send("设置成功, 签到总榜将会显示您的头像名称以及好感度！", at_sender=True)
+        await total_sign_rank.send("设置成功, 签到总榜将可以显示您的头像名称以及好感度！", at_sender=True)
     with open(_file, "w", encoding="utf8") as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
 

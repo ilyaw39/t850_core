@@ -192,7 +192,7 @@ class MorningManager:
                 early_time = int(args[1])
                 late_time = int(args[2])
             except:
-                msg = "获取参数错误, 请确保你输入了正确的命令, 样例参考：\n[早安设置 时限 1 18] 即1点到18点期间可以起床, 数字会自动强制取整"
+                msg = "获取参数错误, 请确保你输入了正确的命令, 样例参考：\n[早安设置 时限 1 18] 即1点到18点期间可以起床, 数字可以自动强制取整"
                 return msg
             
             if early_time < 0 or early_time > 24 or late_time < 0 or late_time > 24:
@@ -204,7 +204,7 @@ class MorningManager:
             try:
                 interval = int(args[1])
             except:
-                msg = "获取参数错误, 请确保你输入了正确的命令, 样例参考：\n[早安设置 多重起床 6] 即最小间隔6小时, 数字会自动强制取整"
+                msg = "获取参数错误, 请确保你输入了正确的命令, 样例参考：\n[早安设置 多重起床 6] 即最小间隔6小时, 数字可以自动强制取整"
                 return msg
             if interval < 0 or interval > 24:
                 msg = "错误！您设置的时间间隔未在0-24之间, 要求：0 <= 时间 <= 24"
@@ -238,7 +238,7 @@ class MorningManager:
                 early_time = int(args[1])
                 late_time = int(args[2])
             except:
-                msg = "获取参数错误, 请确保你输入了正确的命令, 样例参考：\n[晚安设置 时限 18 6] 即18点到第二天6点期间可以晚安, 数字会自动强制取整, 注意第二个数字一定是第二天的时间"
+                msg = "获取参数错误, 请确保你输入了正确的命令, 样例参考：\n[晚安设置 时限 18 6] 即18点到第二天6点期间可以晚安, 数字可以自动强制取整, 注意第二个数字一定是第二天的时间"
                 return msg
             
             if early_time < 0 or early_time > 24 or late_time < 0 or late_time > 24:
@@ -250,7 +250,7 @@ class MorningManager:
             try:
                 interval = int(args[1])
             except:
-                msg = "获取参数错误, 请确保你输入了正确的命令, 样例参考：\n[晚安设置 深度睡眠 6] 即最小间隔6小时, 数字会自动强制取整"
+                msg = "获取参数错误, 请确保你输入了正确的命令, 样例参考：\n[晚安设置 深度睡眠 6] 即最小间隔6小时, 数字可以自动强制取整"
                 return msg
             if interval < 0 or interval > 24:
                 msg = "错误！您设置的时间间隔未在0-24之间, 要求：0 <= 时间 <= 24"

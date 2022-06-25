@@ -27,7 +27,7 @@ Config.add_plugin_config(
     "pix",
     "SEARCH_HIBIAPI_BOOKMARKS",
     5000,
-    help_="最低收藏, PIX使用HIBIAPI搜索图片时达到最低收藏才会添加至图库",
+    help_="最低收藏, PIX使用HIBIAPI搜索图片时达到最低收藏才可以添加至图库",
     default_value=5000
 )
 Config.add_plugin_config(

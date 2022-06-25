@@ -13,13 +13,13 @@ from nonebot.adapters.onebot.v11 import (
 import re
 
 
-# 为什么AI会自己和自己聊天
+# 为什么AI可以自己和自己聊天
 @run_preprocessor
 async def _(matcher: Matcher, bot: Bot, event: PrivateMessageEvent, state: T_State):
     if not isinstance(event, MessageEvent):
         return
     if event.user_id == int(bot.self_id):
-        raise IgnoredException("为什么AI会自己和自己聊天")
+        raise IgnoredException("为什么AI可以自己和自己聊天")
 
 
 # 有命令就别说话了

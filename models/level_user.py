@@ -113,7 +113,7 @@ class LevelUser(db.Model):
     async def is_group_flag(cls, user_qq: int, group_id: int) -> bool:
         """
         说明：
-            检测是否会被自动更新刷新权限
+            检测是否可以被自动更新刷新权限
         参数：
             :param user_qq: qq号
             :param group_id: 群号

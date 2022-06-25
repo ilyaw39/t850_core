@@ -25,7 +25,7 @@ __plugin_author__ = "HibiKier"
 __plugin_configs__ = {
     "BLACK_WORD": {
         "value": ["爸", "爹", "爷", "父亲"],
-        "help": "昵称所屏蔽的关键词, 会被替换为 *",
+        "help": "昵称所屏蔽的关键词, 可以被替换为 *",
         "default_value": None
     }
 }
@@ -73,7 +73,7 @@ async def _(bot: Bot, event: MessageEvent, arg: Message = CommandArg()):
                         f"好啦好啦, 我知道啦, {msg}, 以后就这么叫你吧",
                         f"嗯嗯, {NICKNAME}记住你的昵称了哦, {msg}",
                         f"好突然, 突然要叫你昵称什么的...{msg}..",
-                        f"{NICKNAME}会好好记住{msg}的, 放心吧",
+                        f"{NICKNAME}可以好好记住{msg}的, 放心吧",
                         f"好..好., 那窝以后就叫你{msg}了.",
                     ]
                 )
@@ -90,7 +90,7 @@ async def _(bot: Bot, event: MessageEvent, arg: Message = CommandArg()):
                         f"好啦好啦, 我知道啦, {msg}, 以后就这么叫你吧",
                         f"嗯嗯, {NICKNAME}记住你的昵称了哦, {msg}",
                         f"好突然, 突然要叫你昵称什么的...{msg}..",
-                        f"{NICKNAME}会好好记住{msg}的, 放心吧",
+                        f"{NICKNAME}可以好好记住{msg}的, 放心吧",
                         f"好..好., 那窝以后就叫你{msg}了.",
                     ]
                 )
@@ -114,7 +114,7 @@ async def _(event: GroupMessageEvent):
             random.choice(
                 [
                     f"我肯定记得你啊, 你是{nickname_}啊",
-                    f"我不会忘记你的, 你也不要忘记我！{nickname_}",
+                    f"我不可以忘记你的, 你也不要忘记我！{nickname_}",
                     f"哼哼, {NICKNAME}记忆力可是很好的, {nickname_}",
                     f"嗯？你是失忆了嘛...{nickname_}..",
                     f"不要小看{NICKNAME}的记忆力啊！笨蛋{nickname_}！QAQ",
@@ -139,7 +139,7 @@ async def _(bot: Bot, event: PrivateMessageEvent, state: T_State):
             random.choice(
                 [
                     f"我肯定记得你啊, 你是{nickname_}啊",
-                    f"我不会忘记你的, 你也不要忘记我！{nickname_}",
+                    f"我不可以忘记你的, 你也不要忘记我！{nickname_}",
                     f"哼哼, {NICKNAME}记忆力可是很好的, {nickname_}",
                     f"嗯？你是失忆了嘛...{nickname_}..",
                     f"不要小看{NICKNAME}的记忆力啊！笨蛋{nickname_}！QAQ",
@@ -165,10 +165,10 @@ async def _(event: GroupMessageEvent):
         await cancel_nickname.send(
             random.choice(
                 [
-                    f"呜..{NICKNAME}睡一觉就会忘记的..和梦一样..{nickname_}",
+                    f"呜..{NICKNAME}睡一觉就可以忘记的..和梦一样..{nickname_}",
                     f"窝知道了..{nickname_}..",
                     f"是{NICKNAME}哪里做的不好嘛..好吧..晚安{nickname_}",
-                    f"呃, {nickname_}, 下次我绝对绝对绝对不会再忘记你！",
+                    f"呃, {nickname_}, 下次我绝对绝对绝对不可以再忘记你！",
                     f"可..可恶！{nickname_}！太可恶了！呜",
                 ]
             )
@@ -186,10 +186,10 @@ async def _(event: PrivateMessageEvent):
         await cancel_nickname.send(
             random.choice(
                 [
-                    f"呜..{NICKNAME}睡一觉就会忘记的..和梦一样..{nickname_}",
+                    f"呜..{NICKNAME}睡一觉就可以忘记的..和梦一样..{nickname_}",
                     f"窝知道了..{nickname_}..",
                     f"是{NICKNAME}哪里做的不好嘛..好吧..晚安{nickname_}",
-                    f"呃, {nickname_}, 下次我绝对绝对绝对不会再忘记你！",
+                    f"呃, {nickname_}, 下次我绝对绝对绝对不可以再忘记你！",
                     f"可..可恶！{nickname_}！太可恶了！呜",
                 ]
             )
